@@ -1,4 +1,4 @@
-package joey;
+package joeyDaniel;
 
 public class MyFirstClass {
 
