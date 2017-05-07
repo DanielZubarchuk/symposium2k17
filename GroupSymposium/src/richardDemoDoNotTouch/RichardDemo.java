@@ -13,12 +13,13 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 import guiPractice.components.AnimatedComponent;
-import guiPractice.Screen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.Graphic;
-import guiPractice.TextLabel;
 import guiPractice.components.Visible;
+import guiPractice.components.ClickableGraphic;
+import guiPractice.Screen;
+import guiPractice.TextLabel;
 import guiPractice.ClickableScreen;
 import guiPractice.GUIApplication;
 
@@ -93,12 +94,18 @@ private static class DemoScreen extends ClickableScreen {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private Graphic background;
+	private ClickableGraphic background;
 	
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		background = new Graphic(1,1,1.0,"src/resources/bluescreenofdeath.png");
-	
+		background = new ClickableGraphic(1,1,1.0,"src/resources/bluescreenofdeath.png");
+		background.setAction(new Action(){
+			public void act(){
+				
+			}
+		}
+				);
+		
 		viewObjects.add(background);
 	}
 }
