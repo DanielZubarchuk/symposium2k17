@@ -92,9 +92,14 @@ private static class DemoScreen extends ClickableScreen {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
+	
+	private Graphic background;
+	
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		
+		background = new Graphic(1,1,1.0,"src/resources/bluescreenofdeath.png");
+	
+		viewObjects.add(background);
 	}
 }
 
