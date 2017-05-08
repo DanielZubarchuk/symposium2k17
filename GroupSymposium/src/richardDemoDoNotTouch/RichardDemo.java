@@ -88,7 +88,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		setScreen(demo);
 	}
 private static class DemoScreen extends ClickableScreen {
-
+	
+	public void mouseClicked(MouseEvent arg0){
+		background.act();
+	}
+	
 	public DemoScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -101,7 +105,7 @@ private static class DemoScreen extends ClickableScreen {
 		background = new ClickableGraphic(1,1,1.0,"src/resources/bluescreenofdeath.png");
 		background.setAction(new Action(){
 			public void act(){
-				
+				System.out.println("click");
 			}
 		}
 				);
