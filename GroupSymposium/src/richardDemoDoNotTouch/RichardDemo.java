@@ -26,6 +26,7 @@ import guiPractice.GUIApplication;
 public class RichardDemo extends GUIApplication implements MouseMotionListener, MouseListener{
 
 	public static RichardDemo demos;
+	public static RichardDemoB demo2;
 	public static Screen demo;
 	
 	public RichardDemo() {
@@ -34,7 +35,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	}
 	
 	public static void main(String[] args) {
-		demos = new RichardDemo();
+		demo = new RichardDemo(1000,600);
+		demo2 = new RichardDemoB(1000, 600);
 		Thread app = new Thread(demos);
 		app.start();
 	}
@@ -85,9 +87,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	protected void initScreen() {
 		// TODO Auto-generated method stub
 		demo = new DemoScreen(1000, 600);
+		demo2 = new RichardDemoB(1000, 600);
 		setScreen(demo);
 	}
 private static class DemoScreen extends ClickableScreen {
+	
+	private ClickableGraphic background;
+	public static RichardDemoB demo2;
 	
 	public void mouseClicked(MouseEvent arg0){
 		background.act();
@@ -98,14 +104,12 @@ private static class DemoScreen extends ClickableScreen {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private ClickableGraphic background;
-	
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		background = new ClickableGraphic(1,1,1.0,"src/resources/bluescreenofdeath.png");
 		background.setAction(new Action(){
 			public void act(){
-				System.out.println("click");
+				RichardDemo.demos.setScreen(demo2);
 			}
 		}
 				);
