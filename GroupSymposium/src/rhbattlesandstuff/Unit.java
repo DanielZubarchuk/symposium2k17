@@ -1,12 +1,6 @@
 package rhbattlesandstuff;
 
-public class Unit {
-
-	private String[] moves;
-	private int[] stats;
-	private int dmgTaken;
-	private int dmgDealt;
-	private String[] names;
+public class Unit extends Character{
 	
 	public Unit() {
 		
@@ -35,22 +29,26 @@ public class Unit {
 		}
 	}
 	
-	private void gameOver() {
+	public void gameOver() {
+		
+		
+	}
+
+	public String getName(){
+		return name;
+	}
+	
+	public void outcome() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void outcome() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void dealDamage(String string, Player a, Enemy b) {
+	public void dealDamage(String string, Player a, Enemy b) {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	private void dealDamage(String string, Enemy a, Player b) {
+	public void dealDamage(String string, Enemy a, Player b) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -61,7 +59,7 @@ public class Unit {
 	}
 	
 	public String chooseMove(Enemy n){
-		for (int i = 4)
+		return enemyMoveset.get((int)Math.random() * 4);
 	}
 
 }
