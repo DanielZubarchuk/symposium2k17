@@ -49,6 +49,11 @@ public class Unit {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	private void dealDamage(String string, Enemy a, Player b) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public String chooseMove(Player n){
 		return null;
