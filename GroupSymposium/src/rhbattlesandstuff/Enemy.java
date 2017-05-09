@@ -13,4 +13,20 @@ public class Enemy {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int[] getStats() {
+		return stats;
+	}
+	
+	public ArrayList<String> getAttacks() {
+		return attacks;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public ArrayList<String> getItems() {
+		return items;
+	}
+
 }
