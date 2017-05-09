@@ -2,31 +2,13 @@ package rhbattlesandstuff;
 
 import java.util.ArrayList;
 
-public class Enemy {
-
-	private int[] stats;
-	private ArrayList<String> attacks;
-	private String name;
-	private ArrayList<String> items;
+public interface Enemy {
 	
-	public Enemy() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public int[] getStats() {
-		return stats;
-	}
+	public int[] getStats();
 	
-	public ArrayList<String> getAttacks() {
-		return attacks;
-	}
+	public ArrayList<String> getAttacks();
 
-	public String getName() {
-		return name;
-	}
+	public String getName();
 
-	public ArrayList<String> getItems() {
-		return items;
-	}
-
+	public ArrayList<String> getItems();
 }
