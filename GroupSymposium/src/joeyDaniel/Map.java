@@ -7,7 +7,13 @@ public class Map extends GUIApplication{
 	
 	private static Screen screen1;
 	private static Map game;
-	private Object[][] hi;
+	private Object[][] levelOne;
+	private Object[][] levelTwo;
+	private Object[][] levelThree;
+	private Object[][] levelFour;
+	private Object[][] levelFive;
+	private Object[][] levelSix;
+	private Object[][] levelSeven;
 	
 	
 	public Map(){
