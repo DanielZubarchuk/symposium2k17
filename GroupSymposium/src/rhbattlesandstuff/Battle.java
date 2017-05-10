@@ -1,8 +1,12 @@
 package rhbattlesandstuff;
 
-public class Unit extends Character{
+import java.util.ArrayList;
+
+public class Battle extends Character{
 	
-	public Unit() {
+	private ArrayList<String> moves;
+	
+	public Battle() {
 		
 	}
 	
