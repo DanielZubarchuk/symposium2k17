@@ -6,9 +6,12 @@ public interface Enemy {
 	
 	public int[] getStats();
 	
-	public ArrayList<String> getAttacks();
+	public ArrayList<Moves> getAttacks();
 
 	public String getName();
 
 	public ArrayList<String> getItems();
+	
+	public int getDamage();
+
 }

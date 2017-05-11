@@ -1,20 +1,26 @@
 package rhbattlesandstuff;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Character implements Player, Enemy{
 
 	private int[] stats = {10, 2, 1, 2, 1};
 	private String name = "Javaman";
+	private ArrayList<Moves> moves; 
 	
 	public Character() {
-		// TODO Auto-generated constructor stub
+		moves = new ArrayList<Moves>();
 	}
 
+	public ArrayList<Moves> getMoves(){
+		return moves;
+	}
+	
 	@Override
 	public int[] getStats() {
 		// TODO Auto-generated method stub
-		return null;
+		return stats;
 	}
 
 	@Override
@@ -27,10 +33,10 @@ public class Character implements Player, Enemy{
 			//Defense = 1
 			//Speed = 2
 			//Level = 1
-		stats[0] += (int)(Math.random() * 10) + 1;
-		stats[1] += (int)(Math.random() * 3) + 1;
-		stats[2] += (int)(Math.random() * 3) + 1;
-		stats[3] += (int)(Math.random() * 2) + 1;
+//		stats[0] += (int)(Math.random() * 10) + 1;
+//		stats[1] += (int)(Math.random() * 3) + 1;
+//		stats[2] += (int)(Math.random() * 3) + 1;
+//		stats[3] += (int)(Math.random() * 2) + 1;
 				
 		//upon level up
 		//gains random stats
@@ -44,19 +50,31 @@ public class Character implements Player, Enemy{
 		
 	}
 
-	@Override
-	public ArrayList<String> getAttacks() {
-		// TODO Auto-generated method stub
-		//bodied
-		return null;
-	}
-
-	@Override
-	public void setAttacks(ArrayList<String> attacks) {
-		// TODO Auto-generated method stub
+	public void incrementStats(){
+		stats[0] += (int)(Math.random() * 10) + 1;
+		stats[1] += (int)(Math.random() * 3) + 1;
+		stats[2] += (int)(Math.random() * 3) + 1;
+		stats[3] += (int)(Math.random() * 2) + 1;
 		
 	}
+	
+	public void addAttacks(){
+		moves.add(new Moves("bodied", 3,"tackle the enemy with the force of your mother."));
+	}
+	@Override
+	public ArrayList<Moves> getAttacks() {
+		// TODO Auto-generated method stub
+		//bodied
+		return moves;
+	}
 
+	@Override
+	public void setAttacks(ArrayList<Moves> attacks) {
+		// TODO Auto-generated method stub
+		//bodied
+		moves.add(new Moves("bodied", 3,"tackle the enemy with the force of your mother."));
+	}
+	
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
@@ -69,6 +87,18 @@ public class Character implements Player, Enemy{
 
 	@Override
 	public ArrayList<String> getItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getDamage() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getDesc() {
 		// TODO Auto-generated method stub
 		return null;
 	}

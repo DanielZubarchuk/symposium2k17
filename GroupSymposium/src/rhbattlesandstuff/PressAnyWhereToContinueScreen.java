@@ -1,4 +1,4 @@
-package richardDemoDoNotTouch;
+package rhbattlesandstuff;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -14,10 +14,15 @@ import guiPractice.components.Visible;
 public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener, MouseListener{
 
 	private ClickableGraphic bsod;
+	private Player b = new Character();
+	private int[] test = b.getStats(); 
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
+		
 		super(width, height);
 	}
+	
+	
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
@@ -48,12 +53,21 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		});
 		viewObjects.add(bsod);
 		// TODO Auto-generated method stub
-		
+
 	}
 	
 	@Override
 	public void keyPressed(KeyEvent k) {
-		// TODO Auto-generated method stub
-		NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
+		// TODO Auto-generated method stub\
+		if(k.getKeyCode() == KeyEvent.VK_0){
+			System.out.println(test[0]);
+			b.incrementStats();
+//			b.setAttacks(testing);
+			b.addAttacks();
+			System.out.println(b.getMoves().get(0).getDmg());
+		}
+		else {
+			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
+		}
 	}
 }

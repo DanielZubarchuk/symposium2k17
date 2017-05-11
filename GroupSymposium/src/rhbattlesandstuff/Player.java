@@ -8,11 +8,21 @@ public interface Player {
 
 	public void setStats(int[] stats);
 
-	public ArrayList<String> getAttacks();
+	public ArrayList<Moves> getAttacks();
 
-	public void setAttacks(ArrayList<String> attacks);
+	public void setAttacks(ArrayList<Moves> attacks);
 
 	public String getName();
 
 	public ArrayList<String> getItems();
+	
+	public int getDamage();
+	
+	public String getDesc();
+
+	public void incrementStats();
+
+	public void addAttacks();
+	
+	public ArrayList<Moves> getMoves();
 }

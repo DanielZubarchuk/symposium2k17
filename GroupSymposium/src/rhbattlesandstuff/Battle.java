@@ -11,21 +11,21 @@ public class Battle extends Character{
 	}
 	
 	public void battle(Player a, Enemy b){
-		while (a[0] > 0 || b[0] > 0){
-			if (a[3] > b[3]){
+		while (a.getStats()[0] > 0 || b.getStats()[0] > 0){
+			if (a.getStats()[3] > b.getStats()[3]){
 				dealDamage(chooseMove(a),a,b);
-				if (b[0] > 0){
+				if (b.getStats()[0] > 0){
 					dealDamage(chooseMove(b),b,a);
 				}
 			}
-			else if (b[3] > a[3]){
+			else if (b.getStats()[3] > a.getStats()[3]){
 				dealDamage(chooseMove(b),b,a);
-				if (a[0] > 0){
+				if (a.getStats()[0] > 0){
 					dealDamage(chooseMove(a),a,b);
 				}
 			}	
 		}
-		if (a[0] != 0){
+		if (a.getStats()[0] != 0){
 			outcome();
 		}
 		else {
@@ -36,10 +36,6 @@ public class Battle extends Character{
 	public void gameOver() {
 		
 		
-	}
-
-	public String getName(){
-		return name;
 	}
 	
 	public void outcome() {
@@ -63,7 +59,7 @@ public class Battle extends Character{
 	}
 	
 	public String chooseMove(Enemy n){
-		return enemyMoveset.get((int)Math.random() * 4);
+		return n.getMoves().get((int)Math.random() * 4);
 	}
 
 }

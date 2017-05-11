@@ -1,4 +1,4 @@
-package richardDemoDoNotTouch;
+package rhbattlesandstuff;
 
 import guiPractice.GUIApplication;
 
