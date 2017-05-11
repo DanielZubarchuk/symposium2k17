@@ -1,0 +1,12 @@
+package joeyDaniel;
+
+import guiPractice.components.Graphic;
+
+public class GrassPanel extends Graphic{
+
+	public GrassPanel(int x, int y) {
+		super(x, y, 1,"src/resources/grass1.png");
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -13,6 +13,7 @@ public class Graphic implements Visible {
 	private boolean loadedImages;
 	
 	
+	
 	public Graphic(int x, int y, String imageLocation){
 		this.x = x;
 		this.y = y;
@@ -26,10 +27,16 @@ public class Graphic implements Visible {
 		loadedImages = false;
 		loadImages(imageLocation, w, h);
 	}
-	
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
 	public Graphic(int x, int y, double scale, String imageLocation){
-		this.x = x;
-		this.y = y;
+		this.x = x+8;
+		this.y = y+30;
 		loadedImages = false;
 		loadImages(imageLocation, scale);
 	}
@@ -91,6 +98,13 @@ public class Graphic implements Visible {
 		return y;
 	}
 	
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
+	//SETS THE IMAGES 8 PIXELS AND 30 PIXELS OFFSET SO THAT THE BORDERS ARE ACCOUNTED FOR
 	public void setX(int x) {
 		this.x = x;
 	}
@@ -98,6 +112,11 @@ public class Graphic implements Visible {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	
+	
+	
+	
 
 	@Override
 	public int getWidth() {
