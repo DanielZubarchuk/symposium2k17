@@ -19,18 +19,18 @@ public class Floor1 extends Screen{
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		grassField();
+		background();
 //		CobbleWall test1 = new CobbleWall(0,0);
-//		SmallWall test = new SmallWall(600, 800);
-//		GrassPanel testGrass = new GrassPanel(800,800);
-//		GrassPanel testGrass1 = new GrassPanel(700,800);
+//		SmallWall test = new SmallWall(300, 500);
+//		GrassPanel testGrass = new GrassPanel(300,600);
+//		GrassPanel testGrass1 = new GrassPanel(300,400);
 //		viewObjects.add(testGrass1);
 //		viewObjects.add(testGrass);
 //		viewObjects.add(test1);
 //		viewObjects.add(test);
 	}
 	
-	public void grassField(){
+	public void background(){
 		for(int i = 0; i < 9;i++){
 			for(int x = 0; x < 9;x++){
 				addObject(new GrassPanel(i*100,x*100));
