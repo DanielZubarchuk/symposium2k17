@@ -3,7 +3,7 @@ package rhbattlesandstuff;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Character implements Player, Enemy{
+public class Character implements Player{
 
 	private int[] stats = {10, 2, 1, 2, 1};
 	private String name = "Javaman";
