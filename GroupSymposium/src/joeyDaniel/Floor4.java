@@ -4,13 +4,17 @@ package joeyDaniel;
 import java.util.ArrayList;
 
 import guiPractice.Screen;
+import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 public class Floor4 extends Screen{
 
 
-	public Floor4(int width, int height) {
+	private Graphic[][] layout;
+
+	public Floor4(int width, int height, Graphic[][] layout) {
 		super(width, height);
+		this.layout = layout;
 		// TODO Auto-generated constructor stub
 	}
 

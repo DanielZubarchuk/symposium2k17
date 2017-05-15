@@ -8,11 +8,11 @@ import guiPractice.components.Visible;
 
 public class Floor1 extends Screen{
 
-	private Object[][] layout;
+	private Graphic[][] layout;
 
-	public Floor1(int width, int height) {
+	public Floor1(int width, int height, Graphic[][] layout) {
 		super(width, height);
-//		this.layout = layout;
+		this.layout = layout;
 		// TODO Auto-generated constructor stub
 	}
 
