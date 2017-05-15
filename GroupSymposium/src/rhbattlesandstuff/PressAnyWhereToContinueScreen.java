@@ -75,20 +75,19 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 			System.out.println(test[4]);
 			System.out.println();
 			b.incrementStats();
-//			System.out.println("Monster Stats");
-//			System.out.println(monTest[0]);
-//			System.out.println(monTest[1]);
-//			System.out.println(monTest[2]);
-//			System.out.println(monTest[3]);
-//			System.out.println(monTest[4]);
+			System.out.println("Monster Stats");
+			System.out.println(monTest[0]);
+			System.out.println(monTest[1]);
+			System.out.println(monTest[2]);
+			System.out.println(monTest[3]);
+			System.out.println(monTest[4]);
 			
 			a.setAttacks(testing);
-			System.out.println(a.getAttacks().get(0).getAttName());
+			b.setAttacks(testing);
 			
-//			b.setAttacks(testing);
-//			b.addAttacks();
-//			System.out.println(b.getMoves().get(0).getDmg());
-			
+		}
+		else if (k.getKeyCode() == KeyEvent.VK_8){
+			Battle.battle(b, a);
 		}
 		else {
 			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);

@@ -1,9 +1,11 @@
 package rhbattlesandstuff;
 
-public class CharacterCreation {
+import guiPractice.components.Graphic;
 
-	public CharacterCreation() {
-		// TODO Auto-generated constructor stub
-	}
+public class CharacterCreation extends Graphic{
+
+	public CharacterCreation(String imageLocation) {
+		super(300,300,1,imageLocation);	
+		}
 
 }

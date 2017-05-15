@@ -3,6 +3,8 @@ package rhbattlesandstuff;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import guiPractice.components.Graphic;
+
 public class Character implements Player{
 
 	private int[] stats = {10, 2, 1, 2, 1};
