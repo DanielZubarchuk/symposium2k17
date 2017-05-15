@@ -9,6 +9,7 @@ import guiPractice.components.Visible;
 public class Floor1 extends Screen{
 
 	private Graphic[][] layout;
+	private int[] playerCoordinate;
 
 	public Floor1(int width, int height) {
 		super(width, height);
@@ -41,24 +42,28 @@ public class Floor1 extends Screen{
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		background();
-		WoodWall test1 = new WoodWall();
-//		SmallWall test = new SmallWall(300, 500);
-//		GrassPanel testGrass = new GrassPanel(300,600);
-//		GrassPanel testGrass1 = new GrassPanel(300,400);
-//		viewObjects.add(testGrass1);
-//		viewObjects.add(testGrass);
-		viewObjects.add(test1);
-//		viewObjects.add(test);
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 3;
+		UpdateScreen(viewObjects);
 	}
 	
+	private void UpdateScreen(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		
+		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
+			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
+				if(layout[row][col] != null){
+					viewObjects.add(layout[row][col]);
+				}
+			}
+		}
+	}
+
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
 				addObject(new GrassPanel(i*100,x*100));
-//				addObject(new Sand(i*100,x*100));
-//				addObject(new DungeonFloor(i*100,x*100));
-//				addObject(new CobbleWall(i*100,x*100));
-//				addObject(new SmallWall(i*100,x*100));
 			}
 		}
 	}
