@@ -13,7 +13,7 @@ public class Moves {
 		this.desc = desc;
 	}
 
-	public String getS() {
+	public String getAttName() {
 		return s;
 	}
 
