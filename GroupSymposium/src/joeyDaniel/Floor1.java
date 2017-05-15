@@ -33,10 +33,10 @@ public class Floor1 extends Screen{
 	public void background(){
 		for(int i = 0; i < 9;i++){
 			for(int x = 0; x < 9;x++){
-//				addObject(new GrassPanel(i*100,x*100));
+				addObject(new GrassPanel(i*100,x*100));
 //				addObject(new Sand(i*100,x*100));
 //				addObject(new DungeonFloor(i*100,x*100));
-				addObject(new CobbleWall(i*100,x*100));
+//				addObject(new CobbleWall(i*100,x*100));
 //				addObject(new SmallWall(i*100,x*100));
 			}
 		}
