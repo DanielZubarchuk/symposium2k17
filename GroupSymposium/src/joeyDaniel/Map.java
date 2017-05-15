@@ -33,7 +33,7 @@ public class Map extends GUIApplication{
 	
 	@Override
 	protected void initScreen() {
-		screen1 = new Floor1(716, 738);
+		screen1 = new Floor1(716, 738, levelOne);
 		setScreen(screen1);
 	}
 	
