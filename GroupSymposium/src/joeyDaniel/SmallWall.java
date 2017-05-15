@@ -9,7 +9,10 @@ public class SmallWall extends Graphic implements Obstruction {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public SmallWall() {
+		super(0, 0, .5, "src/resources/smallwall.png");
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

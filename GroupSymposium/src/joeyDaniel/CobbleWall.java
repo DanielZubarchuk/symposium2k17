@@ -8,5 +8,9 @@ public class CobbleWall extends Graphic implements Obstruction {
 		super(x, y, .5, "src/resources/cobble.jpg");
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public CobbleWall() {
+		super(0, 0, .5, "src/resources/cobble.jpg");
+		// TODO Auto-generated constructor stub
+	}
 }
