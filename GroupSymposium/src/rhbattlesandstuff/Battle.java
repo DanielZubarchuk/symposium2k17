@@ -43,22 +43,22 @@ public class Battle extends Character{
 		
 	}
 
-	public void dealDamage(String string, Player a, Enemy b) {
+	public void dealDamage(Moves m, Player a, Enemy b) {
 		
 	}
 	
-	public void dealDamage(String string, Enemy a, Player b) {
+	public void dealDamage(Moves m, Enemy a, Player b) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public String chooseMove(Player n){
+	public Moves chooseMove(Player n){
 		return null;
 		
 	}
 	
-	public String chooseMove(Enemy n){
-		return n.getAttacks().get((int)Math.random() * 4);
+	public Moves chooseMove(Enemy n){
+		return n.getAttacks().get((int) ((Math.random() * 2) + 1));
 	}
 
 }

@@ -19,6 +19,7 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 	private int[] test = b.getStats(); 
 	private int[] monTest = a.getStats();
 	private int floor = 0;
+	private ArrayList<Moves> testing;
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
@@ -74,12 +75,15 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 			System.out.println(test[4]);
 			System.out.println();
 			b.incrementStats();
-			System.out.println("Monster Stats");
-			System.out.println(monTest[0]);
-			System.out.println(monTest[1]);
-			System.out.println(monTest[2]);
-			System.out.println(monTest[3]);
-			System.out.println(monTest[4]);
+//			System.out.println("Monster Stats");
+//			System.out.println(monTest[0]);
+//			System.out.println(monTest[1]);
+//			System.out.println(monTest[2]);
+//			System.out.println(monTest[3]);
+//			System.out.println(monTest[4]);
+			
+			a.setAttacks(testing);
+			System.out.println(a.getAttacks().get(0).getAttName());
 			
 //			b.setAttacks(testing);
 //			b.addAttacks();

@@ -16,4 +16,6 @@ public interface Enemy {
 
 	public void scaleWFloor();
 
+	public void setAttacks(ArrayList<Moves> att);
+
 }

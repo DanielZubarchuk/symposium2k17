@@ -41,11 +41,19 @@ public class Monster implements Enemy{
 		return monMoves;
 	}
 
+	public void setAttacks(ArrayList<Moves> attacks) {
+		monMoves.add(new Moves("tackle", 3, "insert whatever"));
+	}
+	
 	@Override
 	public String getName() {
 		return name;
 	}
-
+	
+	public String getAttName() {
+		return null;
+	}
+	
 	@Override
 	public ArrayList<Items> getItems() {
 		// TODO Auto-generated method stub
