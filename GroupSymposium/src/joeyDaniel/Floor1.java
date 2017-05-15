@@ -13,7 +13,17 @@ public class Floor1 extends Screen{
 	public Floor1(int width, int height) {
 		super(width, height);
 		layout = new Graphic[18][18];
-		layout[0][0] = new WoodWall();
+		for(int i = 0; i<layout.length; i++){
+			for(int j = 0; j<layout[i].length; j++){
+				if(layout.length-i<=3 || i<3){
+					layout[i][j] = new WoodWall();
+				}else{
+					if(layout[i].length-j <=3 || j<3){
+						layout[i][j] = new WoodWall();
+					}
+				}
+			}
+		}
 	}
 
 	@Override
