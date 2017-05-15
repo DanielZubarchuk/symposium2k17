@@ -9,12 +9,12 @@ public class Map extends GUIApplication{
 	private static Floor1 screen1;
 	private static Map game;
 	private Graphic[][] levelOne;
-	private Object[][] levelTwo;
-	private Object[][] levelThree;
-	private Object[][] levelFour;
-	private Object[][] levelFive;
-	private Object[][] levelSix;
-	private Object[][] levelSeven;
+	private Graphic[][] levelTwo;
+	private Graphic[][] levelThree;
+	private Graphic[][] levelFour;
+	private Graphic[][] levelFive;
+	private Graphic[][] levelSix;
+	private Graphic[][] levelSeven;
 	
 	public Map(){
 		super();
