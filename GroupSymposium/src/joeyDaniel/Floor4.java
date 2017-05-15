@@ -25,8 +25,8 @@ public class Floor4 extends Screen{
 	}
 	
 	public void background(){
-		for(int i = 0; i < 9;i++){
-			for(int x = 0; x < 9;x++){
+		for(int i = 0; i < 7;i++){
+			for(int x = 0; x < 7;x++){
 				addObject(new Sand(i*100,x*100));
 			}
 		}
