@@ -10,18 +10,18 @@ public class Battle extends Character{
 		
 	}
 	
-	public void battle(Player a, Enemy b){
+	public static void battle(Player a, Enemy b){
 		while (a.getStats()[0] > 0 || b.getStats()[0] > 0){
 			if (a.getStats()[3] > b.getStats()[3]){
-				dealDamage(chooseMove(a),a,b);
+				dealDamageToEnemy(chooseMove(a),a,b);
 				if (b.getStats()[0] > 0){
-					dealDamage(chooseMove(b),b,a);
+					dealDamageToPlayer(chooseMove(b),b,a);
 				}
 			}
 			else if (b.getStats()[3] > a.getStats()[3]){
-				dealDamage(chooseMove(b),b,a);
+				dealDamageToPlayer(chooseMove(b),b,a);
 				if (a.getStats()[0] > 0){
-					dealDamage(chooseMove(a),a,b);
+					dealDamageToEnemy(chooseMove(a),a,b);
 				}
 			}	
 		}
@@ -33,32 +33,31 @@ public class Battle extends Character{
 		}
 	}
 	
-	public void gameOver() {
+	public static void gameOver() {
 		
 		
 	}
 	
-	public void outcome() {
+	public static void outcome() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void dealDamage(Moves m, Player a, Enemy b) {
-		
+	public static void dealDamageToEnemy(Moves m, Player a, Enemy b) {
+		System.out.println("Javaman uses" + m.getAttName() + "!");
 	}
 	
-	public void dealDamage(Moves m, Enemy a, Player b) {
-		// TODO Auto-generated method stub
-		
+	public static void dealDamageToPlayer(Moves m, Enemy a, Player b) {
+		System.out.println("Enemy uses"  + m.getAttName() + "!");
 	}
 
-	public Moves chooseMove(Player n){
+	public static Moves chooseMove(Player n){
 		return null;
 		
 	}
 	
-	public Moves chooseMove(Enemy n){
-		return n.getAttacks().get((int) ((Math.random() * 2) + 1));
+	public static Moves chooseMove(Enemy n){
+		return n.getAttacks().get(0);
 	}
 
 }
