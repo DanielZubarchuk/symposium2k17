@@ -55,6 +55,7 @@ public class Character implements Player{
 		stats[1] += (int)(Math.random() * 3) + 1;
 		stats[2] += (int)(Math.random() * 3) + 1;
 		stats[3] += (int)(Math.random() * 2) + 1;
+		stats[4] ++;
 		
 	}
 	
@@ -101,6 +102,10 @@ public class Character implements Player{
 	public String getDesc() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public int getLevel() {
+		return stats[4];
 	}
 
 }

@@ -10,8 +10,10 @@ public interface Enemy {
 
 	public String getName();
 
-	public ArrayList<String> getItems();
+	public ArrayList<Items> getItems();
 	
 	public int getDamage();
+
+	public void scaleWFloor();
 
 }
