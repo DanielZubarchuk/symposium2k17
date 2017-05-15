@@ -10,9 +10,8 @@ public class Floor6 extends Screen {
 
 	private Graphic[][] layout;
 
-	public Floor6(int width, int height, Graphic[][] layout) {
+	public Floor6(int width, int height) {
 		super(width, height);
-		this.layout = layout;
 		// TODO Auto-generated constructor stub
 	}
 
