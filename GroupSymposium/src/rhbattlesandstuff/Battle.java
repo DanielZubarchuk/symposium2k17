@@ -44,7 +44,6 @@ public class Battle extends Character{
 	}
 
 	public void dealDamage(String string, Player a, Enemy b) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -59,7 +58,7 @@ public class Battle extends Character{
 	}
 	
 	public String chooseMove(Enemy n){
-		return n.getMoves().get((int)Math.random() * 4);
+		return n.getAttacks().get((int)Math.random() * 4);
 	}
 
 }

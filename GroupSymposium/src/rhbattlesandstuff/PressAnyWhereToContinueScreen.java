@@ -15,14 +15,15 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 
 	private ClickableGraphic bsod;
 	private Player b = new Character();
+	private Enemy a = new Monster();
 	private int[] test = b.getStats(); 
+	private int[] monTest = a.getStats();
+	private int floor = 0;
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
 		super(width, height);
 	}
-	
-	
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
@@ -59,12 +60,31 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 	@Override
 	public void keyPressed(KeyEvent k) {
 		// TODO Auto-generated method stub\
-		if(k.getKeyCode() == KeyEvent.VK_0){
+		if(k.getKeyCode() == KeyEvent.VK_9){
+			floor++;
+			System.out.println("This is floor " + floor + ".");
+			a.scaleWFloor();
+		}
+		else if(k.getKeyCode() == KeyEvent.VK_0){
+			System.out.println("Character Stats");
 			System.out.println(test[0]);
+			System.out.println(test[1]);
+			System.out.println(test[2]);
+			System.out.println(test[3]);
+			System.out.println(test[4]);
+			System.out.println();
 			b.incrementStats();
+			System.out.println("Monster Stats");
+			System.out.println(monTest[0]);
+			System.out.println(monTest[1]);
+			System.out.println(monTest[2]);
+			System.out.println(monTest[3]);
+			System.out.println(monTest[4]);
+			
 //			b.setAttacks(testing);
-			b.addAttacks();
-			System.out.println(b.getMoves().get(0).getDmg());
+//			b.addAttacks();
+//			System.out.println(b.getMoves().get(0).getDmg());
+			
 		}
 		else {
 			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
