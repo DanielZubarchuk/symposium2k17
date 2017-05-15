@@ -9,5 +9,10 @@ public class WoodWall extends Graphic implements Obstruction {
 		// TODO Auto-generated constructor stub
 	}
 
+	public WoodWall() {
+		// TODO Auto-generated constructor stub
+		super(0, 0,0.1953125, "src/resources/wood.jpg");
+	}
+
 
 }

@@ -12,14 +12,15 @@ public class Floor1 extends Screen{
 
 	public Floor1(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		layout = new Graphic[18][18];
+		layout[0][0] = new WoodWall();
 	}
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		background();
-		WoodWall test1 = new WoodWall(0,0);
+		WoodWall test1 = new WoodWall();
 //		SmallWall test = new SmallWall(300, 500);
 //		GrassPanel testGrass = new GrassPanel(300,600);
 //		GrassPanel testGrass1 = new GrassPanel(300,400);
