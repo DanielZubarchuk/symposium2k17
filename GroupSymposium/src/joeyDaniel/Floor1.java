@@ -24,6 +24,17 @@ public class Floor1 extends Screen{
 				}
 			}
 		}
+		for(int row = 3; row < layout.length-3; row++){
+			if(row!= 10){
+				layout[row][7] = new WoodWall();
+			}
+			if(row!= 13){
+				layout[row][10] = new WoodWall();
+			}
+			if(row!= 9){
+				layout[row][13] = new WoodWall();
+			}
+		}
 	}
 
 	@Override
