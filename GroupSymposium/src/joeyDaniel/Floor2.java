@@ -98,7 +98,6 @@ public class Floor2 extends Screen {
 		layout[11][25] = new WoodWall();
 		layout[11][25] = new WoodWall();
 		layout[11][26] = new WoodWall();
-		layout[11][27] = new WoodWall();
 		
 		layout[12][5] = new WoodWall();
 		layout[12][9] = new WoodWall();
@@ -122,8 +121,77 @@ public class Floor2 extends Screen {
 		layout[13][23] = new WoodWall();
 		layout[13][24] = new WoodWall();
 		
+		layout[14][5] = new WoodWall();
+		layout[14][7] = new WoodWall();
+		layout[14][9] = new WoodWall();
+		layout[14][11] = new WoodWall();
+		layout[14][13] = new WoodWall();
+		layout[14][16] = new WoodWall();
+		layout[14][17] = new WoodWall();
 		
+		layout[15][5] = new WoodWall();
+		layout[15][7] = new WoodWall();
+		layout[15][9] = new WoodWall();
+		layout[15][11] = new WoodWall();
+		layout[15][13] = new WoodWall();
+		layout[15][16] = new WoodWall();
+		layout[15][17] = new WoodWall();
+		layout[15][19] = new WoodWall();
+		layout[15][20] = new WoodWall();
+		layout[15][21] = new WoodWall();
+		layout[15][22] = new WoodWall();
+		layout[15][23] = new WoodWall();
+		layout[15][24] = new WoodWall();
+		layout[15][25] = new WoodWall();
+		layout[15][26] = new WoodWall();
+
+		layout[16][5] = new WoodWall();
+		layout[16][7] = new WoodWall();
+		layout[16][9] = new WoodWall();
+		layout[16][11] = new WoodWall();
+		layout[16][13] = new WoodWall();
+		layout[16][14] = new WoodWall();
+		layout[16][15] = new WoodWall();
+		layout[16][16] = new WoodWall();
+		layout[16][17] = new WoodWall();
 		
+		layout[17][5] = new WoodWall();
+		layout[17][7] = new WoodWall();
+		layout[17][9] = new WoodWall();
+		layout[17][11] = new WoodWall();
+		layout[17][13] = new WoodWall();
+		layout[17][16] = new WoodWall();
+		layout[17][17] = new WoodWall();
+		layout[17][18] = new WoodWall();
+		layout[17][19] = new WoodWall();
+		layout[17][20] = new WoodWall();
+		layout[17][21] = new WoodWall();
+		layout[17][22] = new WoodWall();
+		layout[17][23] = new WoodWall();
+		layout[17][24] = new WoodWall();
+		layout[17][25] = new WoodWall();
+		
+		layout[18][5] = new WoodWall();
+		layout[18][7] = new WoodWall();
+		layout[18][9] = new WoodWall();
+		layout[18][11] = new WoodWall();
+		layout[18][13] = new WoodWall();
+		layout[18][16] = new WoodWall();
+		
+		layout[19][7] = new WoodWall();
+		layout[19][11] = new WoodWall();
+		layout[19][18] = new WoodWall();
+		layout[19][19] = new WoodWall();
+		layout[19][20] = new WoodWall();
+		layout[19][21] = new WoodWall();
+		layout[19][22] = new WoodWall();
+		layout[19][23] = new WoodWall();
+		layout[19][24] = new WoodWall();
+		layout[19][25] = new WoodWall();
+		layout[19][26] = new WoodWall();
+		
+		layout[20][7] = new WoodWall();
+		layout[20][11] = new WoodWall();
 		
 		
 //		for(int i = 0; i < 4; i++){
