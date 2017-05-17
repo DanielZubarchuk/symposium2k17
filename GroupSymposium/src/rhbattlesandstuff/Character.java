@@ -12,7 +12,7 @@ public class Character implements Player{
 	private ArrayList<Moves> moves; 
 	private int[] location;
 	
-	public Character() {
+	public Character(){
 		moves = new ArrayList<Moves>();
 		location = new int[2];
 	}
