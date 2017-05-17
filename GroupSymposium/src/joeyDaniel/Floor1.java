@@ -9,7 +9,6 @@ import guiPractice.components.Visible;
 public class Floor1 extends Screen{
 
 	private Graphic[][] layout;
-	private int[] playerCoordinate;
 
 	public Floor1(int width, int height) {
 		super(width, height);
@@ -19,9 +18,6 @@ public class Floor1 extends Screen{
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		initWalls();
 		background();
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 8;
-		playerCoordinate[1] = 8;
 //		for(Graphic[] x:layout){
 //			for(Graphic g:x){
 //				if(g == null){
@@ -39,6 +35,9 @@ public class Floor1 extends Screen{
 	
 	private void UpdateScreen(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
+		int[] playerCoordinate = new int[2];
+		playerCoordinate[0] = 8;
+		playerCoordinate[1] = 8;
 		int x = 0;
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){

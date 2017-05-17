@@ -13,6 +13,32 @@ public class Floor2 extends Screen {
 	public Floor2(int width, int height) {
 		super(width, height);
 		
+		
+		
+		
+//		for(int i = 0; i < 4; i++){
+//		for(int j = 0; j < 30;j++){
+//			layout[i][j] = new WoodWall();
+//		}
+//	}
+//	for(int i = 21 ; i < 24; i++){
+//		for(int j = 0; j < 30;j++){
+//			layout[i][j] = new WoodWall();
+//		}
+//	}
+//	for(int i = 0; i < 24; i++){
+//		for(int j = 0; j < 4;j++){
+//			layout[i][j] = new WoodWall();
+//		}
+//	}
+//	for(int i = 0; i < 24; i++){
+//		for(int j = 27; j < 30;j++){
+//			layout[i][j] = new WoodWall();
+//		}
+//	}
+	}
+	@Override
+	public void initObjects(ArrayList<Visible> viewObjects) {
 		layout = new Graphic[24][30];
 		for(int i = 0; i<layout.length; i++){
 			for(int j = 0; j<layout[i].length; j++){
@@ -194,37 +220,34 @@ public class Floor2 extends Screen {
 		layout[20][11] = new WoodWall();
 		
 		
-//		for(int i = 0; i < 4; i++){
-//		for(int j = 0; j < 30;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-//	for(int i = 21 ; i < 24; i++){
-//		for(int j = 0; j < 30;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-//	for(int i = 0; i < 24; i++){
-//		for(int j = 0; j < 4;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-//	for(int i = 0; i < 24; i++){
-//		for(int j = 27; j < 30;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-	}
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		
 		background();
+		UpdateScreen(viewObjects);
 	}
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
 				addObject(new GrassPanel(i*100,x*100));
 			}
+		}
+	}
+	
+	private void UpdateScreen(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		int[] playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 3;
+		int x = 0;
+		int y = 0;
+		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
+			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
+				if(layout[row][col] instanceof Obstruction){
+					layout[row][col] = new WoodWall(x*100,y*100);
+					viewObjects.add(layout[row][col]);
+				}
+				x++;
+			}
+			y++;
+			x=0;
 		}
 	}
 }
