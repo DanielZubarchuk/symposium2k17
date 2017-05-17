@@ -6,30 +6,14 @@ import guiPractice.Screen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
-public class Floor1 extends Screen{
+public class Floor1 extends Floor{
 
 	private Graphic[][] layout;
-
-	public Floor1(int width, int height) {
-		super(width, height);
-	}
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		initWalls();
 		background();
-//		for(Graphic[] x:layout){
-//			for(Graphic g:x){
-//				if(g == null){
-//					System.out.print("Null");
-//				}else if(g instanceof Obstruction){
-//					System.out.print("Wall");
-//				}else{
-//					System.out.print("idk");
-//				}
-//			}
-//			System.out.println("");
-//		}
 		UpdateScreen(viewObjects);
 	}
 	

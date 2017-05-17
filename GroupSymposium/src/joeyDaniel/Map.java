@@ -6,7 +6,7 @@ import guiPractice.components.Graphic;
 
 public class Map extends GUIApplication{
 	
-	private static Floor2 screen1;
+	private static Floor1 screen1;
 	private static Map game;
 	
 	public Map(){
@@ -26,7 +26,7 @@ public class Map extends GUIApplication{
 	
 	@Override
 	protected void initScreen() {
-		screen1 = new Floor2(716, 738);
+		screen1 = new Floor1();
 		setScreen(screen1);
 	}
 	

@@ -10,10 +10,24 @@ public class Character implements Player{
 	private int[] stats = {10, 2, 1, 2, 1};
 	private String name = "Javaman";
 	private ArrayList<Moves> moves; 
+	private int[] location;
 	
 	public Character() {
 		moves = new ArrayList<Moves>();
+		location = new int[2];
 	}
+	
+	public void setLocation(int row, int col){
+		location[0] = row;
+		location[1] = col;
+	}
+	
+	public int[] getLocation(){
+		return location;
+	}
+	
+	
+	
 
 	public ArrayList<Moves> getMoves(){
 		return moves;
