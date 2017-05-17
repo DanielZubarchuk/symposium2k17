@@ -18,4 +18,6 @@ public interface Enemy {
 
 	public void setAttacks(ArrayList<Moves> att);
 
+	public void setStats(int[] stats);
+
 }
