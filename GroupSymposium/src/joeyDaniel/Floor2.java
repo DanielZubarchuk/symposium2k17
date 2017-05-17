@@ -6,16 +6,10 @@ import guiPractice.Screen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
-public class Floor2 extends Screen {
+public class Floor2 extends Floor {
 
 	private Graphic[][] layout;
 
-	public Floor2(int width, int height) {
-		super(width, height);
-		
-		
-		
-		
 //		for(int i = 0; i < 4; i++){
 //		for(int j = 0; j < 30;j++){
 //			layout[i][j] = new WoodWall();
@@ -36,7 +30,6 @@ public class Floor2 extends Screen {
 //			layout[i][j] = new WoodWall();
 //		}
 //	}
-	}
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		layout = new Graphic[24][30];
@@ -234,8 +227,8 @@ public class Floor2 extends Screen {
 	private void UpdateScreen(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		int[] playerCoordinate = new int[2];
-		playerCoordinate[0] = 3;
-		playerCoordinate[1] = 3;
+		playerCoordinate[0] = 20;
+		playerCoordinate[1] = 26;
 		int x = 0;
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){

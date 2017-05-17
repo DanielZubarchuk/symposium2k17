@@ -7,15 +7,12 @@ import guiPractice.Screen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
-public class Floor4 extends Screen{
+public class Floor4 extends Floor{
 
 
 	private Graphic[][] layout;
 
-	public Floor4(int width, int height) {
-		super(width, height);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
