@@ -2,7 +2,7 @@ package rhbattlesandstuff;
 
 import java.util.ArrayList;
 
-public class Battle extends Character{
+public class Battle extends Character implements Runnable{
 	
 	private ArrayList<String> moves;
 	
@@ -88,6 +88,42 @@ public class Battle extends Character{
 	
 	public static Moves chooseMove(Enemy n){
 		return n.getAttacks().get(0);
+	}
+
+	//MR. NOCKLES FIELD
+	static private Enemy enemy;
+	static private Player player;
+	static private boolean moveA;
+	
+	public static void engage(Enemy b){
+		enemy = b;
+	}
+	
+	public static void setPlayer(Player a){
+		player = a;
+	}
+	
+	public static void doMoveA(){
+		moveA = true;
+	}
+	
+	@Override
+	public void run() {
+		if(enemy!= null){
+			while(enemy.getStats()[0] >0 && player.getStats()[0]>0){
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(moveA){
+					//does the move
+					moveA = false;
+				}
+			}
+			enemy = null;
+		}
 	}
 
 }

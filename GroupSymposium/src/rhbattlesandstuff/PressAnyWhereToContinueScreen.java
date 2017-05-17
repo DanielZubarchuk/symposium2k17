@@ -89,6 +89,9 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		else if (k.getKeyCode() == KeyEvent.VK_8){
 			Battle.battle(b, a);
 		}
+		else if (k.getKeyCode() == KeyEvent.VK_Z){
+			Battle.doMoveA();
+		}
 		else {
 			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
 		}
