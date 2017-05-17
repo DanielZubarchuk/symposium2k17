@@ -6,7 +6,11 @@ import guiPractice.components.Graphic;
 
 public class Map extends GUIApplication{
 	
+<<<<<<< HEAD
 	private static Floor3 screen1;
+=======
+	private static Floor1 screen1;
+>>>>>>> branch 'master' of https://github.com/DanielZubarchuk/symposium2k17
 	private static Map game;
 	
 	public Map(){
@@ -26,7 +30,11 @@ public class Map extends GUIApplication{
 	
 	@Override
 	protected void initScreen() {
+<<<<<<< HEAD
 		screen1 = new Floor3(716, 738);
+=======
+		screen1 = new Floor1();
+>>>>>>> branch 'master' of https://github.com/DanielZubarchuk/symposium2k17
 		setScreen(screen1);
 	}
 	
