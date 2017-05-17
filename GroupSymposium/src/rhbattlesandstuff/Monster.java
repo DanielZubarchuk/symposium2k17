@@ -20,8 +20,8 @@ public class Monster implements Enemy{
 		return stats;
 	}
 
-	public void setStats() {
-		
+	public void setStats(int[] stats) {
+		this.stats = stats;
 	}
 	
 	public void scaleWFloor() {
