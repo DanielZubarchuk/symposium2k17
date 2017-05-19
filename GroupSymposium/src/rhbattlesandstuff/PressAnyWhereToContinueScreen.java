@@ -1,5 +1,9 @@
 package rhbattlesandstuff;
 
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -11,7 +15,7 @@ import guiPractice.components.Action;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Visible;
 
-public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener, MouseListener{
+public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener{
 
 	private ClickableGraphic bsod;
 	private Player b = new Character();
@@ -92,8 +96,9 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
 			Battle.doMoveA();
 		}
-		else {
-			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
-		}
+//		else {
+//			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
+//		}
 	}
+	
 }

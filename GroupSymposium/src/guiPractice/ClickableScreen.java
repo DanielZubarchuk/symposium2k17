@@ -1,6 +1,10 @@
 package guiPractice;
 
+import java.awt.Cursor;
+import java.awt.Image;
 import java.awt.List;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -9,6 +13,7 @@ import java.util.ArrayList;
 
 import guiPractice.components.Clickable;
 import guiPractice.components.Visible;
+import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 
 public abstract class ClickableScreen extends Screen implements MouseListener, KeyListener {
 
@@ -38,13 +43,6 @@ public abstract class ClickableScreen extends Screen implements MouseListener, K
 			}
 		}
 	
-	
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -52,15 +50,26 @@ public abstract class ClickableScreen extends Screen implements MouseListener, K
 	}
 
 	@Override
+	public void mouseEntered(MouseEvent e) {
+		cursorTo("src/resources/sand.png");
+	}
+	private void cursorTo(String s){
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image image = toolkit.getImage(s);
+		Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
+		NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setCursor (c);
+	}
+	
+	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		cursorTo("src/resources/grass.png");
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		cursorTo("src/resources/sand.png");
 	}
 	
 	@Override
