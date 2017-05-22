@@ -21,32 +21,31 @@ public abstract class Floor extends Screen implements KeyListener{
 	public void keyPressed(KeyEvent b) {
 		// TODO Auto-generated method stub
 		if(b.getKeyCode() == 38){
-//			System.out.println("Up");
-			if(Map.x.getLocation()[0]-->=3){
-				Map.x.setLocation(Map.x.getLocation()[0]--, Map.x.getLocation()[1]);
-			}
-			
-			
-			
+			//			System.out.println("Up");
+			moveCharacter("up");
+
+
+
 		}else if(b.getKeyCode() == 40){
-//			System.out.println("Down");
-			if(Map.x.getLocation()[0]++>=3){
-				Map.x.setLocation(Map.x.getLocation()[0]--, Map.x.getLocation()[1]);
-			}
-			
-			
+			//			System.out.println("Down");
+			moveCharacter("down");
+
+
 		}else if(b.getKeyCode() == 37){
-//			System.out.println("Left");
-			
-			
-			
+			//			System.out.println("Left");
+			moveCharacter("left");
+
+
 		}else if(b.getKeyCode() == 39){
-//			System.out.println("Right");
-			
-			
-			
+			//			System.out.println("Right");
+			moveCharacter("right");
+
+
 		}
 	}
+
+	public abstract void moveCharacter(String direction);
+
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
