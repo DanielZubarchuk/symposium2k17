@@ -13,16 +13,20 @@ public class Floor1 extends Floor{
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 3;
 		initWalls();
-		background();
 		UpdateScreen(viewObjects);
 	}
 
 	private void UpdateScreen(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 8;
-		playerCoordinate[1] = 8;
+		for(int i = 0; viewObjects.size()>0;i++){
+			viewObjects.remove(i);
+			i--;
+		}
+		background();
 		int x = 0;
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
@@ -80,26 +84,35 @@ public class Floor1 extends Floor{
 	}
 
 	@Override
-	public void moveCharacter(String direction) {
+	public synchronized void moveCharacter(String direction) {
 		if(direction == "up"){
 			if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[0] -= 1;
+				UpdateScreen(viewObjects);
 			}
 		}else if(direction == "down"){
 			if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[0] += 1;
+				UpdateScreen(viewObjects);
+				
 			}
 		}else if(direction == "left"){
 			if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[1] -= 1;
+				UpdateScreen(viewObjects);
 			}
 		}else{
 			if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[1] += 1;
+				UpdateScreen(viewObjects);
 			}
 		}
 	}

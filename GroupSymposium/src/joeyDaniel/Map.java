@@ -34,7 +34,7 @@ public class Map extends GUIApplication{
 	protected void initScreen() {
 		screen3 = new Floor3();
 		screen1 = new Floor1();
-		setScreen(screen3);
+		setScreen(screen1);
 	}
 	
 	
