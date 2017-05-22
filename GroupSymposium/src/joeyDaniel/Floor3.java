@@ -220,4 +220,9 @@ public class Floor3 extends Floor {
 			x=0;
 		}
 	}
+	
+	public boolean isObstructed(String direction) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

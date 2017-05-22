@@ -24,5 +24,10 @@ public class Floor7 extends Floor{
 			}
 		}
 	}
+	
+	public boolean isObstructed(String direction) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

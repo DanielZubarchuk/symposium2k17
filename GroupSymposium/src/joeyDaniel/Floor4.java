@@ -184,42 +184,49 @@ public class Floor4 extends Floor{
 		layout[15][24] = new SmallWall();
 		layout[15][25] = new SmallWall();
 
-		layout[16][3] = new SmallWall();
-		layout[16][4] = new SmallWall();
-		layout[16][5] = new SmallWall();
 		layout[16][6] = new SmallWall();
-		layout[16][7] = new SmallWall();
-		layout[16][10] = new SmallWall();
+		layout[16][11] = new SmallWall();
 		layout[16][13] = new SmallWall();
-		layout[16][14] = new SmallWall();
-		layout[16][16] = new SmallWall();
+		layout[16][15] = new SmallWall();
+		layout[16][17] = new SmallWall();
 		layout[16][18] = new SmallWall();
+		layout[16][20] = new SmallWall();
 		layout[16][22] = new SmallWall();
-		layout[16][23] = new SmallWall();
 		layout[16][24] = new SmallWall();
 		
+		layout[17][4] = new SmallWall();
+		layout[17][5] = new SmallWall();
+		layout[17][6] = new SmallWall();
+		layout[17][7] = new SmallWall();
+		layout[17][9] = new SmallWall();
 		layout[17][10] = new SmallWall();
-		layout[17][13] = new SmallWall();
-		layout[17][14] = new SmallWall();
-		layout[17][16] = new SmallWall();
+		layout[17][11] = new SmallWall();
+		layout[17][15] = new SmallWall();
+		layout[17][17] = new SmallWall();
 		layout[17][18] = new SmallWall();
 		layout[17][20] = new SmallWall();
+		layout[17][21] = new SmallWall();
 		layout[17][22] = new SmallWall();
 		layout[17][24] = new SmallWall();
 		layout[17][25] = new SmallWall();
-		layout[17][26] = new SmallWall();
 		
+		layout[18][4] = new SmallWall();
+		layout[18][5] = new SmallWall();
+		layout[18][6] = new SmallWall();
+		layout[18][7] = new SmallWall();
+		layout[18][9] = new SmallWall();
 		layout[18][10] = new SmallWall();
-		layout[18][16] = new SmallWall();
+		layout[18][11] = new SmallWall();
+		layout[18][12] = new SmallWall();
+		layout[18][14] = new SmallWall();
+		layout[18][15] = new SmallWall();
+		layout[18][17] = new SmallWall();
 		layout[18][18] = new SmallWall();
-		layout[18][20] = new SmallWall();
-		layout[18][22] = new SmallWall();
+		layout[18][24] = new SmallWall();
+		layout[18][25] = new SmallWall();
 		
-		layout[19][10] = new SmallWall();
-		layout[19][16] = new SmallWall();
-		layout[19][20] = new SmallWall();
-		layout[19][22] = new SmallWall();
-		layout[19][23] = new SmallWall();
+		layout[19][14] = new SmallWall();
+		layout[19][18] = new SmallWall();
 		layout[19][24] = new SmallWall();
 		layout[19][25] = new SmallWall();
 		
@@ -231,8 +238,13 @@ public class Floor4 extends Floor{
 		layout[20][8] = new SmallWall();
 		layout[20][9] = new SmallWall();
 		layout[20][10] = new SmallWall();
-		layout[20][16] = new SmallWall();
-		layout[20][20] = new SmallWall();
+		layout[20][11] = new SmallWall();
+		layout[20][12] = new SmallWall();
+		layout[20][13] = new SmallWall();
+		layout[20][14] = new SmallWall();
+		layout[20][18] = new SmallWall();
+		layout[20][24] = new SmallWall();
+		layout[20][25] = new SmallWall();
 		
 		
 		background();
@@ -266,5 +278,10 @@ public class Floor4 extends Floor{
 			y++;
 			x=0;
 		}
+	}
+	
+	public boolean isObstructed(String direction) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
