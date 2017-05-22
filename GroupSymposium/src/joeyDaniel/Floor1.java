@@ -77,6 +77,12 @@ public class Floor1 extends Floor{
 			}				
 		}
 	}
+
+	@Override
+	public boolean isObstructed(String direction) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 
 }

@@ -47,6 +47,8 @@ public abstract class Floor extends Screen implements KeyListener{
 			
 		}
 	}
+	
+	public abstract boolean isObstructed(String direction);
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {

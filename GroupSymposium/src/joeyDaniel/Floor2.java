@@ -243,4 +243,9 @@ public class Floor2 extends Floor {
 			x=0;
 		}
 	}
+	@Override
+	public boolean isObstructed(String direction) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
