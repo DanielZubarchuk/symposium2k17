@@ -18,8 +18,8 @@ import guiPractice.components.Visible;
 public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener{
 
 	private ClickableGraphic bsod;
-	private Player b = new Character();
-	private Enemy a = new Monster();
+	private Player b;
+	private Enemy a;
 	private int[] test = b.getStats(); 
 	private int[] monTest = a.getStats();
 	private int floor = 0;
@@ -51,6 +51,8 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
+		a =new Monster();
+		b = new Character();
 		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
 		bsod.setAction(new Action(){
 			public void act(){
@@ -91,7 +93,18 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 			
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_8){
-			Battle.battle(b, a);
+			System.out.println("message");
+			Thread battle = new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					System.out.println("message a");
+					Battle.engage(a);
+					Battle.setPlayer(b);
+					Battle.runBattle();
+				}
+			});
+			battle.start();
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
 			Battle.doMoveA();
