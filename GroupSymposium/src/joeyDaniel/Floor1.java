@@ -33,6 +33,10 @@ public class Floor1 extends Floor{
 					layout[row][col] = new WoodWall(x*100,y*100);
 					viewObjects.add(layout[row][col]);
 				}
+				if(layout[row][col] instanceof Staircase){
+					layout[row][col] = new Stairs(x*100,y*100);
+					viewObjects.add(layout[row][col]);
+				}
 				x++;
 			}
 			y++;

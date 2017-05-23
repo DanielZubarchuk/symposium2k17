@@ -2,7 +2,7 @@ package joeyDaniel;
 
 import guiPractice.components.Graphic;
 
-public class Stairs extends Graphic {
+public class Stairs extends Graphic implements Staircase{
 
 	public Stairs(int x, int y) {
 		super(x, y,.125 ,"src/resources/stair.png");
