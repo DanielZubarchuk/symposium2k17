@@ -34,6 +34,41 @@ public class Floor2 extends Floor {
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		layout = new Graphic[24][30];
+		initWalls();
+		updateScreen(viewObjects);
+	}
+	public void background(){
+		for(int i = 0; i < 7;i++){
+			for(int x = 0; x < 7;x++){
+				addObject(new GrassPanel(i*100,x*100));
+			}
+		}
+	}
+	
+	private void updateScreen(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		viewObjects.removeAll(viewObjects);
+		background();
+		int x = 0;
+		int y = 0;
+		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
+			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
+				if(layout[row][col] instanceof Wall){
+					layout[row][col] = new WoodWall(x*100,y*100);
+					viewObjects.add(layout[row][col]);
+				}
+				if(layout[row][col] instanceof Staircase){
+					layout[row][col] = new Stairs(x*100,y*100);
+					viewObjects.add(layout[row][col]);
+				}
+				x++;
+			}
+			y++;
+			x=0;
+		}
+	}
+	
+	private void initWalls(){
 		for(int i = 0; i<layout.length; i++){
 			for(int j = 0; j<layout[i].length; j++){
 				if(layout.length-i<=3 || i<3){
@@ -213,36 +248,6 @@ public class Floor2 extends Floor {
 		layout[20][7] = new WoodWall();
 		layout[20][11] = new WoodWall();
 		
-		
-		background();
-		UpdateScreen(viewObjects);
-	}
-	public void background(){
-		for(int i = 0; i < 7;i++){
-			for(int x = 0; x < 7;x++){
-				addObject(new GrassPanel(i*100,x*100));
-			}
-		}
-	}
-	
-	private void UpdateScreen(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		int[] playerCoordinate = new int[2];
-		playerCoordinate[0] = 20;
-		playerCoordinate[1] = 26;
-		int x = 0;
-		int y = 0;
-		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
-			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
-				if(layout[row][col] instanceof Wall){
-					layout[row][col] = new WoodWall(x*100,y*100);
-					viewObjects.add(layout[row][col]);
-				}
-				x++;
-			}
-			y++;
-			x=0;
-		}
 	}
 	
 	@Override
@@ -252,7 +257,7 @@ public class Floor2 extends Floor {
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}else if(direction == "down"){
@@ -260,7 +265,7 @@ public class Floor2 extends Floor {
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] += 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}else if(direction == "left"){
@@ -268,7 +273,7 @@ public class Floor2 extends Floor {
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] -= 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}else{
@@ -276,7 +281,7 @@ public class Floor2 extends Floor {
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] += 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}

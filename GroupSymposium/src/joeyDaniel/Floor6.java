@@ -15,10 +15,10 @@ public class Floor6 extends Floor {
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		background();
 		playerCoordinate = new int[2];
 		playerCoordinate[0] = 3;
 		playerCoordinate[1] = 14;
+		updateScreen(viewObjects);
 	}
 
 	public void background(){
@@ -29,17 +29,20 @@ public class Floor6 extends Floor {
 		}
 	}
 	
-	private void UpdateScreen(ArrayList<Visible> viewObjects) {
+	private void updateScreen(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		int[] playerCoordinate = new int[2];
-		playerCoordinate[0] = 3;
-		playerCoordinate[1] = 3;
+		viewObjects.removeAll(viewObjects);
+		background();
 		int x = 0;
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
 			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
 				if(layout[row][col] instanceof Wall){
-					layout[row][col] = new SmallWall(x*100,y*100);
+					layout[row][col] = new CobbleWall(x*100,y*100);
+					viewObjects.add(layout[row][col]);
+				}
+				if(layout[row][col] instanceof Staircase){
+					layout[row][col] = new Stairs(x*100,y*100);
 					viewObjects.add(layout[row][col]);
 				}
 				x++;
@@ -49,6 +52,10 @@ public class Floor6 extends Floor {
 		}
 	}
 	
+	private void initWalls(){
+		
+	}
+	
 	@Override
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
@@ -56,7 +63,7 @@ public class Floor6 extends Floor {
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}else if(direction == "down"){
@@ -64,7 +71,7 @@ public class Floor6 extends Floor {
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] += 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}else if(direction == "left"){
@@ -72,7 +79,7 @@ public class Floor6 extends Floor {
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] -= 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}else{
@@ -80,7 +87,7 @@ public class Floor6 extends Floor {
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] += 1;
-				UpdateScreen(viewObjects);
+				updateScreen(viewObjects);
 				update();
 			}
 		}

@@ -52,7 +52,7 @@ public class Floor1 extends Floor{
 		}
 	}
 
-	public void initWalls(){
+	private void initWalls(){
 		layout = new Graphic[18][18];
 		for(int i = 0; i<layout.length; i++){
 			for(int j = 0; j<layout[i].length; j++){
