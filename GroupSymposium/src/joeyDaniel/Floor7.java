@@ -38,7 +38,7 @@ public class Floor7 extends Floor{
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
 			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
-				if(layout[row][col] instanceof Obstruction){
+				if(layout[row][col] instanceof Wall){
 					layout[row][col] = new SmallWall(x*100,y*100);
 					viewObjects.add(layout[row][col]);
 				}
