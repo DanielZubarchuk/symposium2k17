@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener{
@@ -24,6 +25,8 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 	private int[] monTest = a.getStats();
 	private int floor = 0;
 	private ArrayList<Moves> testing;
+	private Graphic hud;
+	boolean hudstuff;
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
@@ -60,8 +63,19 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 			}
 		});
 		viewObjects.add(bsod);
+		
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void initMenu(ArrayList<Visible> viewObjects) {
+		hud = new Graphic(100, 100, 300, 300, "src/resources/TOP KEK.png");
+			viewObjects.add(hud);
+
+	}
+	
+	public void initThing(ArrayList<Visible> viewObjects) {
+		viewObjects.remove(hud);
 	}
 	
 	@Override
@@ -107,7 +121,8 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 			battle.start();
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
-			Battle.doMoveA();
+			initMenu(viewObjects);
+			
 		}
 //		else {
 //			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
