@@ -185,25 +185,30 @@ public class Floor5 extends Floor {
 		layout[14][25] = new CobbleWall();
 		
 		layout[15][4] = new CobbleWall();
-		layout[15][6] = new CobbleWall();
-		layout[15][11] = new CobbleWall();
+		layout[15][14] = new CobbleWall();
 		layout[15][15] = new CobbleWall();
 		layout[15][17] = new CobbleWall();
-		layout[15][18] = new CobbleWall();
+		layout[15][19] = new CobbleWall();
 		layout[15][20] = new CobbleWall();
+		layout[15][21] = new CobbleWall();
 		layout[15][22] = new CobbleWall();
-		layout[15][24] = new CobbleWall();
+		layout[15][23] = new CobbleWall();
 		layout[15][25] = new CobbleWall();
 
+		layout[16][4] = new CobbleWall();
 		layout[16][6] = new CobbleWall();
+		layout[16][7] = new CobbleWall();
+		layout[16][8] = new CobbleWall();
+		layout[16][9] = new CobbleWall();
+		layout[16][10] = new CobbleWall();
 		layout[16][11] = new CobbleWall();
-		layout[16][13] = new CobbleWall();
+		layout[16][12] = new CobbleWall();
+		layout[16][14] = new CobbleWall();
 		layout[16][15] = new CobbleWall();
 		layout[16][17] = new CobbleWall();
-		layout[16][18] = new CobbleWall();
-		layout[16][20] = new CobbleWall();
-		layout[16][22] = new CobbleWall();
-		layout[16][24] = new CobbleWall();
+		layout[16][19] = new CobbleWall();
+		layout[16][23] = new CobbleWall();
+		layout[16][25] = new CobbleWall();
 		
 		layout[17][4] = new CobbleWall();
 		layout[17][5] = new CobbleWall();
