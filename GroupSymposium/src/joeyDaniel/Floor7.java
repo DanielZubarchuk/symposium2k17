@@ -9,11 +9,15 @@ import guiPractice.components.Visible;
 public class Floor7 extends Floor{
 
 	private Graphic[][] layout;
+	private int[] playerCoordinate;
 
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 14;
 		background();
 	}
 	
@@ -45,9 +49,41 @@ public class Floor7 extends Floor{
 		}
 	}
 	
-	public boolean isObstructed(String direction) {
-		// TODO Auto-generated method stub
-		return false;
+	@Override
+	public void moveCharacter(String direction) {
+		if(direction == "up"){
+			if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
+				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
+				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[0] -= 1;
+				UpdateScreen(viewObjects);
+				update();
+			}
+		}else if(direction == "down"){
+			if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
+				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
+				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[0] += 1;
+				UpdateScreen(viewObjects);
+				update();
+			}
+		}else if(direction == "left"){
+			if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
+				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
+				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[1] -= 1;
+				UpdateScreen(viewObjects);
+				update();
+			}
+		}else{
+			if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
+				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
+				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[1] += 1;
+				UpdateScreen(viewObjects);
+				update();
+			}
+		}
 	}
 
 }

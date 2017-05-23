@@ -14,9 +14,10 @@ public class Floor1 extends Floor{
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		playerCoordinate = new int[2];
-		playerCoordinate[0] = 8;
-		playerCoordinate[1] = 5;
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 14;
 		initWalls();
+		layout[5][5] = new Stairs();
 		UpdateScreen(viewObjects);
 	}
 
@@ -88,6 +89,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
 				UpdateScreen(viewObjects);
+				update();
 			}
 		}else if(direction == "down"){
 			if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
@@ -95,7 +97,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] += 1;
 				UpdateScreen(viewObjects);
-				
+				update();
 			}
 		}else if(direction == "left"){
 			if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
@@ -103,6 +105,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] -= 1;
 				UpdateScreen(viewObjects);
+				update();
 			}
 		}else{
 			if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
@@ -110,6 +113,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] += 1;
 				UpdateScreen(viewObjects);
+				update();
 			}
 		}
 	}

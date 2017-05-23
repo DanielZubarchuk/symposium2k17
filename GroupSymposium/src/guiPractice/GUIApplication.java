@@ -52,7 +52,7 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 	
 	public void run(){
 		while (true){
-			currentScreen.update();
+//			currentScreen.update();
 			//update the window
 			repaint();
 			try {
