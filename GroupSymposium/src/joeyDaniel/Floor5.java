@@ -147,42 +147,37 @@ public class Floor5 extends Floor {
 		layout[11][26] = new CobbleWall();
 		
 		layout[12][4] = new CobbleWall();
-		layout[12][8] = new CobbleWall();
+		layout[12][5] = new CobbleWall();
+		layout[12][7] = new CobbleWall();
+		layout[12][9] = new CobbleWall();
 		layout[12][14] = new CobbleWall();
 		layout[12][15] = new CobbleWall();
-		layout[12][17] = new CobbleWall();
-		layout[12][18] = new CobbleWall();
 		layout[12][19] = new CobbleWall();
 		layout[12][20] = new CobbleWall();
-		layout[12][21] = new CobbleWall();
-		layout[12][22] = new CobbleWall();
-		layout[12][24] = new CobbleWall();
-		layout[12][25] = new CobbleWall();
+		layout[12][23] = new CobbleWall();
 		
-		layout[13][4] = new CobbleWall();
-		layout[13][5] = new CobbleWall();
-		layout[13][6] = new CobbleWall();
-		layout[13][8] = new CobbleWall();
+		layout[13][7] = new CobbleWall();
 		layout[13][9] = new CobbleWall();
 		layout[13][10] = new CobbleWall();
 		layout[13][11] = new CobbleWall();
 		layout[13][12] = new CobbleWall();
 		layout[13][14] = new CobbleWall();
 		layout[13][15] = new CobbleWall();
-		layout[13][18] = new CobbleWall();
-		layout[13][22] = new CobbleWall();
-		layout[13][24] = new CobbleWall();
+		layout[13][17] = new CobbleWall();
+		layout[13][19] = new CobbleWall();
+		layout[13][20] = new CobbleWall();
+		layout[13][21] = new CobbleWall();
+		layout[13][23] = new CobbleWall();
 		layout[13][25] = new CobbleWall();
 		
+		layout[14][4] = new CobbleWall();
+		layout[14][5] = new CobbleWall();
 		layout[14][6] = new CobbleWall();
-		layout[14][11] = new CobbleWall();
-		layout[14][12] = new CobbleWall();
+		layout[14][7] = new CobbleWall();
 		layout[14][14] = new CobbleWall();
 		layout[14][15] = new CobbleWall();
-		layout[14][18] = new CobbleWall();
-		layout[14][20] = new CobbleWall();
-		layout[14][22] = new CobbleWall();
-		layout[14][24] = new CobbleWall();
+		layout[14][17] = new CobbleWall();
+		layout[14][23] = new CobbleWall();
 		layout[14][25] = new CobbleWall();
 		
 		layout[15][4] = new CobbleWall();
