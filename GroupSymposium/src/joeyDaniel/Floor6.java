@@ -90,17 +90,7 @@ public class Floor6 extends Floor {
 		
 		layout[5][4] = new CobbleWall();
 		layout[5][5] = new CobbleWall();
-		layout[5][6] = new CobbleWall();
-		layout[5][7] = new CobbleWall();
-		layout[5][13] = new CobbleWall();
-		layout[5][14] = new CobbleWall();
-		layout[5][15] = new CobbleWall();
-		layout[5][16] = new CobbleWall();
-		layout[5][20] = new CobbleWall();
-		layout[5][21] = new CobbleWall();
-		layout[5][23] = new CobbleWall();
-		layout[5][24] = new CobbleWall();
-		layout[5][25] = new CobbleWall();
+		
 		
 		layout[6][4] = new CobbleWall();
 		layout[6][7] = new CobbleWall();
