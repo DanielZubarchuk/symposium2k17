@@ -94,6 +94,8 @@ public class Floor1 extends Floor{
 				playerCoordinate[0] -= 1;
 				UpdateScreen(viewObjects);
 				update();
+			}else if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
+				
 			}
 		}else if(direction == "down"){
 			if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
@@ -102,6 +104,8 @@ public class Floor1 extends Floor{
 				playerCoordinate[0] += 1;
 				UpdateScreen(viewObjects);
 				update();
+			}else if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
+				
 			}
 		}else if(direction == "left"){
 			if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
@@ -110,6 +114,8 @@ public class Floor1 extends Floor{
 				playerCoordinate[1] -= 1;
 				UpdateScreen(viewObjects);
 				update();
+			}else if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
+				
 			}
 		}else{
 			if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
@@ -118,6 +124,8 @@ public class Floor1 extends Floor{
 				playerCoordinate[1] += 1;
 				UpdateScreen(viewObjects);
 				update();
+			}else if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
+				
 			}
 		}
 	}
