@@ -21,8 +21,7 @@ public class Floor4 extends Floor{
 		playerCoordinate = new int[2];
 		playerCoordinate[0] = 3;
 		playerCoordinate[1] = 14;
-		
-		
+		initWalls();
 		updateScreen(viewObjects);
 		
 	}
