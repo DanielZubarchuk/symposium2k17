@@ -214,52 +214,43 @@ public class Floor5 extends Floor {
 		layout[17][5] = new CobbleWall();
 		layout[17][6] = new CobbleWall();
 		layout[17][7] = new CobbleWall();
+		layout[17][8] = new CobbleWall();
 		layout[17][9] = new CobbleWall();
 		layout[17][10] = new CobbleWall();
 		layout[17][11] = new CobbleWall();
+		layout[17][12] = new CobbleWall();
+		layout[17][14] = new CobbleWall();
 		layout[17][15] = new CobbleWall();
 		layout[17][17] = new CobbleWall();
-		layout[17][18] = new CobbleWall();
-		layout[17][20] = new CobbleWall();
+		layout[17][19] = new CobbleWall();
 		layout[17][21] = new CobbleWall();
-		layout[17][22] = new CobbleWall();
-		layout[17][24] = new CobbleWall();
+		layout[17][23] = new CobbleWall();
 		layout[17][25] = new CobbleWall();
 		
 		layout[18][4] = new CobbleWall();
-		layout[18][5] = new CobbleWall();
-		layout[18][6] = new CobbleWall();
-		layout[18][7] = new CobbleWall();
-		layout[18][9] = new CobbleWall();
-		layout[18][10] = new CobbleWall();
-		layout[18][11] = new CobbleWall();
-		layout[18][12] = new CobbleWall();
 		layout[18][14] = new CobbleWall();
 		layout[18][15] = new CobbleWall();
 		layout[18][17] = new CobbleWall();
-		layout[18][18] = new CobbleWall();
-		layout[18][24] = new CobbleWall();
+		layout[18][19] = new CobbleWall();
+		layout[18][21] = new CobbleWall();
+		layout[18][23] = new CobbleWall();
 		layout[18][25] = new CobbleWall();
-		
+	
+		layout[19][4] = new CobbleWall();
+		layout[19][6] = new CobbleWall();
+		layout[19][7] = new CobbleWall();
+		layout[19][8] = new CobbleWall();
 		layout[19][14] = new CobbleWall();
-		layout[19][18] = new CobbleWall();
-		layout[19][24] = new CobbleWall();
+		layout[19][15] = new CobbleWall();
+		layout[19][17] = new CobbleWall();
+		layout[19][19] = new CobbleWall();
+		layout[19][21] = new CobbleWall();
 		layout[19][25] = new CobbleWall();
 		
-		layout[20][3] = new CobbleWall();
-		layout[20][4] = new CobbleWall();
-		layout[20][5] = new CobbleWall();
 		layout[20][6] = new CobbleWall();
 		layout[20][7] = new CobbleWall();
 		layout[20][8] = new CobbleWall();
-		layout[20][9] = new CobbleWall();
-		layout[20][10] = new CobbleWall();
-		layout[20][11] = new CobbleWall();
-		layout[20][12] = new CobbleWall();
-		layout[20][13] = new CobbleWall();
-		layout[20][14] = new CobbleWall();
-		layout[20][18] = new CobbleWall();
-		layout[20][24] = new CobbleWall();
+		layout[20][17] = new CobbleWall();
 		layout[20][25] = new CobbleWall();
 	}
 	
