@@ -2,18 +2,18 @@ package rhbattlesandstuff;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.ClickableScreen;
-import guiPractice.components.Action;
-import guiPractice.components.Button;
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.components.*;
+import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.ClickableScreen;
 
-public class GenderScreenStuff extends ClickableScreen implements MouseMotionListener, MouseListener {
+public class GenderScreenStuff extends ClickableScreen implements MouseMotionListener, MouseListener, KeyListener {
 
 	private Graphic lbsod;
 	private String[] gender = {"male", "female"};
@@ -48,7 +48,28 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 		  }
 	}
 	
-	public void initObjects(ArrayList<Visible> viewObjects){
+
+	
+	public void keyPressed(KeyEvent k) {
+		//CHANGE THIS LATER SO IT DISPLAYS ON THE SCREEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!111!!!!!!!
+		if (k.getKeyCode() == KeyEvent.VK_LEFT ){
+			System.out.println("LEFT");
+			select = 0;
+			madeSelection = true;
+		}
+		else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+			System.out.println("RIGHT");
+			select = 1;
+			madeSelection = true;
+		}
+		if(madeSelection && k.getKeyCode() == KeyEvent.VK_Z){
+			System.out.println("You have selected " + gender[select] + ".");
+		}
+		
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
 		lbsod = new Graphic(0,0,1.0,"src/resources/legendarybluescreenofdeath.jpg");
 		female = new Graphic(0,0,.5,"src/resources/female.png");
 		male = new Graphic(500,0,.5,"src/resources/male.png");
@@ -67,22 +88,20 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 		});
 		viewObjects.add(helloJoeyHowIsTheBombHimerProjectGoing);
 	}
+
+	public KeyListener getKeyListener(){
+		return this;
+	}
 	
-	public void keyPressed(KeyEvent k) {
-		//CHANGE THIS LATER SO IT DISPLAYS ON THE SCREEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!111!!!!!!!
-		if (k.getKeyCode() == KeyEvent.VK_LEFT ){
-			System.out.println("LEFT");
-			select = 0;
-			madeSelection = true;
-		}
-		else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
-			System.out.println("RIGHT");
-			select = 1;
-			madeSelection = true;
-		}
-		if(madeSelection && k.getKeyCode() == KeyEvent.VK_Z){
-			System.out.println("You have selected " + gender[select] + ".");
-		}
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 	

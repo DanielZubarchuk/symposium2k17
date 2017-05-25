@@ -1,6 +1,7 @@
 package rhbattlesandstuff;
 
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -8,13 +9,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.ClickableScreen;
-import guiPractice.components.Action;
-import guiPractice.components.ClickableGraphic;
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.components.*;
+import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.ClickableScreen;
 
 public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener{
 
@@ -31,6 +32,16 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
 		super(width, height);
+		
+		try {
+			File fontFile = new File("resources/Beefd.ttf");
+			//			File fontFile = new File("resources//DayRoman.ttf");
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+			Font baseFont=font.deriveFont(16f);
+			StyledComponent.setBaseFont(baseFont);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -52,22 +63,6 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		  }
 	}
 
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		a =new Monster();
-		b = new Character();
-		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
-		bsod.setAction(new Action(){
-			public void act(){
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
-			}
-		});
-		viewObjects.add(bsod);
-		
-		// TODO Auto-generated method stub
-
-	}
-	
 	public void initMenu(ArrayList<Visible> viewObjects) {
 		hud = new Graphic(100, 100, 300, 300, "src/resources/TOP KEK.png");
 			viewObjects.add(hud);
@@ -78,7 +73,7 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		viewObjects.remove(hud);
 	}
 	
-	@Override
+
 	public void keyPressed(KeyEvent k) {
 		// TODO Auto-generated method stub\
 		if(k.getKeyCode() == KeyEvent.VK_9){
@@ -121,12 +116,27 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 			battle.start();
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
-			initMenu(viewObjects);
+//			initMenu(viewObjects);
 			
 		}
 //		else {
 //			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
 //		}
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		a =new Monster();
+		b = new Character();
+		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
+		bsod.setAction(new Action(){
+			public void act(){
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
+			}
+		});
+		viewObjects.add(bsod);
+		
 	}
 	
 }

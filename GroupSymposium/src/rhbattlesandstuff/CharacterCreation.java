@@ -1,6 +1,6 @@
 package rhbattlesandstuff;
 
-import guiPractice.components.Graphic;
+import guiTeacher.components.*;
 
 public class CharacterCreation extends Graphic{
 

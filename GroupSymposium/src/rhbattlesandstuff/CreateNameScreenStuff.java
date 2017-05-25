@@ -5,40 +5,35 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.ClickableScreen;
-import guiPractice.TextLabel;
-import guiPractice.components.Action;
-import guiPractice.components.Button;
-import guiPractice.components.Visible;
+import guiTeacher.components.*;
+import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.ClickableScreen;
+import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public class CreateNameScreenStuff extends ClickableScreen implements MouseMotionListener, MouseListener{
+public class CreateNameScreenStuff extends FullFunctionScreen{
 	
-	private TextLabel typeName;
-	private TextLabel input;
+	private TextField typeName;
+	private TextLabel namestuff;
+	
 
 	public CreateNameScreenStuff(int width, int height) {
 		// TODO Auto-generated constructor stub
 		super(width, height);
 	}
 
-	@Override
-	public void mouseDragged(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
-	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		typeName = new TextLabel(100, 100, 800, 25, "Type in your name: ");
-		input = new TextLabel(100, 150, 800,25,"Name");
-		
+	public void initAllObjects(List<Visible> viewObjects) {
+		namestuff = new TextLabel(100,70,800,25, "Name goes here:");
+		typeName = new TextField(100, 100, 800, 48, "", "");
+		typeName.getText();
+		viewObjects.add(namestuff);
 		viewObjects.add(typeName);
-		viewObjects.add(input);
 	}
+
+
+
 }

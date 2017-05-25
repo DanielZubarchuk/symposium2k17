@@ -2,9 +2,7 @@ package rhbattlesandstuff;
 
 import java.util.ArrayList;
 
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
-import guiPractice.sampleGames.TextArea;
+import guiTeacher.components.*;
 
 public class Battle{
 

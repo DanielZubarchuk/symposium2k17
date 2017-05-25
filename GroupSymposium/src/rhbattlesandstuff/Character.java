@@ -3,7 +3,7 @@ package rhbattlesandstuff;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import guiPractice.components.Graphic;
+import guiTeacher.components.*;
 
 public class Character implements Player{
 
