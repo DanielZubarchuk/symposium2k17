@@ -42,7 +42,7 @@ public class Map extends GUIApplication{
 		screen5 = new Floor5();
 //		screen6 = new Floor6();
 //		screen7 = new Floor7();
-		setScreen(screen3);
+		setScreen(screen1);
 	}
 	
 	
