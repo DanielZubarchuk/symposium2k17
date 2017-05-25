@@ -2,9 +2,9 @@ package joeyDaniel;
 
 import java.util.ArrayList;
 
-import guiPractice.Screen;
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.userInterfaces.Screen;
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 
 public class Floor6 extends Floor {
 

@@ -1,8 +1,8 @@
 package joeyDaniel;
 
-import guiPractice.GUIApplication;
-import guiPractice.Screen;
-import guiPractice.components.Graphic;
+import guiTeacher.GUIApplication;
+import guiTeacher.userInterfaces.Screen;
+import guiTeacher.components.Graphic;
 import rhbattlesandstuff.Character;
 
 public class Map extends GUIApplication{
