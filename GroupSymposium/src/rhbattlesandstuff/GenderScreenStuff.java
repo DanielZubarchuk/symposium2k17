@@ -1,5 +1,6 @@
 package rhbattlesandstuff;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -7,10 +8,12 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
-public class CreateYourOwnCharacterAndWeaponScreen extends ClickableScreen implements MouseMotionListener, MouseListener {
+public class GenderScreenStuff extends ClickableScreen implements MouseMotionListener, MouseListener {
 
 	private Graphic lbsod;
 	private String[] gender = {"male", "female"};
@@ -18,9 +21,10 @@ public class CreateYourOwnCharacterAndWeaponScreen extends ClickableScreen imple
 	private Graphic male;
 	private Graphic female;
 	private boolean madeSelection = false;
+	private Button helloJoeyHowIsTheBombHimerProjectGoing;
 	
 	
-	public CreateYourOwnCharacterAndWeaponScreen(int width, int height) {
+	public GenderScreenStuff(int width, int height) {
 		// TODO Auto-generated constructor stub
 		super(width, height);
 	}
@@ -37,6 +41,13 @@ public class CreateYourOwnCharacterAndWeaponScreen extends ClickableScreen imple
 		
 	}
 	
+	public void mouseClicked(MouseEvent e){
+		System.out.println("click");
+		if(helloJoeyHowIsTheBombHimerProjectGoing.isHovered(e.getX(), e.getY())){
+			helloJoeyHowIsTheBombHimerProjectGoing.act();
+		  }
+	}
+	
 	public void initObjects(ArrayList<Visible> viewObjects){
 		lbsod = new Graphic(0,0,1.0,"src/resources/legendarybluescreenofdeath.jpg");
 		female = new Graphic(0,0,.5,"src/resources/female.png");
@@ -44,6 +55,17 @@ public class CreateYourOwnCharacterAndWeaponScreen extends ClickableScreen imple
 		viewObjects.add(lbsod);
 		viewObjects.add(male);
 		viewObjects.add(female);
+		helloJoeyHowIsTheBombHimerProjectGoing = new Button(300, 300, 100, 50, "Click", Color.BLACK, new Action(){
+			public void act() {
+				if(madeSelection){
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
+				}
+				else{
+					System.out.println("Choose your gender");
+				}
+			}
+		});
+		viewObjects.add(helloJoeyHowIsTheBombHimerProjectGoing);
 	}
 	
 	public void keyPressed(KeyEvent k) {

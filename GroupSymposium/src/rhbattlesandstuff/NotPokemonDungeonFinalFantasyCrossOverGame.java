@@ -6,7 +6,8 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 
 	public static NotPokemonDungeonFinalFantasyCrossOverGame pmdffcog;
 	public static PressAnyWhereToContinueScreen patcScreen;
-	public static CreateYourOwnCharacterAndWeaponScreen cyocawScreen;
+	public static GenderScreenStuff cyocawScreen;
+	public static CreateNameScreenStuff cnssScreen;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -19,7 +20,8 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 	protected void initScreen() {
 		// TODO Auto-generated method stub
 		patcScreen = new PressAnyWhereToContinueScreen(1100, 700);
-		cyocawScreen = new CreateYourOwnCharacterAndWeaponScreen(1100,700);
+		cyocawScreen = new GenderScreenStuff(1100,700);
+		cnssScreen = new CreateNameScreenStuff(1100,700);
 		setScreen(patcScreen);
 	}
 
