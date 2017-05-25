@@ -19,10 +19,10 @@ public class Floor4 extends Floor{
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		layout = new Graphic[24][30];
 		playerCoordinate = new int[2];
-		playerCoordinate[0] = 3;
-		playerCoordinate[1] = 14;
-		
-		
+		playerCoordinate[0] = 20;
+		playerCoordinate[1] = 26;
+		layout[12][5] = new Stairs();
+		initWalls();
 		updateScreen(viewObjects);
 		
 	}
@@ -212,6 +212,7 @@ public class Floor4 extends Floor{
 		layout[16][20] = new SmallWall();
 		layout[16][22] = new SmallWall();
 		layout[16][24] = new SmallWall();
+		layout[16][25] = new SmallWall();
 		
 		layout[17][4] = new SmallWall();
 		layout[17][5] = new SmallWall();
@@ -292,7 +293,9 @@ public class Floor4 extends Floor{
 	@Override
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
-			if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
+			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
+				Map.game.setScreen(Map.screen5);
+			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
@@ -300,7 +303,9 @@ public class Floor4 extends Floor{
 				update();
 			}
 		}else if(direction == "down"){
-			if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
+			if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
+				Map.game.setScreen(Map.screen5);
+			}else if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] += 1;
@@ -308,7 +313,9 @@ public class Floor4 extends Floor{
 				update();
 			}
 		}else if(direction == "left"){
-			if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
+			if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
+				Map.game.setScreen(Map.screen5);
+			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] -= 1;
@@ -316,7 +323,9 @@ public class Floor4 extends Floor{
 				update();
 			}
 		}else{
-			if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
+			if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
+				Map.game.setScreen(Map.screen5);
+			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] += 1;
