@@ -2,9 +2,9 @@ package joeyDaniel;
 
 import java.util.ArrayList;
 
-import guiPractice.Screen;
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.userInterfaces.Screen;
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 
 public class Floor5 extends Floor {
 
@@ -20,7 +20,7 @@ public class Floor5 extends Floor {
 		playerCoordinate = new int[2];
 		playerCoordinate[0] = 3;
 		playerCoordinate[1] = 3;
-		layout[0][26] = new Stairs();
+		layout[3][26] = new Stairs();
 		updateScreen(viewObjects);
 	}
 	
@@ -286,6 +286,11 @@ public class Floor5 extends Floor {
 			x=0;
 		}
 	}
+	
+	public int[] getPlayerLocation(){
+		return playerCoordinate;
+	}
+	
 	
 	@Override
 	public void moveCharacter(String direction) {

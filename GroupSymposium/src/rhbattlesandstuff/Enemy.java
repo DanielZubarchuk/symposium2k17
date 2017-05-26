@@ -2,7 +2,9 @@ package rhbattlesandstuff;
 
 import java.util.ArrayList;
 
-public interface Enemy {
+import joeyDaniel.Obstruction;
+
+public interface Enemy extends Obstruction{
 	
 	public int[] getStats();
 	

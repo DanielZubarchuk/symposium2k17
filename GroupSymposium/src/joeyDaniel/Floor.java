@@ -4,8 +4,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
-import guiPractice.Screen;
-import guiPractice.components.Visible;
+import guiTeacher.userInterfaces.Screen;
+import guiTeacher.interfaces.Visible;
 
 public abstract class Floor extends Screen implements KeyListener{
 	//	left = 37
@@ -45,7 +45,7 @@ public abstract class Floor extends Screen implements KeyListener{
 	}
 
 	public abstract void moveCharacter(String direction);
-
+	public abstract void monsterMove();
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {

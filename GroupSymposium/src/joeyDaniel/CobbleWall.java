@@ -1,16 +1,16 @@
 package joeyDaniel;
 
-import guiPractice.components.Graphic;
+import guiTeacher.components.Graphic;
 
 public class CobbleWall extends Graphic implements Wall {
 
 	public CobbleWall(int x, int y) {
-		super(x, y, .5, "src/resources/cobble.jpg");
+		super(x, y, 0.1953125, "src/resources/dungeonwall.jpg");
 		// TODO Auto-generated constructor stub
 	}
 	
 	public CobbleWall() {
-		super(0, 0, .5, "src/resources/cobble.jpg");
+		super(0, 0, 0.1953125, "src/resources/dungeonwall.jpg");
 		// TODO Auto-generated constructor stub
 	}
 }
