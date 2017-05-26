@@ -234,6 +234,12 @@ public class TextField extends StyledComponent implements KeyedComponent,Clickab
 			g.setColor(Color.black);
 			int base = getHeight()-fm.getDescent();
 			//			if(cursorIndex> getText().length())cursorIndex = getText().length();
+//			if(cursorIndex>text.length()){
+//				cursorIndex = text.length();
+//			}
+//			if(selectedIndex > text.length()){
+//				
+//			}
 			int x = fm.stringWidth(getText().substring(0,cursorIndex))+X_MARGIN;
 			g.drawLine(x, base, x, base - fm.getHeight());
 		}
@@ -476,6 +482,7 @@ public class TextField extends StyledComponent implements KeyedComponent,Clickab
 
 	public void setText(String s){
 		this.text = s;
+		findCursor=true;
 		update();
 	}
 

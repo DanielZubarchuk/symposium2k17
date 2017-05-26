@@ -16,6 +16,8 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 	
 	private TextField typeName;
 	private TextLabel namestuff;
+	private boolean nameInput = false;
+	private Button confirm; 
 	
 
 	public CreateNameScreenStuff(int width, int height) {
@@ -29,11 +31,21 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		namestuff = new TextLabel(100,70,800,25, "Name goes here:");
 		typeName = new TextField(100, 100, 800, 48, "", "");
-		typeName.getText();
+		confirm = new Button(900, 550, 100, 50, "Confirm", Color.BLUE, new Action(){
+			public void act(){
+				if(typeName.getText().length()<=3 || typeName.getText().length()>=12){
+					typeName.setText("");
+					System.out.println("Please type in a name between 3-12 characters");
+				}
+				else{
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.sjsScreen);
+				}
+			}
+		});
 		viewObjects.add(namestuff);
 		viewObjects.add(typeName);
+		viewObjects.add(confirm);
 	}
-
 
 
 }

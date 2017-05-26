@@ -13,6 +13,7 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 	public static PressAnyWhereToContinueScreen patcScreen;
 	public static GenderScreenStuff cyocawScreen;
 	public static CreateNameScreenStuff cnssScreen;
+	public static SelectJobStuff sjsScreen;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,6 +29,7 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 		patcScreen = new PressAnyWhereToContinueScreen(1100, 700);
 		cyocawScreen = new GenderScreenStuff(1100,700);
 		cnssScreen = new CreateNameScreenStuff(1100,700);
+		sjsScreen = new SelectJobStuff(1100, 700);
 		setScreen(patcScreen);
 	}
 
