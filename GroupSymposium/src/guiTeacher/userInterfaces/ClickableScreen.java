@@ -18,6 +18,10 @@
  *******************************************************************************/
 package guiTeacher.userInterfaces;
 
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -27,6 +31,7 @@ import java.util.List;
 import guiTeacher.interfaces.Clickable;
 import guiTeacher.interfaces.Dragable;
 import guiTeacher.interfaces.Visible;
+import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 
 public abstract class ClickableScreen extends Screen implements MouseListener, MouseMotionListener {
 
@@ -74,9 +79,15 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 		clickables.remove(v);
 	}
 
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		cursorTo("src/resources/sand.png");
+	}
+	private void cursorTo(String s){
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image image = toolkit.getImage(s);
+		Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
+		NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setCursor (c);
 	}
 
 	public void mouseExited(MouseEvent arg0) {

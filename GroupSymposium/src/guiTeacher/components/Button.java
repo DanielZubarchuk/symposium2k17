@@ -136,13 +136,13 @@ public class Button extends TextLabel implements Clickable{
 //			
 //		}
 		hovered = b && enabled;
-		if(hovered){
-			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.HAND_CURSOR));
-			setLeft(false);
-		}else if (!hasLeft()){
-			setLeft(true);
-			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-		}
+//		if(hovered){
+//			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.HAND_CURSOR));
+//			setLeft(false);
+//		}else if (!hasLeft()){
+//			setLeft(true);
+//			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+//		}
 		return hovered;
 	}
 	
