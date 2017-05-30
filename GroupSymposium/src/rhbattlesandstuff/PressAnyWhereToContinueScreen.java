@@ -132,7 +132,7 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
 		bsod.setAction(new Action(){
 			public void act(){
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
 			}
 		});
 		viewObjects.add(bsod);

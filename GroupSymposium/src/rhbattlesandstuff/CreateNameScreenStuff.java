@@ -16,36 +16,43 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 	
 	private TextField typeName;
 	private TextLabel namestuff;
-	private boolean nameInput = false;
+	private TextLabel textPop;
+	private Graphic picPop;
 	private Button confirm; 
+//	private TextColoredLabel pop;
 	
+	static Player realPlayer = new Character();
 
 	public CreateNameScreenStuff(int width, int height) {
 		// TODO Auto-generated constructor stub
 		super(width, height);
 	}
 
-
-
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+//		pop = new TextColoredLabel(100, 500, 500, 100, "Are you sure?", Color.BLUE, Color.BLACK);
 		namestuff = new TextLabel(100,70,800,25, "Name goes here:");
 		typeName = new TextField(100, 100, 800, 48, "", "");
 		confirm = new Button(900, 550, 100, 50, "Confirm", Color.BLUE, new Action(){
 			public void act(){
-				if(typeName.getText().length()<=3 || typeName.getText().length()>=12){
-					typeName.setText("");
-					System.out.println("Please type in a name between 3-12 characters");
-				}
-				else{
-					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.sjsScreen);
-				}
+				
+//				viewObjects.add(pop);
+				
+				
+//				if(typeName.getText().length()<=2 || typeName.getText().length()>=13){
+//					System.out.println(typeName.getText());
+//					typeName.setText("");
+//					System.out.println("Please type in a name between 3-12 characters");
+//				}
+//				else{
+//					realPlayer.setName(typeName.getText());
+//					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.gssScreen);
+//					System.out.println(realPlayer.getName());;
+//				}
 			}
 		});
 		viewObjects.add(namestuff);
 		viewObjects.add(typeName);
 		viewObjects.add(confirm);
 	}
-
-
 }

@@ -13,6 +13,8 @@ public interface Player {
 	public void setAttacks(ArrayList<Moves> attacks);
 
 	public String getName();
+	
+	public void setName(String name);
 
 	public ArrayList<String> getItems();
 	

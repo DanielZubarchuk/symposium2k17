@@ -79,7 +79,12 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 		helloJoeyHowIsTheBombHimerProjectGoing = new Button(300, 300, 100, 50, "Click", Color.BLACK, new Action(){
 			public void act() {
 				if(madeSelection){
-					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
+					if(select==0){
+						NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.sjsmScreen);
+					}
+					else{
+						NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.sjsfScreen);
+					}
 				}
 				else{
 					System.out.println("Choose your gender");

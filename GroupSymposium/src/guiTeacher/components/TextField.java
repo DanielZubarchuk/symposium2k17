@@ -444,10 +444,10 @@ public class TextField extends StyledComponent implements KeyedComponent,Clickab
 			relativeX = x - getX();
 			relativeY = y - getY();
 			setLeft(false);
-			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+//			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 		}else if(!hasLeft()){
 			setLeft(true);
-			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+//			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 		}
 		return b;
 	}
