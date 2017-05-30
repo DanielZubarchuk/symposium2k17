@@ -2,9 +2,9 @@ package joeyDaniel;
 
 import java.util.ArrayList;
 
-import guiTeacher.userInterfaces.Screen;
-import guiTeacher.components.Graphic;
-import guiTeacher.interfaces.Visible;
+import guiPractice.Screen;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 
 public class Floor1 extends Floor{
 	private Graphic[][] layout;
@@ -46,7 +46,7 @@ public class Floor1 extends Floor{
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
-				addObject(new GrassPanel(i*100,x*100));
+				viewObjects.add(new GrassPanel(i*100,x*100));
 			}
 		}
 	}
@@ -132,7 +132,23 @@ public class Floor1 extends Floor{
 	@Override
 	public void monsterMove() {
 		// TODO Auto-generated method stub
-		
+		int[] coordinates = new int[2];
+		coordinates = spawnCoord();
+	}
+
+	public int[] spawnCoord() {
+		// TODO Auto-generated method stub
+		ArrayList<int[]> ValidCoord = new ArrayList<>();
+		for(int row = 0; row<layout.length; row++){
+			for(int col = 0; col<layout[row].length; col++){
+				if(layout[row][col] == null){
+					int[] x = {row,col};
+					ValidCoord.add(x);
+				}
+			}
+		}
+		int pick = (int)(Math.random()*ValidCoord.size());
+		return ValidCoord.get(pick);
 	}
 
 

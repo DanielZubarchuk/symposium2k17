@@ -1,6 +1,6 @@
 package joeyDaniel;
 
-import guiTeacher.components.*;
+import guiPractice.components.Graphic;;
 
 public class BossWall extends Graphic implements Wall {
 

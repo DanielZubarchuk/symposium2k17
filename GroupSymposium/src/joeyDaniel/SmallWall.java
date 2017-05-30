@@ -1,6 +1,6 @@
 package joeyDaniel;
 
-import guiTeacher.components.*;
+import guiPractice.components.Graphic;
 
 public class SmallWall extends Graphic implements Wall {
 
