@@ -132,7 +132,23 @@ public class Floor1 extends Floor{
 	@Override
 	public void monsterMove() {
 		// TODO Auto-generated method stub
-		
+		int[] coordinates = new int[2];
+		coordinates = generateValidCoordinate();
+	}
+
+	public int[] generateValidCoordinate() {
+		// TODO Auto-generated method stub
+		ArrayList<int[]> ValidCoord = new ArrayList<>();
+		for(int row = 0; row<layout.length; row++){
+			for(int col = 0; col<layout[row].length; col++){
+				if(layout[row][col] == null){
+					int[] x = {row,col};
+					ValidCoord.add(x);
+				}
+			}
+		}
+		int pick = (int)(Math.random()*ValidCoord.size());
+		return ValidCoord.get(pick);
 	}
 
 
