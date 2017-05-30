@@ -1,6 +1,6 @@
 package joeyDaniel;
 
-import guiTeacher.components.*;
+import guiPractice.components.Graphic;
 
 public class WoodWall extends Graphic implements Wall {
 

@@ -2,9 +2,9 @@ package joeyDaniel;
 
 import java.util.ArrayList;
 
-import guiTeacher.userInterfaces.Screen;
-import guiTeacher.components.Graphic;
-import guiTeacher.interfaces.Visible;
+import guiPractice.Screen;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 
 public class Floor3 extends Floor {
 
@@ -274,5 +274,10 @@ public class Floor3 extends Floor {
 				update();
 			}
 		}
+	}
+	@Override
+	public void monsterMove() {
+		// TODO Auto-generated method stub
+		
 	}
 }
