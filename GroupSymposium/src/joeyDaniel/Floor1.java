@@ -133,10 +133,10 @@ public class Floor1 extends Floor{
 	public void monsterMove() {
 		// TODO Auto-generated method stub
 		int[] coordinates = new int[2];
-		coordinates = generateValidCoordinate();
+		coordinates = spawnCoord();
 	}
 
-	public int[] generateValidCoordinate() {
+	public int[] spawnCoord() {
 		// TODO Auto-generated method stub
 		ArrayList<int[]> ValidCoord = new ArrayList<>();
 		for(int row = 0; row<layout.length; row++){
