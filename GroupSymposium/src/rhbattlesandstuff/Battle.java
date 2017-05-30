@@ -14,10 +14,16 @@ public class Battle{
 	
 	private ArrayList<String> moves;
 	
+	//MR. NOCKLES FIELD
+	static private ArrayList<Enemy> enemy = new ArrayList<Enemy>();
+	static private Player player;
+	static private boolean moveA;
+	static private boolean computerTurn;
+	
 	
 
 	public Battle() {
-
+		
 	}
 
 	public static void battle(Player a, Enemy b){
@@ -100,14 +106,8 @@ public class Battle{
 		return n.getAttacks().get(0);
 	}
 
-	//MR. NOCKLES FIELD
-	static private Enemy enemy;
-	static private Player player;
-	static private boolean moveA;
-	static private boolean computerTurn;
-
 	public static void engage(Enemy b){
-		enemy = b;
+		enemy.add(b);
 	}
 
 	public static void setPlayer(Player a){
@@ -125,8 +125,9 @@ public class Battle{
 	public static void runBattle() {
 		if(enemy!= null){
 			System.out.println("enemy is not null");
-			while(enemy.getStats()[0] >0 && player.getStats()[0]>0){
-				System.out.println("Enemy is DOOING THIIIIINGS!");
+			while(enemyIsLeftAlive() && player.getStats()[0]>0){
+				eachEnemyTakesTurn();
+				
 				computerTurn = false;
 				while(!computerTurn){
 					try {
@@ -138,14 +139,58 @@ public class Battle{
 					}
 					System.out.println("Computer is waiting for its turn.");
 					if(moveA){
-						System.out.println("YOOOOUU is DOOING THIIIIINGS!");
+						Enemy e = getEnemyInFrontOfPlayer();
+						int hp = e.getStats()[0];
+						e.getStats()[0]= hp - 10;
+						System.out.println("YOOOOUU is tackling enemy. Health is equal to " + (hp - 10) + ".");
 						moveA = false;
 					computerTurn = true;
 					}
 				}
 			}
-			enemy = null;
+			report();
+			enemy.removeAll(enemy);
 		}
+	}
+	
+	private static void report() {
+		for (Enemy e : enemy){
+			System.out.println(e.getId() + " has health" + e.getStats()[0]);
+			
+		}
+	}
+
+	//TEST METHOD
+	private static Enemy getEnemyInFrontOfPlayer() {
+		for (Enemy e : enemy){
+			if (e.getStats()[0] > 0){
+				return e;
+			}
+			
+		}
+		return null;
+	}
+
+	private static void eachEnemyTakesTurn() {
+		for(Enemy e: enemy){
+			if (e.getStats()[0] > 0){
+				System.out.println(e.getId() + " is DOOING THIIIIINGS!");
+			}
+			else {
+				System.out.println(e.getId() + " is ded");
+			}
+		}
+		
+	}
+
+	private static boolean enemyIsLeftAlive() {
+		for (Enemy e : enemy){
+			if (e.getStats()[0] > 0){
+				return true;
+			}
+			
+		}
+		return false;
 	}
 
 }

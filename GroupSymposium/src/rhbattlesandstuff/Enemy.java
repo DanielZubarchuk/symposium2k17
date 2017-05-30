@@ -22,4 +22,7 @@ public interface Enemy extends Obstruction{
 
 	public void setStats(int[] stats);
 
+	public void setId(String string);
+
+	public String getId();
 }

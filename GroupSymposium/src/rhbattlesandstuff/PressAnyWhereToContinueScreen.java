@@ -16,12 +16,14 @@ import java.util.List;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
+import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public class PressAnyWhereToContinueScreen extends ClickableScreen implements MouseMotionListener{
+public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements MouseMotionListener{
 
 	private ClickableGraphic bsod;
 	private Player b;
 	private Enemy a;
+	private Enemy a2;
 	private int[] test = b.getStats(); 
 	private int[] monTest = a.getStats();
 	private int floor = 0;
@@ -74,6 +76,7 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 	}
 	
 
+	
 	public void keyPressed(KeyEvent k) {
 		// TODO Auto-generated method stub\
 		if(k.getKeyCode() == KeyEvent.VK_9){
@@ -109,6 +112,7 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 				public void run() {
 					System.out.println("message a");
 					Battle.engage(a);
+					Battle.engage(a2);
 					Battle.setPlayer(b);
 					Battle.runBattle();
 				}
@@ -117,7 +121,7 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
 //			initMenu(viewObjects);
-			
+			Battle.doMoveA();
 		}
 //		else {
 //			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
@@ -128,6 +132,9 @@ public class PressAnyWhereToContinueScreen extends ClickableScreen implements Mo
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		a =new Monster();
+		a2 = new Monster();
+		a.setId("Monster a");
+		a2.setId("Monster b");
 		b = new Character();
 		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
 		bsod.setAction(new Action(){

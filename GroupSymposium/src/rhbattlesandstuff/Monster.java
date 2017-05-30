@@ -9,6 +9,7 @@ public class Monster implements Enemy{
 	private ArrayList<Moves> monMoves;
 	private ArrayList<Items> items;
 	private int getFloor = 2;
+	private String id;//id helps differentiate monster
 	
 	public Monster() {
 		monMoves = new ArrayList<Moves>();
@@ -64,6 +65,17 @@ public class Monster implements Enemy{
 	public int getDamage() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void setId(String string) {
+		id = string;
+		
+	}
+
+	@Override
+	public String getId() {
+		return id;
 	}
 
 }

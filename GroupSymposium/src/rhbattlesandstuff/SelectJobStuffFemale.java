@@ -96,7 +96,9 @@ public class SelectJobStuffFemale extends FullFunctionScreen{
 			selection = true;
 		}
 		if(selection && k.getKeyCode() == KeyEvent.VK_Z){
+			//The following line does't work
 			System.out.println(getName());
+			///////////////////////////////////////
 			CreateNameScreenStuff.realPlayer.setStats(allStats[select]);
 			System.out.println("You have selected " + job[select] + ".");
 			System.out.println(CreateNameScreenStuff.realPlayer.getName() + ", has this stats: " + Arrays.toString(CreateNameScreenStuff.realPlayer.getStats()));
