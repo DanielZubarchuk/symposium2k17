@@ -1,6 +1,6 @@
 package joeyDaniel;
 
-import guiTeacher.components.Graphic;
+import guiPractice.components.Graphic;
 
 public class GrassPanel extends Graphic{
 
