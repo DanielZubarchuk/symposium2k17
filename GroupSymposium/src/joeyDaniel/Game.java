@@ -41,6 +41,10 @@ public class Game extends GUIApplication{
 	
 	@Override
 	public void initScreen() {
+		createScreen = new CreateNameScreenStuff(716,738);
+		gender = new GenderScreenStuff(716, 738);
+		female = new SelectJobStuffFemale(716, 738);
+		male = new SelectJobStuffMale(716, 738);
 		screen1 = new Floor1();
 		screen2 = new Floor2();
 		screen3 = new Floor3();

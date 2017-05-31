@@ -3,14 +3,16 @@ package joeyDaniel;
 import java.util.ArrayList;
 import java.util.List;
 
+import rhbattlesandstuff.Character;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 
 public class Floor1 extends Floor{
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
-
-
+	private Character player;
+	
+	
 	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
@@ -26,6 +28,9 @@ public class Floor1 extends Floor{
 				if(layout[row][col] instanceof Staircase){
 					layout[row][col] = new Stairs(x*100,y*100);
 					viewObjects.add(layout[row][col]);
+				}
+				if(row == 3 && col == 3){
+					viewObjects.add(player);
 				}
 				x++;
 			}
@@ -74,7 +79,7 @@ public class Floor1 extends Floor{
 			}				
 		}
 	}
-
+	
 	@Override
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
@@ -150,6 +155,13 @@ public class Floor1 extends Floor{
 		playerCoordinate[1] = 14;
 		initWalls();
 		layout[5][5] = new Stairs();
+	}
+
+	@Override
+	public void setChar(Character x) {
+		// TODO Auto-generated method stub
+		player = x;
+		layout[3][14] = player;
 		updateScreen(viewObjects);
 	}
 

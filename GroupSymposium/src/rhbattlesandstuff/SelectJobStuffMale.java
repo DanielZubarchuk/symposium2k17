@@ -61,7 +61,8 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 			public void act(){
 			//	showBox(viewObjects);
 //				System.out.println(CreateNameScreenStuff.realPlayer.getName());
-				Game.game.setScreen(Game.screen1);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen1.setChar((Character) CreateNameScreenStuff.realPlayer);
 			}
 		});
 		
