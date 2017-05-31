@@ -24,7 +24,11 @@ public interface Player {
 
 	public void incrementStats();
 
-	public void addAttacks();
+	public void addAttacks(String n, int dmg);
 	
 	public ArrayList<Moves> getMoves();
+
+	public void setThing(int i);
+
+	public int getThing();
 }

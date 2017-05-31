@@ -26,10 +26,12 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 	private Enemy a2;
 	private int[] test = b.getStats(); 
 	private int[] monTest = a.getStats();
-	private int floor = 0;
+	private int floor = 1;
 	private ArrayList<Moves> testing;
 	private Graphic hud;
 	boolean hudstuff;
+	boolean ms;
+	private int thing = 0;
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
@@ -85,24 +87,24 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 			a.scaleWFloor();
 		}
 		else if(k.getKeyCode() == KeyEvent.VK_0){
-			System.out.println("Character Stats");
-			System.out.println(test[0]);
-			System.out.println(test[1]);
-			System.out.println(test[2]);
-			System.out.println(test[3]);
-			System.out.println(test[4]);
+			System.out.println("Character Stats:");
 			System.out.println();
-			b.incrementStats();
-			System.out.println("Monster Stats");
-			System.out.println(monTest[0]);
-			System.out.println(monTest[1]);
-			System.out.println(monTest[2]);
-			System.out.println(monTest[3]);
-			System.out.println(monTest[4]);
+			System.out.println("Health:  " + test[0]);
+			System.out.println("Attack:  " + test[1]);
+			System.out.println("Defense: " + test[2]);
+			System.out.println("Level:   " + test[3]);
+			System.out.println();
+			System.out.println("Floor " + floor + " Monster Stats:");
+			System.out.println("Health:  " + monTest[0]);
+			System.out.println("Attack:  " + monTest[1]);
+			System.out.println("Defense: " + monTest[2]);
+			System.out.println("Level:   " + monTest[3]);
 			
-			a.setAttacks(testing);
-			b.setAttacks(testing);
 			
+			b.addAttacks("Tackle", 3);
+			b.addAttacks("Lick", 2);
+			b.addAttacks("Slap", 2);
+			b.addAttacks("Pound", 4);
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_8){
 			System.out.println("message");
@@ -121,7 +123,37 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 		}
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
 //			initMenu(viewObjects);
-			Battle.doMoveA();
+			if(hudstuff && ms){
+				Battle.doTheMove();
+			}
+			else{
+				Battle.doMoveA();
+			}
+		}
+		else if(k.getKeyCode() == KeyEvent.VK_ENTER){
+			hudstuff = !hudstuff;
+		}
+		if(hudstuff){
+			ms = true;
+			System.out.println("Menu is open");
+			if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
+				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 	
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_UP){
+				b.setThing(thing --);
+				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
+				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_DOWN){
+				b.setThing(thing ++);
+				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
+			}
+		}
+		if(!hudstuff){
+			System.out.println("Menu is closed");
+			ms = false;
 		}
 //		else {
 //			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);

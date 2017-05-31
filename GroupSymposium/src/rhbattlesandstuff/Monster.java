@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class Monster implements Enemy{
 
-	private int[] stats = {4, 1, 1, 1, 1};
+	private int[] stats = {4, 1, 1, 1};
 	private String name = "slime";
 	private ArrayList<Moves> monMoves;
 	private ArrayList<Items> items;
 	private int getFloor = 2;
 	private String id;//id helps differentiate monster
+	private int[] position;
 	
 	public Monster() {
 		monMoves = new ArrayList<Moves>();
@@ -31,9 +32,9 @@ public class Monster implements Enemy{
 			stats[0] += (int)((Math.random() * 7) + 1);
 			stats[1] += (int)((Math.random() * 3) + 1);
 			stats[2] += (int)((Math.random() * 3) + 1);
-			stats[3] += (int)((Math.random() * 2) + 1);
-			stats[4] ++;
+			stats[3] ++;
 		}
+		
 	}
 	
 	@Override
@@ -43,7 +44,7 @@ public class Monster implements Enemy{
 	}
 
 	public void setAttacks(ArrayList<Moves> attacks) {
-		monMoves.add(new Moves("tackle", 3, "insert whatever"));
+		monMoves.add(new Moves("tackle", 3));
 	}
 	
 	@Override
@@ -78,4 +79,8 @@ public class Monster implements Enemy{
 		return id;
 	}
 
+	public int[] getPosition() {
+		return position;
+	}
+	
 }
