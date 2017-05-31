@@ -3,9 +3,9 @@ package joeyDaniel;
 import guiPractice.GUIApplication;
 import rhbattlesandstuff.Character;
 
-public class Map extends GUIApplication{
+public class Game extends GUIApplication{
 	
-	public static Map game;
+	public static Game game;
 	public static Character x;
 	public static Floor1 screen1;
 	public static Floor2 screen2;
@@ -15,7 +15,7 @@ public class Map extends GUIApplication{
 	public static Floor6 screen6;
 	public static Floor7 screen7;
 	
-	public Map(){
+	public Game(){
 		super();
 	}
 	
@@ -23,7 +23,7 @@ public class Map extends GUIApplication{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		game = new Map();
+		game = new Game();
 		Thread app = new Thread(game);
 		app.start();
 		

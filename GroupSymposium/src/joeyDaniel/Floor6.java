@@ -269,7 +269,7 @@ public class Floor6 extends Floor {
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
 			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
-				Map.game.setScreen(Map.screen7);
+				Game.game.setScreen(Game.screen7);
 			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -279,7 +279,7 @@ public class Floor6 extends Floor {
 			}
 		}else if(direction == "down"){
 			if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
-				Map.game.setScreen(Map.screen7);
+				Game.game.setScreen(Game.screen7);
 			}else if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -289,7 +289,7 @@ public class Floor6 extends Floor {
 			}
 		}else if(direction == "left"){
 			if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
-				Map.game.setScreen(Map.screen7);
+				Game.game.setScreen(Game.screen7);
 			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -299,7 +299,7 @@ public class Floor6 extends Floor {
 			}
 		}else{
 			if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
-				Map.game.setScreen(Map.screen7);
+				Game.game.setScreen(Game.screen7);
 			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
