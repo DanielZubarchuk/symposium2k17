@@ -63,6 +63,7 @@ public class SelectJobStuffFemale extends FullFunctionScreen{
 			public void act(){
 			//	showBox(viewObjects);
 //				System.out.println(CreateNameScreenStuff.realPlayer.getName());
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
 			}
 		});
 		

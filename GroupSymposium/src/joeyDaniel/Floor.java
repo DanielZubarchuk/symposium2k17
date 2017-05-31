@@ -3,6 +3,7 @@ package joeyDaniel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import rhbattlesandstuff.Character;
 
 public abstract class Floor extends FullFunctionScreen implements KeyListener{
 	//	left = 37
@@ -40,9 +41,12 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener{
 
 		}
 	}
+	
+	
 
 	public abstract void moveCharacter(String direction);
 	public abstract void monsterMove();
+	public abstract void setChar(Character x);
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
