@@ -10,37 +10,7 @@ public class Floor2 extends Floor {
 
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
-
-//		for(int i = 0; i < 4; i++){
-//		for(int j = 0; j < 30;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-//	for(int i = 21 ; i < 24; i++){
-//		for(int j = 0; j < 30;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-//	for(int i = 0; i < 24; i++){
-//		for(int j = 0; j < 4;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-//	for(int i = 0; i < 24; i++){
-//		for(int j = 27; j < 30;j++){
-//			layout[i][j] = new WoodWall();
-//		}
-//	}
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		layout = new Graphic[24][30];
-		initWalls();
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 3;
-		playerCoordinate[1] = 14;
-		layout[20][26] = new Stairs();
-		updateScreen(viewObjects);
-	}
+	
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
@@ -49,7 +19,7 @@ public class Floor2 extends Floor {
 		}
 	}
 	
-	private void updateScreen(ArrayList<Visible> viewObjects) {
+	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -306,6 +276,12 @@ public class Floor2 extends Floor {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		
+		layout = new Graphic[24][30];
+		initWalls();
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 14;
+		layout[20][26] = new Stairs();
+		updateScreen(viewObjects);
 	}
 }

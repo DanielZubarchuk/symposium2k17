@@ -11,17 +11,6 @@ public class Floor3 extends Floor {
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
 
-
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		layout = new Graphic[24][30];
-		initWalls();
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 18;
-		playerCoordinate[1] = 3;
-		layout[9][26] = new Stairs();
-		updateScreen(viewObjects);
-	}
 	private void initWalls(){
 		for(int i = 0; i<layout.length; i++){
 			for(int j = 0; j<layout[i].length; j++){
@@ -208,7 +197,7 @@ public class Floor3 extends Floor {
 		}
 	}
 	
-	private void updateScreen(ArrayList<Visible> viewObjects) {
+	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -283,6 +272,12 @@ public class Floor3 extends Floor {
 	@Override
 	public void initAllObjects(List<guiTeacher.interfaces.Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		
+		layout = new Graphic[24][30];
+		initWalls();
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 18;
+		playerCoordinate[1] = 3;
+		layout[9][26] = new Stairs();
+		updateScreen(viewObjects);
 	}
 }

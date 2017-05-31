@@ -13,16 +13,6 @@ public class Floor5 extends Floor {
 
 	
 
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		layout = new Graphic[24][30];
-		initWalls();
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 3;
-		playerCoordinate[1] = 3;
-		layout[3][26] = new Stairs();
-		updateScreen(viewObjects);
-	}
 	
 	private void initWalls(){
 
@@ -264,7 +254,7 @@ public class Floor5 extends Floor {
 		}
 	}
 	
-	private void updateScreen(ArrayList<Visible> viewObjects) {
+	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -346,6 +336,12 @@ public class Floor5 extends Floor {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		
+		layout = new Graphic[24][30];
+		initWalls();
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 3;
+		layout[3][26] = new Stairs();
+		updateScreen(viewObjects);
 	}
 }
