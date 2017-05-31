@@ -1,25 +1,17 @@
 package joeyDaniel;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 
 public class Floor1 extends Floor{
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
 
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 3;
-		playerCoordinate[1] = 14;
-		initWalls();
-		layout[5][5] = new Stairs();
-		updateScreen(viewObjects);
-	}
 
-	private void updateScreen(ArrayList<Visible> viewObjects) {
+	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -45,7 +37,7 @@ public class Floor1 extends Floor{
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
-				viewObjects.add(new GrassPanel(i*100,x*100));
+				addObject(new GrassPanel(i*100,x*100));
 			}
 		}
 	}
@@ -148,6 +140,17 @@ public class Floor1 extends Floor{
 		}
 		int pick = (int)(Math.random()*ValidCoord.size());
 		return ValidCoord.get(pick);
+	}
+
+	@Override
+	public void initAllObjects(List<guiTeacher.interfaces.Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 3;
+		playerCoordinate[1] = 14;
+		initWalls();
+		layout[5][5] = new Stairs();
+		updateScreen(viewObjects);
 	}
 
 

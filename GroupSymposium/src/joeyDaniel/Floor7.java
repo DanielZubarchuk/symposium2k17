@@ -1,32 +1,21 @@
 package joeyDaniel;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.Screen;
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 
 public class Floor7 extends Floor{
 
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
 
-
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		layout = new Graphic[24][30];
-		initWalls();
-		playerCoordinate = new int[2];
-		playerCoordinate[0] = 11;
-		playerCoordinate[1] = 14;
-//		layout[20][26] = new Stairs();
-		updateScreen(viewObjects);
-	}
 	
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
-				viewObjects.add(new BossGround(i*100,x*100));
+				addObject(new BossGround(i*100,x*100));
 			}
 		}
 	}
@@ -280,7 +269,7 @@ public class Floor7 extends Floor{
 		layout[20][22] = new CobbleWall();
 	}
 	
-	private void updateScreen(ArrayList<Visible> viewObjects) {
+	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -352,6 +341,18 @@ public class Floor7 extends Floor{
 	public void monsterMove() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		layout = new Graphic[24][30];
+		initWalls();
+		playerCoordinate = new int[2];
+		playerCoordinate[0] = 11;
+		playerCoordinate[1] = 14;
+//		layout[20][26] = new Stairs();
+		updateScreen(viewObjects);
 	}
 
 }

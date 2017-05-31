@@ -1,10 +1,10 @@
 package joeyDaniel;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.Screen;
-import guiPractice.components.Graphic;
-import guiPractice.components.Visible;
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 
 public class Floor5 extends Floor {
 
@@ -339,6 +339,12 @@ public class Floor5 extends Floor {
 
 	@Override
 	public void monsterMove() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		
 	}

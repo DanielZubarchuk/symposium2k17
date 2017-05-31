@@ -1,6 +1,7 @@
 package joeyDaniel;
 
-import  guiPractice.components.Graphic;
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 
 public class BossGround extends Graphic {
 

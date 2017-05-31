@@ -1,7 +1,7 @@
 package joeyDaniel;
 
-import guiPractice.components.Graphic;
-
+import guiTeacher.components.Graphic;
+import guiTeacher.interfaces.Visible;
 public class CobbleWall extends Graphic implements Wall {
 
 	public CobbleWall(int x, int y) {

@@ -9,6 +9,7 @@ import java.util.List;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import joeyDaniel.Game;
 
 public class SelectJobStuffMale extends FullFunctionScreen {
 
@@ -60,6 +61,7 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 			public void act(){
 			//	showBox(viewObjects);
 //				System.out.println(CreateNameScreenStuff.realPlayer.getName());
+				Game.game.setScreen(Game.screen1);
 			}
 		});
 		

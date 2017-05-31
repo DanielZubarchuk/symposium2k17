@@ -2,9 +2,9 @@ package joeyDaniel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import guiPractice.Screen;
+import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public abstract class Floor extends Screen implements KeyListener{
+public abstract class Floor extends FullFunctionScreen implements KeyListener{
 	//	left = 37
 	//	up = 38
 	//	right = 39

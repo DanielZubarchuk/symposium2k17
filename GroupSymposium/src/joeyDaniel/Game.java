@@ -1,7 +1,11 @@
 package joeyDaniel;
 
-import guiPractice.GUIApplication;
+import guiTeacher.GUIApplication;
 import rhbattlesandstuff.Character;
+import rhbattlesandstuff.CreateNameScreenStuff;
+import rhbattlesandstuff.GenderScreenStuff;
+import rhbattlesandstuff.SelectJobStuffFemale;
+import rhbattlesandstuff.SelectJobStuffMale;
 
 public class Game extends GUIApplication{
 	
@@ -14,9 +18,13 @@ public class Game extends GUIApplication{
 	public static Floor5 screen5;
 	public static Floor6 screen6;
 	public static Floor7 screen7;
+	public static CreateNameScreenStuff createScreen;
+	public static GenderScreenStuff gender;
+	public static SelectJobStuffFemale female;
+	public static SelectJobStuffMale male;
 	
 	public Game(){
-		super();
+		super(716, 738);
 	}
 	
 	
@@ -32,7 +40,7 @@ public class Game extends GUIApplication{
 	
 	
 	@Override
-	protected void initScreen() {
+	public void initScreen() {
 		screen1 = new Floor1();
 		screen2 = new Floor2();
 		screen3 = new Floor3();
@@ -40,7 +48,7 @@ public class Game extends GUIApplication{
 		screen5 = new Floor5();
 		screen6 = new Floor6();
 		screen7 = new Floor7();
-		setScreen(screen6);
+		setScreen(createScreen);
 	}
 	
 	

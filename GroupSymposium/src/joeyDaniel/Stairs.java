@@ -1,6 +1,6 @@
 package joeyDaniel;
 
-import guiPractice.components.Graphic;
+import guiTeacher.components.Graphic;
 
 public class Stairs extends Graphic implements Staircase{
 
