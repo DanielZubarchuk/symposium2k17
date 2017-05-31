@@ -1,8 +1,6 @@
 package joeyDaniel;
 
 import guiPractice.GUIApplication;
-import guiPractice.Screen;
-import guiPractice.components.Graphic;
 import rhbattlesandstuff.Character;
 
 public class Map extends GUIApplication{
@@ -40,9 +38,9 @@ public class Map extends GUIApplication{
 		screen3 = new Floor3();
 		screen4 = new Floor4();
 		screen5 = new Floor5();
-//		screen6 = new Floor6();
-//		screen7 = new Floor7();
-		game.setScreen(screen1);
+		screen6 = new Floor6();
+		screen7 = new Floor7();
+		setScreen(screen6);
 	}
 	
 	

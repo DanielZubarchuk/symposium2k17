@@ -2,7 +2,6 @@ package joeyDaniel;
 
 import java.util.ArrayList;
 
-import guiPractice.Screen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 

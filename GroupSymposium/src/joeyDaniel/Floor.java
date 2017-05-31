@@ -2,10 +2,7 @@ package joeyDaniel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-
 import guiPractice.Screen;
-import guiPractice.components.Visible;
 
 public abstract class Floor extends Screen implements KeyListener{
 	//	left = 37
