@@ -18,6 +18,7 @@ public class Battle{
 	static private ArrayList<Enemy> enemy = new ArrayList<Enemy>();
 	static private Player player;
 	static private boolean moveA;
+	static private boolean moveMade;
 	static private boolean computerTurn;
 	
 	
@@ -125,6 +126,8 @@ public class Battle{
 	public static void runBattle() {
 		if(enemy!= null){
 			System.out.println("enemy is not null");
+			Enemy e = getEnemyInFrontOfPlayer();
+			int hp = e.getStats()[0];
 			while(enemyIsLeftAlive() && player.getStats()[0]>0){
 				eachEnemyTakesTurn();
 				
@@ -133,17 +136,22 @@ public class Battle{
 					try {
 						Thread.sleep(500);
 						
-					} catch (InterruptedException e) {
+					} catch (InterruptedException c) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						c.printStackTrace();
 					}
-					System.out.println("Computer is waiting for its turn.");
 					if(moveA){
-						Enemy e = getEnemyInFrontOfPlayer();
-						int hp = e.getStats()[0];
-						e.getStats()[0]= hp - 10;
-						System.out.println("YOOOOUU is tackling enemy. Health is equal to " + (hp - 10) + ".");
+						e.getStats()[0] = hp - player.getStats()[1];
+						System.out.println(e.getId() + " hp is equal to " + hp);
+						System.out.println("YOOOOUU is tackling " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getStats()[1]) + ".");
 						moveA = false;
+					computerTurn = true;
+					}
+					else if(moveMade){
+						e.getStats()[0] = hp - player.getMoves().get(player.getThing()).getDmg();
+						System.out.println(e.getId() + " hp is equal to " + hp);
+						System.out.println("YOOOOUU is doing something to " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getMoves().get(player.getThing()).getDmg()) + ".");
+						moveMade = false;
 					computerTurn = true;
 					}
 				}
@@ -155,7 +163,7 @@ public class Battle{
 	
 	private static void report() {
 		for (Enemy e : enemy){
-			System.out.println(e.getId() + " has health" + e.getStats()[0]);
+			System.out.println(e.getId() + "'s hp is " + e.getStats()[0]);
 			
 		}
 	}
@@ -192,5 +200,12 @@ public class Battle{
 		}
 		return false;
 	}
+
+	public static void doTheMove() {
+		moveMade = true;
+		
+	}
+	
+	
 
 }

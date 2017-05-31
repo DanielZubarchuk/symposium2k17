@@ -7,11 +7,12 @@ import guiTeacher.components.*;
 
 public class Character extends Graphic implements Player{
 
-	private int[] stats = {10, 2, 1, 2, 1};
+	private int[] stats = {10, 2, 1, 1};
 	private String gender;
 	private String name = "Javaman";
 	private ArrayList<Moves> moves; 
 	private int[] location;
+	private int thing = 0;
 	
 	public Character(){
 		super(0,0,0.1182033096926714,"src/resources/char.png");
@@ -68,13 +69,17 @@ public class Character extends Graphic implements Player{
 		stats[0] += (int)(Math.random() * 10) + 1;
 		stats[1] += (int)(Math.random() * 3) + 1;
 		stats[2] += (int)(Math.random() * 3) + 1;
-		stats[3] += (int)(Math.random() * 2) + 1;
-		stats[4] ++;
+		stats[3] ++;
 		
 	}
 	
-	public void addAttacks(){
-		moves.add(new Moves("bodied", 3,"tackle the enemy with the force of your mother."));
+	public void addAttacks(String name, int dmg){
+		if(moves.size() == 4){
+			System.out.println("TOO MANY ATTACKS. NO MORE ADDING");
+		}
+		else{
+			moves.add(new Moves(name, dmg));
+		}
 	}
 	@Override
 	public ArrayList<Moves> getAttacks() {
@@ -87,7 +92,7 @@ public class Character extends Graphic implements Player{
 	public void setAttacks(ArrayList<Moves> attacks) {
 		// TODO Auto-generated method stub
 		//bodied
-		moves.add(new Moves("bodied", 3,"tackle the enemy with the force of your mother."));
+		
 	}
 	
 	@Override
@@ -120,6 +125,14 @@ public class Character extends Graphic implements Player{
 	
 	public int getLevel() {
 		return stats[4];
+	}
+
+	public int getThing(){
+		return thing;
+	}
+	
+	public void setThing(int thing){
+		this.thing = thing;
 	}
 
 }
