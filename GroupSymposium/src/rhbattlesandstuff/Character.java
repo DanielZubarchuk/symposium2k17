@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import guiTeacher.components.*;
 
-public class Character implements Player{
+public class Character extends Graphic implements Player{
 
 	private int[] stats = {10, 2, 1, 2, 1};
 	private String gender;
@@ -14,6 +14,7 @@ public class Character implements Player{
 	private int[] location;
 	
 	public Character(){
+		super(0,0,0.1182033096926714,"src/resources/char.png");
 		moves = new ArrayList<Moves>();
 		location = new int[2];
 	}
