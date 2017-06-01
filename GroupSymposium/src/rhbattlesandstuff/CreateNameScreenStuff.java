@@ -38,29 +38,30 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 			boolean shown = false;
 			public void act(){
 				
-				if(!shown){
-					addObject(pop);
-					shown = true;
-				}
-				else{
-					remove(pop);
-					shown = false;
-				}
-				
-//				if(typeName.getText().length()<=2 || typeName.getText().length()>=13){
-//					System.out.println(typeName.getText());
-//					typeName.setText("");
-//					System.out.println("Please type in a name between 3-12 characters");
+//				if(!shown){
+//					addObject(pop);
+//					shown = true;
 //				}
 //				else{
-//					realPlayer.setName(typeName.getText());
-//					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.gssScreen);
-//					System.out.println(realPlayer.getName());;
+//					remove(pop);
+//					shown = false;
 //				}
+				
+				if(typeName.getText().length()<=2 || typeName.getText().length()>=13){
+					System.out.println(typeName.getText());
+					typeName.setText("");
+					System.out.println("Please type in a name between 3-12 characters");
+				}
+				else{
+					realPlayer.setName(typeName.getText());
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.gssScreen);
+					System.out.println(realPlayer.getName());;
+				}
 			}
 		});
 		viewObjects.add(namestuff);
 		viewObjects.add(typeName);
 		viewObjects.add(confirm);
+		update();
 	}
 }

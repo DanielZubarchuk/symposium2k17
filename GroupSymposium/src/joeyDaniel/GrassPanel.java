@@ -5,7 +5,7 @@ import guiTeacher.components.Graphic;
 public class GrassPanel extends Graphic{
 
 	public GrassPanel(int x, int y) {
-		super(x, y, 0.390625,"src/resources/grass1.png");
+		super(x, y, 2,"src/resources/newGrass.png");
 		// TODO Auto-generated constructor stub
 	}
 

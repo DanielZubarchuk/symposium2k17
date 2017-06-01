@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rhbattlesandstuff.Character;
+import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
+import rhbattlesandstuff.Player;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 
@@ -29,7 +31,9 @@ public class Floor1 extends Floor{
 					layout[row][col] = new Stairs(x*100,y*100);
 					viewObjects.add(layout[row][col]);
 				}
-				if(row == 3 && col == 3){
+				if(layout[row][col] instanceof Player){
+					player.setX(300);
+					player.setY(300);
 					viewObjects.add(player);
 				}
 				x++;
@@ -84,7 +88,8 @@ public class Floor1 extends Floor{
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
 			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
-				Game.game.setScreen(Game.screen2);
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
 			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -94,7 +99,8 @@ public class Floor1 extends Floor{
 			}
 		}else if(direction == "down"){
 			if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
-				Game.game.setScreen(Game.screen2);
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
 			}else if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -104,7 +110,8 @@ public class Floor1 extends Floor{
 			}
 		}else if(direction == "left"){
 			if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
-				Game.game.setScreen(Game.screen2);
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
 			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -114,7 +121,8 @@ public class Floor1 extends Floor{
 			}
 		}else{
 			if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
-				Game.game.setScreen(Game.screen2);
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
 			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -155,6 +163,8 @@ public class Floor1 extends Floor{
 		playerCoordinate[1] = 14;
 		initWalls();
 		layout[5][5] = new Stairs();
+		updateScreen(viewObjects);
+		update();
 	}
 
 	@Override

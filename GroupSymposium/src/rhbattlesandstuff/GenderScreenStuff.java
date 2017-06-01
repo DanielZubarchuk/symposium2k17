@@ -92,6 +92,7 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 			}
 		});
 		viewObjects.add(helloJoeyHowIsTheBombHimerProjectGoing);
+		update();
 	}
 
 	public KeyListener getKeyListener(){

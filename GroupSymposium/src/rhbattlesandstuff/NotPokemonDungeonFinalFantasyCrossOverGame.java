@@ -33,7 +33,7 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		pmdffcog = new NotPokemonDungeonFinalFantasyCrossOverGame(716,738);
+		pmdffcog = new NotPokemonDungeonFinalFantasyCrossOverGame(716,938);
 		pmdffcog.setVisible(true);
 		Thread app = new Thread(pmdffcog);
 		app.start();

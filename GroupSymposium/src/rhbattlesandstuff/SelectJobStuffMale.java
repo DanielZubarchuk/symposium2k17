@@ -77,6 +77,7 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 		viewObjects.add(confirm);
 		
 		viewObjects.add(confirmBox);
+		update();
 	}
 
 	public void keyPressed(KeyEvent k) {

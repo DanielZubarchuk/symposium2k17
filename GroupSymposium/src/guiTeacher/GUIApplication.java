@@ -94,17 +94,17 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 	public void run() {
 		long updateTime;
 		long timeAfterUpdate;
+			currentScreen.update();
 		while(true){
 			updateTime = System.currentTimeMillis();
-			currentScreen.update();
 			repaint();
-			timeAfterUpdate = 30-(System.currentTimeMillis()-updateTime);
-			try {
-				if(timeAfterUpdate > 0)
-				Thread.sleep(timeAfterUpdate);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+//			timeAfterUpdate = 30-(System.currentTimeMillis()-updateTime);
+//			try {
+//				if(timeAfterUpdate > 0)
+//				Thread.sleep(timeAfterUpdate);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 		}
 	}
 	

@@ -79,6 +79,7 @@ public abstract class FullFunctionScreen extends ClickableScreen implements KeyL
 	public void keyTyped(KeyEvent e) {
 		if(activeKeyedComponent != null){
 			activeKeyedComponent.keyTyped(e);
+			update();
 		}
 	}
 
@@ -145,6 +146,7 @@ public abstract class FullFunctionScreen extends ClickableScreen implements KeyL
 	public void keyPressed(KeyEvent e) {
 		if(activeKeyedComponent != null){
 			activeKeyedComponent.keyPressed(e);
+			update();
 		}
 	}
 
