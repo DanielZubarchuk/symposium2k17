@@ -173,6 +173,7 @@ public class Floor1 extends Floor{
 		player = x;
 		layout[3][14] = player;
 		updateScreen(viewObjects);
+		update();
 	}
 
 
