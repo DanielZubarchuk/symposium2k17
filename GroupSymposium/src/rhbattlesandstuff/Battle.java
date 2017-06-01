@@ -126,8 +126,6 @@ public class Battle{
 	public static void runBattle() {
 		if(enemy!= null){
 			System.out.println("enemy is not null");
-			Enemy e = getEnemyInFrontOfPlayer();
-			int hp = e.getStats()[0];
 			while(enemyIsLeftAlive() && player.getStats()[0]>0){
 				eachEnemyTakesTurn();
 				
@@ -141,6 +139,8 @@ public class Battle{
 						c.printStackTrace();
 					}
 					if(moveA){
+						Enemy e = getEnemyInFrontOfPlayer();
+						int hp = e.getStats()[0];
 						e.getStats()[0] = hp - player.getStats()[1];
 						System.out.println(e.getId() + " hp is equal to " + hp);
 						System.out.println("YOOOOUU is tackling " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getStats()[1]) + ".");
@@ -148,6 +148,8 @@ public class Battle{
 					computerTurn = true;
 					}
 					else if(moveMade){
+						Enemy e = getEnemyInFrontOfPlayer();
+						int hp = e.getStats()[0];
 						e.getStats()[0] = hp - player.getMoves().get(player.getThing()).getDmg();
 						System.out.println(e.getId() + " hp is equal to " + hp);
 						System.out.println("YOOOOUU is doing something to " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getMoves().get(player.getThing()).getDmg()) + ".");

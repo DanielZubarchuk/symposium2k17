@@ -137,18 +137,25 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 			ms = true;
 			System.out.println("Menu is open");
 			if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
+				System.out.println(thing);
+				thing = 0;
 				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 	
 			}
 			else if(k.getKeyCode() == KeyEvent.VK_UP){
-				b.setThing(thing --);
+				System.out.println(thing);
+				b.setThing(-- thing);
 				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
 			}
 			else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
+				System.out.println(thing);
+				thing = 3;
 				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
 			}
 			else if(k.getKeyCode() == KeyEvent.VK_DOWN){
-				b.setThing(thing ++);
-				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
+				System.out.println(thing);
+				b.setThing(++ thing);
+				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option");
+				System.out.println(thing);
 			}
 		}
 		if(!hudstuff){
