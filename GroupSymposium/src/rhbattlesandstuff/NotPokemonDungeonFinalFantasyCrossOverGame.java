@@ -16,6 +16,12 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
+	//monster
+	//http://spritedatabase.net/game/2306
+	//hero
+	//http://spritedatabase.net/game/2209
+	//http://spritedatabase.net/game/11
+	//http://spritedatabase.net/file/11749
 	public static Character x;
 	public static Floor1 screen1;
 	public static Floor2 screen2;
