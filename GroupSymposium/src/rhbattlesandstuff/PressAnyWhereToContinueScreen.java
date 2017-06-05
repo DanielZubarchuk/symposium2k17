@@ -22,8 +22,8 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 
 	private ClickableGraphic bsod;
 	private Player b;
-	private Enemy a;
-	private Enemy a2;
+	private BasicMonster a;
+	private BasicMonster a2;
 	private int[] test = b.getStats(); 
 	private int[] monTest = a.getStats();
 	private int floor = 1;
