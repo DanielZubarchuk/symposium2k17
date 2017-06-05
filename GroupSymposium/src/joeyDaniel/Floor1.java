@@ -3,6 +3,7 @@ package joeyDaniel;
 import java.util.ArrayList;
 import java.util.List;
 
+import rhbattlesandstuff.BasicMonster;
 import rhbattlesandstuff.Character;
 import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 import rhbattlesandstuff.Player;
@@ -12,7 +13,6 @@ import guiTeacher.interfaces.Visible;
 public class Floor1 extends Floor{
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
-	private Character player;
 	
 	
 	private void updateScreen(List<Visible> viewObjects) {
@@ -137,7 +137,21 @@ public class Floor1 extends Floor{
 	public void monsterMove() {
 		// TODO Auto-generated method stub
 		int[] coordinates = new int[2];
-		coordinates = spawnCoord();
+		for(int row = 0; row<layout.length; row++){
+			for(int col = 0; col<layout[row].length; col++){
+				if(layout[row][col] instanceof BasicMonster){
+					if(playerCoordinate[0] < row){
+						
+					}else if(playerCoordinate[0] > row){
+						
+					}else{
+						
+					}
+				}
+				
+			}
+		}
+		
 	}
 
 	public int[] spawnCoord() {

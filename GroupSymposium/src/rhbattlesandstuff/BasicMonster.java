@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import joeyDaniel.Obstruction;
 
-public interface Enemy extends Obstruction{
+public interface BasicMonster extends Obstruction{
 	
 	public int[] getStats();
 	

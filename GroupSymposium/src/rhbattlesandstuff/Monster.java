@@ -2,7 +2,7 @@ package rhbattlesandstuff;
 
 import java.util.ArrayList;
 
-public class Monster implements Enemy{
+public class Monster implements BasicMonster{
 
 	private int[] stats = {4, 1, 1, 1};
 	private String name = "slime";
