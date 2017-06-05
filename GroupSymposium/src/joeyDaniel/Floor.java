@@ -6,6 +6,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 import rhbattlesandstuff.Character;
 
 public abstract class Floor extends FullFunctionScreen implements KeyListener{
+	protected Character player;
 	//	left = 37
 	//	up = 38
 	//	right = 39

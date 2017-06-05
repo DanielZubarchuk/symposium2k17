@@ -12,7 +12,6 @@ import guiTeacher.interfaces.Visible;
 public class Floor1 extends Floor{
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
-	private Character player;
 	
 	
 	private void updateScreen(List<Visible> viewObjects) {
