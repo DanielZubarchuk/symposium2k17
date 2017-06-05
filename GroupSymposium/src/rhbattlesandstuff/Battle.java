@@ -15,7 +15,7 @@ public class Battle{
 	private ArrayList<String> moves;
 	
 	//MR. NOCKLES FIELD
-	static private ArrayList<Enemy> enemy = new ArrayList<Enemy>();
+	static private ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
 	static private Player player;
 	static private boolean moveA;
 	static private boolean moveMade;
@@ -27,7 +27,7 @@ public class Battle{
 		
 	}
 
-	public static void battle(Player a, Enemy b){
+	public static void battle(Player a, BasicMonster b){
 		System.out.println("Player has " + a.getStats()[0] + " hp");
 		System.out.println("Enemy has " + b.getStats()[0] + " hp");
 		while ((a.getStats()[0] > 0 && b.getStats()[0] != 0) || (b.getStats()[0] > 0 && a.getStats()[0] != 0)){
@@ -77,7 +77,7 @@ public class Battle{
 		outcome(a,b);
 	}
 
-	public static void outcome(Player a, Enemy b) {		
+	public static void outcome(Player a, BasicMonster b) {		
 		if(a.getStats()[0] > 0 && b.getStats()[0] <= 0){
 			System.out.println("You've won!");
 		}
@@ -86,13 +86,13 @@ public class Battle{
 		}
 	}
 
-	public static void dealDamageToEnemy(Moves m, Player a, Enemy b) {
+	public static void dealDamageToEnemy(Moves m, Player a, BasicMonster b) {
 		System.out.println("Javaman used " + "bodied" + "!");
 		b.getStats()[0] -= 3;
 		System.out.println("Enemy has " + b.getStats()[0] + " hp left");
 	}
 
-	public static void dealDamageToPlayer(Moves m, Enemy a, Player b) {
+	public static void dealDamageToPlayer(Moves m, BasicMonster a, Player b) {
 		System.out.println("Enemy used "  + "tackle" + "!");
 		b.getStats()[0] -= 3;
 		System.out.println("Javaman has " + b.getStats()[0] + " hp left");
@@ -103,11 +103,11 @@ public class Battle{
 
 	}
 
-	public static Moves chooseMove(Enemy n){
+	public static Moves chooseMove(BasicMonster n){
 		return n.getAttacks().get(0);
 	}
 
-	public static void engage(Enemy b){
+	public static void engage(BasicMonster b){
 		enemy.add(b);
 	}
 
@@ -139,7 +139,7 @@ public class Battle{
 						c.printStackTrace();
 					}
 					if(moveA){
-						Enemy e = getEnemyInFrontOfPlayer();
+						BasicMonster e = getEnemyInFrontOfPlayer();
 						int hp = e.getStats()[0];
 						e.getStats()[0] = hp - player.getStats()[1];
 						System.out.println(e.getId() + " hp is equal to " + hp);
@@ -148,7 +148,7 @@ public class Battle{
 					computerTurn = true;
 					}
 					else if(moveMade){
-						Enemy e = getEnemyInFrontOfPlayer();
+						BasicMonster e = getEnemyInFrontOfPlayer();
 						int hp = e.getStats()[0];
 						e.getStats()[0] = hp - player.getMoves().get(player.getThing()).getDmg();
 						System.out.println(e.getId() + " hp is equal to " + hp);
@@ -164,15 +164,15 @@ public class Battle{
 	}
 	
 	private static void report() {
-		for (Enemy e : enemy){
+		for (BasicMonster e : enemy){
 			System.out.println(e.getId() + "'s hp is " + e.getStats()[0]);
 			
 		}
 	}
 
 	//TEST METHOD
-	private static Enemy getEnemyInFrontOfPlayer() {
-		for (Enemy e : enemy){
+	private static BasicMonster getEnemyInFrontOfPlayer() {
+		for (BasicMonster e : enemy){
 			if (e.getStats()[0] > 0){
 				return e;
 			}
@@ -182,7 +182,7 @@ public class Battle{
 	}
 
 	private static void eachEnemyTakesTurn() {
-		for(Enemy e: enemy){
+		for(BasicMonster e: enemy){
 			if (e.getStats()[0] > 0){
 				System.out.println(e.getId() + " is DOOING THIIIIINGS!");
 			}
@@ -194,7 +194,7 @@ public class Battle{
 	}
 
 	private static boolean enemyIsLeftAlive() {
-		for (Enemy e : enemy){
+		for (BasicMonster e : enemy){
 			if (e.getStats()[0] > 0){
 				return true;
 			}
