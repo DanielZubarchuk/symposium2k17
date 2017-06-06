@@ -13,8 +13,8 @@ import guiTeacher.interfaces.Visible;
 public class Floor1 extends Floor{
 	private Graphic[][] layout;
 	private int[] playerCoordinate;
-	
-	
+
+
 	private void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
@@ -83,7 +83,7 @@ public class Floor1 extends Floor{
 			}				
 		}
 	}
-	
+
 	@Override
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
@@ -136,21 +136,71 @@ public class Floor1 extends Floor{
 	@Override
 	public void monsterMove() {
 		// TODO Auto-generated method stub
-		int[] coordinates = new int[2];
 		for(int row = 0; row<layout.length; row++){
 			for(int col = 0; col<layout[row].length; col++){
 				if(layout[row][col] instanceof BasicMonster){
-					if(playerCoordinate[0] < row){
-						
-					}else if(playerCoordinate[0] > row){
-						
+					if(nextToPlayer(row,col)){
+						layout[row][col].
 					}else{
-						
+						if(playerCoordinate[0] < row){
+							if(layout[row-1][col] == null||!(layout[row-1][col] instanceof Obstruction)){
+								layout[row-1][col] = layout[row][col];
+								layout[row][col] = null;
+							}else if(playerCoordinate[1] < col){
+								if(layout[row][col-1] == null||!(layout[row][col-1] instanceof Obstruction)){
+									layout[row][col-1] = layout[row][col];
+									layout[row][col] = null;
+								}
+							}else if(playerCoordinate[1] > col){
+								if(layout[row][col+1] == null||!(layout[row][col+1] instanceof Obstruction)){
+									layout[row][col+1] = layout[row][col];
+									layout[row][col] = null;
+								}
+							}
+						}else if(playerCoordinate[0] > row){
+							if(layout[row+1][col] == null||!(layout[row+1][col] instanceof Obstruction)){
+								layout[row+1][col] = layout[row][col];
+								layout[row][col] = null;
+							}else if(playerCoordinate[1] < col){
+								if(layout[row][col-1] == null||!(layout[row][col-1] instanceof Obstruction)){
+									layout[row][col-1] = layout[row][col];
+									layout[row][col] = null;
+								}
+							}else if(playerCoordinate[1] > col){
+								if(layout[row][col+1] == null||!(layout[row][col+1] instanceof Obstruction)){
+									layout[row][col+1] = layout[row][col];
+									layout[row][col] = null;
+								}
+							}
+						}else{
+							if(playerCoordinate[1] < col){
+								if(layout[row][col-1] == null||!(layout[row][col-1] instanceof Obstruction)){
+									layout[row][col-1] = layout[row][col];
+									layout[row][col] = null;
+								}
+							}else if(playerCoordinate[1] > col){
+								if(layout[row][col+1] == null||!(layout[row][col+1] instanceof Obstruction)){
+									layout[row][col+1] = layout[row][col];
+									layout[row][col] = null;
+								}
+							}
+						}
 					}
 				}
-				
 			}
 		}
+
+	}
+
+	private boolean nextToPlayer(int row, int col) {
+		// TODO Auto-generated method stub
+		if(playerCoordinate[0] == row && (playerCoordinate[1] == col-1 || playerCoordinate[1] == col+1)){
+			return true;
+		}
+		if(playerCoordinate[1] == col && (playerCoordinate[0] == row-1 || playerCoordinate[0] == row+1)){
+			return true;
+		}
+		return false;
 		
 	}
 
