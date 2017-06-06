@@ -12,6 +12,17 @@ public class Monster implements BasicMonster{
 	private String id;//id helps differentiate monster
 	private int[] position;
 	
+	//x,y
+	//slime:
+	//50,35 IDLE (ROW 1)
+	//50,35 MOVE (ROW 2)
+	//70,50 ATTACK (ROW 3)
+	//50,50 DEATH (ROW 4)
+	//headlessknight
+	//118,100 IDLE (ROW 1)
+	//118,100 MOVE (ROW 2)
+	//,86
+	
 	public Monster() {
 		monMoves = new ArrayList<Moves>();
 	}
