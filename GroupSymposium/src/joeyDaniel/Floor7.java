@@ -5,6 +5,8 @@ import java.util.List;
 
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
+import rhbattlesandstuff.Character;
+import rhbattlesandstuff.Player;
 
 public class Floor7 extends Floor{
 
@@ -285,6 +287,11 @@ public class Floor7 extends Floor{
 					layout[row][col] = new Stairs(x*100,y*100);
 					viewObjects.add(layout[row][col]);
 				}
+				if(layout[row][col] instanceof Player){
+					player.setX(300);
+					player.setY(300);
+					viewObjects.add(player);
+				}
 				x++;
 			}
 			y++;
@@ -353,6 +360,16 @@ public class Floor7 extends Floor{
 		playerCoordinate[1] = 14;
 //		layout[20][26] = new Stairs();
 		updateScreen(viewObjects);
+	}
+	
+	@Override
+	public void setChar(Character x) {
+		// TODO Auto-generated method stub
+		player = x;
+		layout[11][14] = player;
+		updateScreen(viewObjects);
+		update();
+
 	}
 
 }

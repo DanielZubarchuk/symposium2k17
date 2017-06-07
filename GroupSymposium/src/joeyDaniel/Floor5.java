@@ -5,6 +5,7 @@ import java.util.List;
 
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
+import rhbattlesandstuff.Character;
 import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 import rhbattlesandstuff.Player;
 
@@ -293,7 +294,8 @@ public class Floor5 extends Floor {
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
 			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
-				Game.game.setScreen(Game.screen6);
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen6.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen6);
 			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
@@ -353,5 +355,15 @@ public class Floor5 extends Floor {
 		playerCoordinate[1] = 3;
 		layout[3][26] = new Stairs();
 		updateScreen(viewObjects);
+	}
+	
+	@Override
+	public void setChar(Character x) {
+		// TODO Auto-generated method stub
+		player = x;
+		layout[3][3] = player;
+		updateScreen(viewObjects);
+		update();
+
 	}
 }
