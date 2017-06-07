@@ -2,7 +2,9 @@ package rhbattlesandstuff;
 
 import java.util.ArrayList;
 
-public class Monster implements BasicMonster{
+import guiTeacher.components.Graphic;
+
+public class Monster extends Graphic implements BasicMonster{
 
 	private int[] stats = {4, 1, 1, 1};
 	private String name = "slime";
@@ -23,7 +25,8 @@ public class Monster implements BasicMonster{
 	//118,100 MOVE (ROW 2)
 	//,86
 	
-	public Monster() {
+	public Monster(double scale, String image) {
+		super(0, 0, scale, image);
 		monMoves = new ArrayList<Moves>();
 	}
 
