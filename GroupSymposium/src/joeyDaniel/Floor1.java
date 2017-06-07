@@ -94,6 +94,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
 				spawnMonster(viewObjects);
+				monsterMove();
 				updateScreen(viewObjects);
 				update();
 			}
@@ -106,6 +107,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] += 1;
 				spawnMonster(viewObjects);
+				monsterMove();
 				updateScreen(viewObjects);
 				update();
 			}
@@ -118,6 +120,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] -= 1;
 				spawnMonster(viewObjects);
+				monsterMove();
 				updateScreen(viewObjects);
 				update();
 			}
@@ -130,6 +133,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] += 1;
 				spawnMonster(viewObjects);
+				monsterMove();
 				updateScreen(viewObjects);
 				update();
 			}
