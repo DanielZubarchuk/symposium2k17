@@ -13,6 +13,8 @@ public class Character extends Graphic implements Player{
 	private ArrayList<Moves> moves; 
 	private int[] location;
 	private int thing = 0;
+	private int currentFloor = 1;
+	
 	
 	public Character(){
 		super(0,0,0.1182033096926714,"src/resources/char.png");

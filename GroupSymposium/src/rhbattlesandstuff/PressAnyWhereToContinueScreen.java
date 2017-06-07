@@ -32,6 +32,9 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 	boolean hudstuff;
 	boolean ms;
 	private int thing = 0;
+	private int monNum = 0;
+	private ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
+	
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
@@ -162,6 +165,13 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 			System.out.println("Menu is closed");
 			ms = false;
 		}
+//		if(Battle.pick){
+//			if(k.getKeyCode() == KeyEvent.VK_UP && monNum == 0){
+//				System.out.println(a.getMonNum());
+//				monNum = 0;
+//				System.out.println("You have selected" + Battle.enemy.get(monNum).getId());
+//			}
+//		}
 //		else {
 //			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
 //		}
