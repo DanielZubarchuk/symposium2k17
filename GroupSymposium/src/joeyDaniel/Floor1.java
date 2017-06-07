@@ -7,6 +7,7 @@ import rhbattlesandstuff.BasicMonster;
 import rhbattlesandstuff.Character;
 import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 import rhbattlesandstuff.Player;
+import rhbattlesandstuff.Slime;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 
@@ -94,6 +95,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
+				spawnMonster();
 				updateScreen(viewObjects);
 				update();
 			}
@@ -133,6 +135,14 @@ public class Floor1 extends Floor{
 		}
 	}
 
+	private void spawnMonster() {
+		// TODO Auto-generated method stub
+		if(Math.random()*100 < 10){
+			int[] coord = spawnCoord();
+			layout[coord[0]][coord[1]] = new Slime();
+		}
+	}
+
 	@Override
 	public void monsterMove() {
 		// TODO Auto-generated method stub
@@ -140,7 +150,7 @@ public class Floor1 extends Floor{
 			for(int col = 0; col<layout[row].length; col++){
 				if(layout[row][col] instanceof BasicMonster){
 					if(nextToPlayer(row,col)){
-						layout[row][col].
+//						
 					}else{
 						if(playerCoordinate[0] < row){
 							if(layout[row-1][col] == null||!(layout[row-1][col] instanceof Obstruction)){
