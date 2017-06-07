@@ -25,4 +25,12 @@ public interface BasicMonster extends Obstruction{
 	public void setId(String string);
 
 	public String getId();
+
+	public int getMonNum();
+	
+	public void setMonNum(int monNum);
+
+	public ArrayList<BasicMonster> getEnemy();
+	
+	public void setEnemy(ArrayList<BasicMonster> enemy);
 }

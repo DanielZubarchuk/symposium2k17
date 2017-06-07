@@ -15,11 +15,12 @@ public class Battle{
 	private ArrayList<String> moves;
 	
 	//MR. NOCKLES FIELD
-	static private ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
+	static ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
 	static private Player player;
 	static private boolean moveA;
 	static private boolean moveMade;
 	static private boolean computerTurn;
+	static boolean pick;
 	
 	
 
@@ -207,7 +208,5 @@ public class Battle{
 		moveMade = true;
 		
 	}
-	
-	
 
 }

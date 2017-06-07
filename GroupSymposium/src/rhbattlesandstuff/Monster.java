@@ -10,9 +10,11 @@ public class Monster extends Graphic implements BasicMonster{
 	private String name = "slime";
 	private ArrayList<Moves> monMoves;
 	private ArrayList<Items> items;
-	private int getFloor = 2;
+	private int currentFloor = 1;
 	private String id;//id helps differentiate monster
 	private int[] position;
+	private int monNum = 0;
+	ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
 	
 	//x,y
 	//slime:
@@ -42,13 +44,60 @@ public class Monster extends Graphic implements BasicMonster{
 	
 	public void scaleWFloor() {
 		//getFloor()
-		for (int i = 1; i <= getFloor; i++){
-			stats[0] += (int)((Math.random() * 7) + 1);
-			stats[1] += (int)((Math.random() * 3) + 1);
-			stats[2] += (int)((Math.random() * 3) + 1);
-			stats[3] ++;
+//		for (int i = 1; i <= getFloor; i++){
+//			stats[0] += (int)((Math.random() * 7) + 1);
+//			stats[1] += (int)((Math.random() * 3) + 1);
+//			stats[2] += (int)((Math.random() * 3) + 1);
+//			stats[3] ++;
+//		}
+		if(currentFloor == 2){
+			for (int i = 0; i < 4; i++){
+				stats[0] += (int)((Math.random() * 7) + 1);
+				stats[1] += (int)((Math.random() * 3) + 1);
+				stats[2] += (int)((Math.random() * 3) + 1);
+				stats[3] ++;
+			}
 		}
-		
+		if(currentFloor == 3){
+			for (int i = 0; i < 4; i++){
+				stats[0] += (int)((Math.random() * 7) + 1);
+				stats[1] += (int)((Math.random() * 3) + 1);
+				stats[2] += (int)((Math.random() * 3) + 1);
+				stats[3] ++;
+			}
+		}
+		if(currentFloor == 4){
+			for (int i = 0; i < 4; i++){
+				stats[0] += (int)((Math.random() * 7) + 1);
+				stats[1] += (int)((Math.random() * 3) + 1);
+				stats[2] += (int)((Math.random() * 3) + 1);
+				stats[3] ++;
+			}
+		}
+		if(currentFloor == 5){
+			for (int i = 0; i < 4; i++){
+				stats[0] += (int)((Math.random() * 7) + 1);
+				stats[1] += (int)((Math.random() * 3) + 1);
+				stats[2] += (int)((Math.random() * 3) + 1);
+				stats[3] ++;
+			}
+		}
+		if(currentFloor == 6){
+			for (int i = 0; i < 4; i++){
+				stats[0] += (int)((Math.random() * 7) + 1);
+				stats[1] += (int)((Math.random() * 3) + 1);
+				stats[2] += (int)((Math.random() * 3) + 1);
+				stats[3] ++;
+			}
+		}
+		if(currentFloor == 7){
+			for (int i = 0; i < 4; i++){
+				stats[0] += (int)((Math.random() * 7) + 1);
+				stats[1] += (int)((Math.random() * 3) + 1);
+				stats[2] += (int)((Math.random() * 3) + 1);
+				stats[3] ++;
+			}
+		}
 	}
 	
 	@Override
@@ -95,6 +144,22 @@ public class Monster extends Graphic implements BasicMonster{
 
 	public int[] getPosition() {
 		return position;
+	}
+	
+	public int getMonNum(){
+		return monNum;
+	}
+	
+	public void setMonNum(int monNum){
+		this.monNum = monNum;
+	}
+	
+	public ArrayList<BasicMonster> getEnemy(){
+		return enemy;
+	}
+	
+	public void setEnemy(ArrayList<BasicMonster> enemy){
+		this.enemy = enemy;
 	}
 	
 }
