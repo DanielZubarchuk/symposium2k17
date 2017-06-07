@@ -24,18 +24,23 @@ public class Floor1 extends Floor{
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
 			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
-				if(layout[row][col] instanceof Wall){
-					layout[row][col] = new WoodWall(x*100,y*100);
+//				if(layout[row][col] instanceof Wall){
+//					layout[row][col] = new WoodWall(x*100,y*100);
+//					viewObjects.add(layout[row][col]);
+//				}
+//				if(layout[row][col] instanceof Staircase){
+//					layout[row][col] = new Stairs(x*100,y*100);
+//					viewObjects.add(layout[row][col]);
+//				}
+//				if(layout[row][col] instanceof Player){
+//					player.setX(300);
+//					player.setY(300);
+//					viewObjects.add(player);
+//				}
+				if(layout[row][col] != null){
+					layout[row][col].setX(x*100);
+					layout[row][col].setY(y*100);
 					viewObjects.add(layout[row][col]);
-				}
-				if(layout[row][col] instanceof Staircase){
-					layout[row][col] = new Stairs(x*100,y*100);
-					viewObjects.add(layout[row][col]);
-				}
-				if(layout[row][col] instanceof Player){
-					player.setX(300);
-					player.setY(300);
-					viewObjects.add(player);
 				}
 				x++;
 			}
@@ -76,13 +81,6 @@ public class Floor1 extends Floor{
 				layout[row][13] = new WoodWall();
 			}
 		}
-		for(int row = 3; row < layout.length-3; row++){
-			for(int col = 3; col<layout[row].length-3;col++){
-				if(layout[row][col] == null){
-					layout[row][col] = new Blank();
-				}
-			}				
-		}
 	}
 
 	@Override
@@ -95,7 +93,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] -= 1;
-				spawnMonster();
+				spawnMonster(viewObjects);
 				updateScreen(viewObjects);
 				update();
 			}
@@ -107,6 +105,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[0] += 1;
+				spawnMonster(viewObjects);
 				updateScreen(viewObjects);
 				update();
 			}
@@ -118,6 +117,7 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] -= 1;
+				spawnMonster(viewObjects);
 				updateScreen(viewObjects);
 				update();
 			}
@@ -129,17 +129,19 @@ public class Floor1 extends Floor{
 				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
 				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
 				playerCoordinate[1] += 1;
+				spawnMonster(viewObjects);
 				updateScreen(viewObjects);
 				update();
 			}
 		}
 	}
 
-	private void spawnMonster() {
+	private void spawnMonster(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		if(Math.random()*100 < 10){
 			int[] coord = spawnCoord();
 			layout[coord[0]][coord[1]] = new Slime();
+			viewObjects.add(layout[coord[0]][coord[1]]);
 		}
 	}
 

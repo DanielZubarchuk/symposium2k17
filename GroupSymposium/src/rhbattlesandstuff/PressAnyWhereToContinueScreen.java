@@ -24,8 +24,8 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 	private Player b;
 	private BasicMonster a;
 	private BasicMonster a2;
-	private int[] test = b.getStats(); 
-	private int[] monTest = a.getStats();
+//	private int[] test = b.getStats(); 
+//	private int[] monTest = a.getStats();
 	private int floor = 1;
 	private ArrayList<Moves> testing;
 	private Graphic hud;
@@ -179,12 +179,12 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		a =new Monster();
-		a2 = new Monster();
-		a.setId("Monster a");
-		a2.setId("Monster b");
-		b = new Character();
+//		// TODO Auto-generated method stub
+//		a =new Monster();
+//		a2 = new Monster();
+//		a.setId("Monster a");
+//		a2.setId("Monster b");
+//		b = new Character();
 		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
 		bsod.setAction(new Action(){
 			public void act(){
