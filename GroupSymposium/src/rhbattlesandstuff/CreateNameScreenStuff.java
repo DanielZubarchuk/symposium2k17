@@ -33,7 +33,7 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 		pop = new TextColoredLabel(100, 500, 500, 100, "Are you sure?", Color.BLUE, Color.BLACK);
 		namestuff = new TextLabel(100,70,800,25, "Name goes here:");
 		typeName = new TextField(100, 100, 800, 48, "", "");
-		confirm = new Button(900, 550, 100, 50, "Confirm", Color.BLUE, new Action(){
+		confirm = new Button(600, 550, 100, 50, "Confirm", Color.BLUE, new Action(){
 			
 			boolean shown = false;
 			public void act(){

@@ -80,111 +80,22 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 		viewObjects.remove(hud);
 	}
 	
-
-	
-	public void keyPressed(KeyEvent k) {
-		// TODO Auto-generated method stub\
-		if(k.getKeyCode() == KeyEvent.VK_9){
-			floor++;
-			System.out.println("This is floor " + floor + ".");
-			a.scaleWFloor();
+	public void keyPressed(KeyEvent k){
+		if (k.getKeyCode() == KeyEvent.VK_A){
+			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
 		}
-		else if(k.getKeyCode() == KeyEvent.VK_0){
-			System.out.println("Character Stats:");
-			System.out.println();
-			System.out.println("Health:  " + test[0]);
-			System.out.println("Attack:  " + test[1]);
-			System.out.println("Defense: " + test[2]);
-			System.out.println("Level:   " + test[3]);
-			System.out.println();
-			System.out.println("Floor " + floor + " Monster Stats:");
-			System.out.println("Health:  " + monTest[0]);
-			System.out.println("Attack:  " + monTest[1]);
-			System.out.println("Defense: " + monTest[2]);
-			System.out.println("Level:   " + monTest[3]);
-			
-			
-			b.addAttacks("Tackle", 3);
-			b.addAttacks("Lick", 2);
-			b.addAttacks("Slap", 2);
-			b.addAttacks("Pound", 4);
-		}
-		else if (k.getKeyCode() == KeyEvent.VK_8){
-			System.out.println("message");
-			Thread battle = new Thread(new Runnable() {
-				
-				@Override
-				public void run() {
-					System.out.println("message a");
-					Battle.engage(a);
-					Battle.engage(a2);
-					Battle.setPlayer(b);
-					Battle.runBattle();
-				}
-			});
-			battle.start();
-		}
-		else if (k.getKeyCode() == KeyEvent.VK_Z){
-//			initMenu(viewObjects);
-			if(hudstuff && ms){
-				Battle.doTheMove();
-			}
-			else{
-				Battle.doMoveA();
-			}
-		}
-		else if(k.getKeyCode() == KeyEvent.VK_ENTER){
-			hudstuff = !hudstuff;
-		}
-		if(hudstuff){
-			ms = true;
-			System.out.println("Menu is open");
-			if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
-				System.out.println(thing);
-				thing = 0;
-				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 	
-			}
-			else if(k.getKeyCode() == KeyEvent.VK_UP){
-				System.out.println(thing);
-				b.setThing(-- thing);
-				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
-			}
-			else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
-				System.out.println(thing);
-				thing = 3;
-				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option"); 
-			}
-			else if(k.getKeyCode() == KeyEvent.VK_DOWN){
-				System.out.println(thing);
-				b.setThing(++ thing);
-				System.out.println("This the " + b.getMoves().get(b.getThing()).getAttName() + " option");
-				System.out.println(thing);
-			}
-		}
-		if(!hudstuff){
-			System.out.println("Menu is closed");
-			ms = false;
-		}
-//		if(Battle.pick){
-//			if(k.getKeyCode() == KeyEvent.VK_UP && monNum == 0){
-//				System.out.println(a.getMonNum());
-//				monNum = 0;
-//				System.out.println("You have selected" + Battle.enemy.get(monNum).getId());
-//			}
-//		}
-//		else {
-//			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
-//		}
 	}
+	
+	
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 //		// TODO Auto-generated method stub
-//		a =new Monster();
-//		a2 = new Monster();
-//		a.setId("Monster a");
-//		a2.setId("Monster b");
-//		b = new Character();
+		a =new Monster(1.0, "src/resources/Monster/slimeSingle.png");
+		a2 = new Monster(1.0, "src/resources/Monster/slimeSingle.png");
+		a.setId("Monster a");
+		a2.setId("Monster b");
+		b = new Character();
 		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
 		bsod.setAction(new Action(){
 			public void act(){

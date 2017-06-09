@@ -15,13 +15,12 @@ public class Battle{
 	private ArrayList<String> moves;
 	
 	//MR. NOCKLES FIELD
-	static ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
+	static private ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
 	static private Player player;
 	static private boolean moveA;
 	static private boolean moveMade;
 	static private boolean computerTurn;
-	static boolean pick;
-	
+	static private ArrayList<BasicMonster> attackable = new ArrayList<BasicMonster>();
 	
 
 	public Battle() {
@@ -126,6 +125,7 @@ public class Battle{
 	
 	public static void runBattle() {
 		if(enemy!= null){
+			System.out.println(enemy.get(0));
 			System.out.println("enemy is not null");
 			while(enemyIsLeftAlive() && player.getStats()[0]>0){
 				eachEnemyTakesTurn();
@@ -162,6 +162,29 @@ public class Battle{
 			report();
 			enemy.removeAll(enemy);
 		}
+		else if (enemy == null){
+			System.out.println("Nothing is there");
+			computerTurn = false;
+			while(!computerTurn){
+				try {
+					Thread.sleep(500);
+					
+				} catch (InterruptedException c) {
+					// TODO Auto-generated catch block
+					c.printStackTrace();
+				}
+				if(moveA){
+					System.out.println("You attacked nothing");
+					moveA = false;
+					computerTurn = true;
+				}
+				else if(moveMade){
+					System.out.println("You attacked nothing");
+					moveMade = false;
+					computerTurn = true;
+				}
+			}
+		}
 	}
 	
 	private static void report() {
@@ -189,6 +212,7 @@ public class Battle{
 			}
 			else {
 				System.out.println(e.getId() + " is ded");
+				
 			}
 		}
 		
@@ -201,12 +225,33 @@ public class Battle{
 			}
 			
 		}
+		enemy.removeAll(enemy);
 		return false;
 	}
 
 	public static void doTheMove() {
 		moveMade = true;
 		
+	}
+	
+	public static void chooseEnemy() {
+		
+	}
+	
+	public ArrayList<BasicMonster> checkEnemy(){
+		int[][] check = new int[3][3];
+		int[] pos;
+		pos = player.getLocation();
+		for (int i = (pos[0] - 1); i < (pos[0] + 1); i++ ){
+			for (int j = (pos[1] - 1); j < (pos[1] + 1); j++){
+				for (BasicMonster e: enemy){
+					if ((e.getLocation()[0] == i) && (e.getLocation()[1] == j)){
+						
+					}
+				}
+			}
+		}
+		return attackable;
 	}
 
 }

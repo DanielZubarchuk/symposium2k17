@@ -33,4 +33,6 @@ public interface BasicMonster extends Obstruction{
 	public ArrayList<BasicMonster> getEnemy();
 	
 	public void setEnemy(ArrayList<BasicMonster> enemy);
+	
+	public int[] getLocation();
 }

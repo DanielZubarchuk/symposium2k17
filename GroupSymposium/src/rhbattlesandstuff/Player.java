@@ -31,4 +31,6 @@ public interface Player {
 	public void setThing(int i);
 
 	public int getThing();
+	
+	public int[] getLocation();
 }

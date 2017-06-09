@@ -142,7 +142,7 @@ public class Monster extends Graphic implements BasicMonster{
 		return id;
 	}
 
-	public int[] getPosition() {
+	public int[] getLocation() {
 		return position;
 	}
 	
