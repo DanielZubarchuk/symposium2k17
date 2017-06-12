@@ -10,9 +10,6 @@ import rhbattlesandstuff.Player;
 
 public class Floor5 extends Floor {
 
-	private Graphic[][] layout;
-	private int[] playerCoordinate;
-
 	
 
 	

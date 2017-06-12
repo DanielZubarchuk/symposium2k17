@@ -14,8 +14,6 @@ import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 
 public class Floor1 extends Floor{
-	private Graphic[][] layout;
-	private int[] playerCoordinate;
 	private int floor = 1;
 	private int thing = 0;
 	private boolean hudstuff;

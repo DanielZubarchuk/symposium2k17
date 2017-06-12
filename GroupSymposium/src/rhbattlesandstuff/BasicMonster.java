@@ -35,4 +35,10 @@ public interface BasicMonster extends Obstruction{
 	public void setEnemy(ArrayList<BasicMonster> enemy);
 	
 	public int[] getLocation();
+	
+
+	public boolean isInFight();
+
+
+	public void setInFight(boolean inFight);
 }

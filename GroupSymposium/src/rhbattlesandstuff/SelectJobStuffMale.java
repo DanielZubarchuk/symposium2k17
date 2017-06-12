@@ -9,6 +9,8 @@ import java.util.List;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import guiTeacher.userInterfaces.Screen;
+import joeyDaniel.Floor;
 import joeyDaniel.Game;
 
 public class SelectJobStuffMale extends FullFunctionScreen {
@@ -63,6 +65,49 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 //				System.out.println(CreateNameScreenStuff.realPlayer.getName());
 				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
 				NotPokemonDungeonFinalFantasyCrossOverGame.screen1.setChar((Character) CreateNameScreenStuff.realPlayer);
+				Thread checkForFight = new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						Battle.setPlayer(CreateNameScreenStuff.realPlayer);
+						while(true){
+							try {
+								Thread.sleep(100);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							Screen currentScreen = NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.getScreen(); 
+							if(currentScreen instanceof Floor){
+								Floor currentFloor = (Floor)currentScreen;
+								while(currentFloor == currentScreen){
+									try {
+										Thread.sleep(100);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									Graphic[][] sprites = currentFloor.getFloorLayout();
+									int[] playerCoordiantes = currentFloor.getPlayerCoordinate();
+									int r = playerCoordiantes[0];
+									int c = playerCoordiantes[1];
+									for(int i=r-1; i < r+2; i++){
+										for(int j = c-1; j<c+2; j++){
+											if(sprites[i][j] != null && sprites[i][j] instanceof Monster){
+												Monster m = (Monster)sprites[i][j];
+												if(!m.isInFight()){
+													Battle.engage(m);
+													Battle.runBattle();
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				});
+				checkForFight.start();
 			}
 		});
 		

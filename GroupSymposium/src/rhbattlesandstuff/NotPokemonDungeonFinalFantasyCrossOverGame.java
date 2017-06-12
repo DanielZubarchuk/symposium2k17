@@ -1,6 +1,9 @@
 package rhbattlesandstuff;
 
 import guiTeacher.GUIApplication;
+import guiTeacher.components.Graphic;
+import guiTeacher.userInterfaces.Screen;
+import joeyDaniel.Floor;
 import joeyDaniel.Floor1;
 import joeyDaniel.Floor2;
 import joeyDaniel.Floor3;
@@ -22,6 +25,7 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 	//http://spritedatabase.net/game/2209
 	//http://spritedatabase.net/game/11
 	//http://spritedatabase.net/file/11749
+
 	public static Character x;
 	public static Floor1 screen1;
 	public static Floor2 screen2;
@@ -36,7 +40,7 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 	public static GenderScreenStuff gssScreen;
 	public static SelectJobStuffMale sjsmScreen;
 	public static SelectJobStuffFemale sjsfScreen;
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		pmdffcog = new NotPokemonDungeonFinalFantasyCrossOverGame(716,938);
@@ -44,7 +48,9 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 		Thread app = new Thread(pmdffcog);
 		app.start();
 	}
-
+	public Screen getScreen(){
+		return currentScreen;
+	}
 	@Override
 	public void initScreen() {
 		// TODO Auto-generated method stub
@@ -61,6 +67,7 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 		sjsmScreen = new SelectJobStuffMale(1100, 700);
 		sjsfScreen = new SelectJobStuffFemale(1100, 700);
 		setScreen(patcScreen);
+
 	}
 
 }

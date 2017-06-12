@@ -2,11 +2,15 @@ package joeyDaniel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import guiTeacher.components.Graphic;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import rhbattlesandstuff.Character;
 
 public abstract class Floor extends FullFunctionScreen implements KeyListener, Runnable{
 	protected Character player;
+	protected Graphic[][] layout;
+	protected int[] playerCoordinate;
 	//	left = 37
 	//	up = 38
 	//	right = 39
@@ -15,6 +19,16 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener, R
 	private int right;
 	
 	
+	
+	
+	public Graphic[][] getFloorLayout() {
+		return layout;
+	}
+
+	public int[] getPlayerCoordinate() {
+		return playerCoordinate;
+	}
+
 	public Floor() {
 		super(716,738);
 		Thread characterManager = new Thread(this);
