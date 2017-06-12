@@ -16,6 +16,7 @@ public class Monster extends Graphic implements BasicMonster{
 	private int[] position;
 	private int monNum = 0;
 	ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
+	public boolean canMove;
 	
 	//x,y
 	//slime:
@@ -31,6 +32,7 @@ public class Monster extends Graphic implements BasicMonster{
 	public Monster(double scale, String image) {
 		super(0, 0, scale, image);
 		monMoves = new ArrayList<Moves>();
+		canMove = true;
 	}
 	
 	
