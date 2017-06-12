@@ -249,6 +249,7 @@ public class Floor1 extends Floor{
 		playerCoordinate[1] = 14;
 		initWalls();
 		layout[5][5] = new Stairs();
+		
 		updateScreen(viewObjects);
 		update();
 	}
