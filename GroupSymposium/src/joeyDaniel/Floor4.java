@@ -11,10 +11,6 @@ import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 import rhbattlesandstuff.Player;
 public class Floor4 extends Floor{
 
-
-	private Graphic[][] layout;
-	private int[] playerCoordinate;
-
 	
 
 	

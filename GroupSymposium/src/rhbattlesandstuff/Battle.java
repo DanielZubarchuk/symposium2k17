@@ -109,6 +109,7 @@ public class Battle{
 
 	public static void engage(BasicMonster b){
 		enemy.add(b);
+		b.setInFight(true);
 	}
 
 	public static void setPlayer(Player a){
@@ -238,20 +239,20 @@ public class Battle{
 		
 	}
 	
-	public ArrayList<BasicMonster> checkEnemy(){
-		int[][] check = new int[3][3];
-		int[] pos;
-		pos = player.getLocation();
-		for (int i = (pos[0] - 1); i < (pos[0] + 1); i++ ){
-			for (int j = (pos[1] - 1); j < (pos[1] + 1); j++){
-				for (BasicMonster e: enemy){
-					if ((e.getLocation()[0] == i) && (e.getLocation()[1] == j)){
-						
-					}
-				}
-			}
-		}
-		return attackable;
-	}
+//	public ArrayList<BasicMonster> checkEnemy(){
+//		int[][] check = new int[3][3];
+//		int[] pos;
+//		pos = player.getLocation();
+//		for (int i = (pos[0] - 1); i < (pos[0] + 1); i++ ){
+//			for (int j = (pos[1] - 1); j < (pos[1] + 1); j++){
+//				for (BasicMonster e: enemy){
+//					if ((e.getLocation()[0] == i) && (e.getLocation()[1] == j)){
+//						
+//					}
+//				}
+//			}
+//		}
+//		return attackable;
+//	}
 
 }

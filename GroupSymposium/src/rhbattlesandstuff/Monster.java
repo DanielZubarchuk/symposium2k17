@@ -9,6 +9,7 @@ public class Monster extends Graphic implements BasicMonster{
 	private int[] stats = {4, 1, 1, 1};
 	private String name = "slime";
 	private ArrayList<Moves> monMoves;
+	private boolean inFight;
 	private ArrayList<Items> items;
 	private int currentFloor = 1;
 	private String id;//id helps differentiate monster
@@ -31,6 +32,20 @@ public class Monster extends Graphic implements BasicMonster{
 		super(0, 0, scale, image);
 		monMoves = new ArrayList<Moves>();
 	}
+	
+	
+
+	public boolean isInFight() {
+		return inFight;
+	}
+
+
+
+	public void setInFight(boolean inFight) {
+		this.inFight = inFight;
+	}
+
+
 
 	@Override
 	public int[] getStats() {

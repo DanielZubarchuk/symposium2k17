@@ -11,8 +11,6 @@ import rhbattlesandstuff.Player;
 
 public class Floor3 extends Floor {
 
-	private Graphic[][] layout;
-	private int[] playerCoordinate;
 
 	private void initWalls(){
 		for(int i = 0; i<layout.length; i++){
