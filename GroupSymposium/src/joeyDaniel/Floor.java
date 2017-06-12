@@ -13,6 +13,7 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener, R
 	//	down = 40
 	private int up;
 	private int right;
+	private boolean isMoving;
 	
 	
 	public Floor() {
@@ -26,56 +27,72 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener, R
 			try {
 				Thread.sleep(150);
 				if(up > 0){
-					moveCharacter("up");
+					move("up");
 				}
 				if(up < 0){
-					moveCharacter("down");
+					move("down");
 				}
 				if(right > 0){
-					moveCharacter("right");
+					move("right");
 				}
 				if(right < 0){
-					moveCharacter("left");
+					move("left");
 				}
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		
 	}
+		
 	@Override
 	public void keyPressed(KeyEvent b) {
-		// TODO Auto-generated method stub
-		if(b.getKeyCode() == 38){
-			//			System.out.println("Up");
-//			moveCharacter("up");
-			up = 1;
-
-
-
-		}else if(b.getKeyCode() == 40){
-			//			System.out.println("Down");
-//			moveCharacter("down");
-			up = -1;
-
-
-		}else if(b.getKeyCode() == 37){
-			//			System.out.println("Left");
-//			moveCharacter("left");
-			right = -1;
-
-
-		}else if(b.getKeyCode() == 39){
-			//			System.out.println("Right");
-//			moveCharacter("right");
-			right = 1;
-
-
+		
+		if(isMoving == false){
+			if(b.getKeyCode() == 38){
+				//			System.out.println("Up");
+	//			moveCharacter("up");
+				up = 1;
+				isMoving = true;
+			}
 		}
+		if(isMoving == false){
+			if(b.getKeyCode() == 40){
+	//						System.out.println("Down");
+	//			moveCharacter("down");
+				up = -1;
+				isMoving = true;
+	
+	
+			}
+		}
+		if(isMoving == false){
+			if(b.getKeyCode() == 37){
+				//			System.out.println("Left");
+	//			moveCharacter("left");
+				right = -1;
+				isMoving = true;
+			}
+		}
+		if(isMoving == false){
+			if(b.getKeyCode() == 39){
+				//			System.out.println("Right");
+	//			moveCharacter("right");
+				right = 1;
+				isMoving = true;
+			}
+		}
+
+
 	}
 	
 	
-
+	public void move(String direction){
+		moveCharacter(direction);
+		up = 0;
+		right = 0;
+	}
 	public abstract void moveCharacter(String direction);
 	public abstract void monsterMove();
 	public abstract void setChar(Character x);
@@ -84,15 +101,23 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener, R
 	public void keyReleased(KeyEvent b) {
 		if(b.getKeyCode() == 37 || b.getKeyCode() == 39){
 			right = 0;
+			isMoving = false;
 		}
 		if(b.getKeyCode() == 38 || b.getKeyCode() == 40){
 			up = 0;
+			isMoving = false;
 		}
+//		if(b.getKeyCode() == 37 || b.getKeyCode() == 39){
+//			moveCharacter("");
+//		}
+//		if(b.getKeyCode() == 38 || b.getKeyCode() == 40){
+//			moveCharacter("");
+//		}
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+	
 	}
 
 	public KeyListener getKeyListener(){
