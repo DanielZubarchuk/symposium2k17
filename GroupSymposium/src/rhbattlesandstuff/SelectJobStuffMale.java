@@ -80,6 +80,8 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 							Screen currentScreen = NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.getScreen(); 
 							if(currentScreen instanceof Floor){
 								Floor currentFloor = (Floor)currentScreen;
+								Graphic[][] sprites = currentFloor.getFloorLayout();
+								Battle.setCurretLayout(sprites);
 								while(currentFloor == currentScreen){
 									try {
 										Thread.sleep(100);
@@ -87,7 +89,6 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
-									Graphic[][] sprites = currentFloor.getFloorLayout();
 									int[] playerCoordiantes = currentFloor.getPlayerCoordinate();
 									int r = playerCoordiantes[0];
 									int c = playerCoordiantes[1];
@@ -96,6 +97,7 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 											if(sprites[i][j] != null && sprites[i][j] instanceof Monster){
 												Monster m = (Monster)sprites[i][j];
 												if(!m.isInFight()){
+													
 													Battle.engage(m);
 													Battle.runBattle();
 												}

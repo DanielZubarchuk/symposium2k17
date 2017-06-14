@@ -238,6 +238,11 @@ public class Battle{
 	public static void chooseEnemy() {
 		
 	}
+
+	public static void setCurretLayout(Graphic[][] sprites) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 //	public ArrayList<BasicMonster> checkEnemy(){
 //		int[][] check = new int[3][3];
