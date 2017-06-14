@@ -17,7 +17,7 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener, R
 	//	down = 40
 	private int up;
 	private int right;
-	
+
 	public void setLayout(Graphic[][] layout){
 		this.layout = layout;
 	}
