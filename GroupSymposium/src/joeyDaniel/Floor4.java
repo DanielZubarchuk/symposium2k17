@@ -257,7 +257,7 @@ public class Floor4 extends Floor{
 		layout[20][25] = new SmallWall();
 	}
 	
-	private void updateScreen(List<Visible> viewObjects) {
+	public void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();

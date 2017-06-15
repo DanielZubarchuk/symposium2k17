@@ -256,7 +256,7 @@ public class Floor5 extends Floor {
 		}
 	}
 	
-	private void updateScreen(List<Visible> viewObjects) {
+	public void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
