@@ -151,5 +151,11 @@ public class Graphic implements Visible {
 		this.visible = visible;
 	}
 
-
+	public void setImage(int x, int y, double scale, String imageLocation){
+		this.x = x;
+		this.y = y;
+		visible = true;
+		loadedImages = false;
+		loadImages(imageLocation, scale);
+	}
 }

@@ -37,4 +37,8 @@ public interface Player {
 	void setStats(int[] stats, int index);
 
 	void setStats(int[] stats, int index, int change);
+
+	public void setJob(String x);
+	
+	public String getJob();
 }
