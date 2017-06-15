@@ -14,9 +14,11 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class CreateNameScreenStuff extends FullFunctionScreen{
 	
+	private TextLabel textName2;
 	private TextField typeName;
 	private TextLabel namestuff;
 	private TextLabel textPop;
+	private TextLabel textName;
 	private Graphic picPop;
 	private Button confirm; 
 	private TextColoredLabel pop;
@@ -33,11 +35,13 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 		pop = new TextColoredLabel(100, 500, 500, 100, "Are you sure?", Color.BLUE, Color.BLACK);
 		namestuff = new TextLabel(100,70,800,25, "Name goes here:");
 		typeName = new TextField(100, 100, 500, 48, "", "");
+		textName = new TextLabel(105, 180, 500, 800,"Please type in a name");
+		textName2 = new TextLabel(100, 215, 500, 800, "between 3-12 characters");
 		confirm = new Button(600, 550, 100, 50, "Confirm", Color.BLUE, new Action(){
 			
 			boolean shown = false;
 			public void act(){
-				
+//				addObject(pop);
 //				if(!shown){
 //					addObject(pop);
 //					shown = true;
@@ -61,6 +65,8 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 				}
 			}
 		});
+		viewObjects.add(textName2);
+		viewObjects.add(textName);
 		viewObjects.add(namestuff);
 		viewObjects.add(typeName);
 		viewObjects.add(confirm);
