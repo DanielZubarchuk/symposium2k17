@@ -132,6 +132,7 @@ public class Battle{
 	}
 	
 	public static void runBattle() {
+		
 		if(enemy!= null){
 			System.out.println(enemy.get(0));
 			System.out.println("enemy is not null");
@@ -163,7 +164,7 @@ public class Battle{
 						System.out.println("YOOOOUU is tackling " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getStats()[1]) + ".");
 						moveA = false;
 					computerTurn = true;
-					
+
 					}
 					else if(moveMade){
 						BasicMonster e = getEnemyInFrontOfPlayer();
@@ -232,7 +233,7 @@ public class Battle{
 		for(BasicMonster e: enemy){
 			if (e.getStats()[0] > 0){
 				System.out.println(e.getId() + " tackling you for " + e.getDamage() + " damage.");
-				CreateNameScreenStuff.realPlayer.setStats(CreateNameScreenStuff.realPlayer.getStats(),0,2);
+				CreateNameScreenStuff.realPlayer.setStats(CreateNameScreenStuff.realPlayer.getStats(),0,-2);
 				System.out.println("You have " + CreateNameScreenStuff.realPlayer.getStats()[0] + " hp left.");
 			}
 			else {

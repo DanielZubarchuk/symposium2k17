@@ -105,6 +105,17 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 													Battle.engage(m);
 													Battle.runBattle();
 													System.out.println("battle ended");
+													System.out.println("You've gained 50 exp!");
+													CreateNameScreenStuff.realPlayer.setStats(CreateNameScreenStuff.realPlayer.getStats(), 4, 50);
+													System.out.println("You have " + CreateNameScreenStuff.realPlayer.getStats()[4] + " exp");
+													if (((CreateNameScreenStuff.realPlayer.getStats()[4] % 100) == 0) && (CreateNameScreenStuff.realPlayer.getStats()[4] != 0)){
+														System.out.println("You have leveled up!");
+														CreateNameScreenStuff.realPlayer.incrementStats();
+														System.out.println(CreateNameScreenStuff.realPlayer.getStats()[0]);
+														System.out.println(CreateNameScreenStuff.realPlayer.getStats()[1]);
+														System.out.println(CreateNameScreenStuff.realPlayer.getStats()[2]);
+														System.out.println(CreateNameScreenStuff.realPlayer.getStats()[3]);
+													}
 													currentFloor.removeMonster(m,i, j);
 												}
 

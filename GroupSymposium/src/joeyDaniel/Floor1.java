@@ -301,6 +301,7 @@ public class Floor1 extends Floor{
 //	}
 
 	public void keyPressed(KeyEvent k) {
+		
 			if(k.getKeyCode() == KeyEvent.VK_0){
 				
 				
