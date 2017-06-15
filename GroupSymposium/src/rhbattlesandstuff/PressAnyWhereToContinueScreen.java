@@ -79,7 +79,7 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 	}
 	
 	public void keyPressed(KeyEvent k){
-
+		bsod.act();
 	}
 	
 	
