@@ -6,6 +6,8 @@ import java.util.List;
 
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.Screen;
+import rhbattlesandstuff.BasicMonster;
 import rhbattlesandstuff.Battle;
 import rhbattlesandstuff.Character;
 import rhbattlesandstuff.Monster;
@@ -36,18 +38,23 @@ public class Floor2 extends Floor {
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
 			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
-				if(layout[row][col] instanceof Wall){
-					layout[row][col] = new WoodWall(x*100,y*100);
-					viewObjects.add(layout[row][col]);
-				}
-				if(layout[row][col] instanceof Staircase){
-					layout[row][col] = new Stairs(x*100,y*100);
-					viewObjects.add(layout[row][col]);
-				}
-				if(layout[row][col] instanceof Player){
-					player.setX(300);
-					player.setY(300);
-					viewObjects.add(player);
+//				if(layout[row][col] instanceof Wall){
+//					layout[row][col] = new WoodWall(x*100,y*100);
+//					viewObjects.add(layout[row][col]);
+//				}
+//				if(layout[row][col] instanceof Staircase){
+//					layout[row][col] = new Stairs(x*100,y*100);
+//					viewObjects.add(layout[row][col]);
+//				}
+//				if(layout[row][col] instanceof Player){
+//					player.setX(300);
+//					player.setY(300);
+//					viewObjects.add(player);
+//				}
+				if(getFloorLayout()[row][col] != null){
+					getFloorLayout()[row][col].setX(x*100);
+					getFloorLayout()[row][col].setY(y*100);
+					viewObjects.add(getFloorLayout()[row][col]);
 				}
 				x++;
 			}
@@ -326,7 +333,6 @@ public class Floor2 extends Floor {
 //	}
 	
 	public void keyPressed(KeyEvent k) {
-		// TODO Auto-generated method stub\
 		if(k.getKeyCode() == KeyEvent.VK_0){
 			
 			
@@ -490,11 +496,83 @@ public class Floor2 extends Floor {
 		ms = false;
 	}
 		
-	@Override
-	public void monsterMove() {
+	private boolean nextToPlayer(int row, int col) {
 		// TODO Auto-generated method stub
+		if(playerCoordinate[0] == row && (playerCoordinate[1] == col-1 || playerCoordinate[1] == col+1)){
+			return true;
+		}
+		if(playerCoordinate[1] == col && (playerCoordinate[0] == row-1 || playerCoordinate[0] == row+1)){
+			return true;
+		}
+		return false;
 		
 	}
+	
+	public void monsterMove() {
+		// TODO Auto-generated method stub
+		for(int row = 0; row<getFloorLayout().length; row++){
+			for(int col = 0; col<getFloorLayout()[row].length; col++){
+				if(getFloorLayout()[row][col] instanceof BasicMonster){
+					Monster m = (Monster) getFloorLayout()[row][col];
+					if(m.isDead == true){
+						
+					}
+					else{
+						if(nextToPlayer(row,col)){
+//						
+						}else{
+							if(playerCoordinate[0] < row){
+								if(getFloorLayout()[row-1][col] == null||!(getFloorLayout()[row-1][col] instanceof Obstruction)){
+									getFloorLayout()[row-1][col] = getFloorLayout()[row][col];
+									getFloorLayout()[row][col] = null;
+								}else if(playerCoordinate[1] < col){
+									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
+										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
+										getFloorLayout()[row][col] = null;
+									}
+								}else if(playerCoordinate[1] > col){
+									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
+										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
+										getFloorLayout()[row][col] = null;
+									}
+								}
+							}else if(playerCoordinate[0] > row){
+								if(getFloorLayout()[row+1][col] == null||!(getFloorLayout()[row+1][col] instanceof Obstruction)){
+									getFloorLayout()[row+1][col] = getFloorLayout()[row][col];
+									getFloorLayout()[row][col] = null;
+								}else if(playerCoordinate[1] < col){
+									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
+										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
+										getFloorLayout()[row][col] = null;
+									}
+								}else if(playerCoordinate[1] > col){
+									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
+										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
+										getFloorLayout()[row][col] = null;
+									}
+								}
+							}else{
+								if(playerCoordinate[1] < col){
+									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
+										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
+										getFloorLayout()[row][col] = null;
+									}
+								}else if(playerCoordinate[1] > col){
+									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
+										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
+										getFloorLayout()[row][col] = null;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+	
+	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub

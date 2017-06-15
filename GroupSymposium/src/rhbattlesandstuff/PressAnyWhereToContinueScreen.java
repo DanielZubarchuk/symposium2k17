@@ -97,7 +97,7 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 		loading2 = new Graphic(140,695,"src/resources/loadingbar2.png");
 		bsod.setAction(new Action(){
 			public void act(){
-//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
 			}
 		});
 		viewObjects.add(bsod);

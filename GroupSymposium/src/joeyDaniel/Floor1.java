@@ -13,6 +13,7 @@ import rhbattlesandstuff.Player;
 import rhbattlesandstuff.Slime;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.Screen;
 
 public class Floor1 extends Floor{
 	private int floor = 1;
@@ -300,7 +301,6 @@ public class Floor1 extends Floor{
 //	}
 
 	public void keyPressed(KeyEvent k) {
-			// TODO Auto-generated method stub\
 			if(k.getKeyCode() == KeyEvent.VK_0){
 				
 				
