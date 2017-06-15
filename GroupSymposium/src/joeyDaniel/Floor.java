@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import guiTeacher.components.Graphic;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import rhbattlesandstuff.Character;
+import rhbattlesandstuff.Monster;
 
 public abstract class Floor extends FullFunctionScreen implements KeyListener, Runnable{
 	protected Character player;
@@ -112,6 +113,11 @@ public abstract class Floor extends FullFunctionScreen implements KeyListener, R
 
 	public KeyListener getKeyListener(){
 		return this;
+	}
+
+	public void removeMonster( Monster m, int i, int j) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

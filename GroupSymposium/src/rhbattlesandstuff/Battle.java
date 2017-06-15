@@ -3,6 +3,8 @@ package rhbattlesandstuff;
 import java.util.ArrayList;
 
 import guiTeacher.components.*;
+import guiTeacher.userInterfaces.Screen;
+import joeyDaniel.Floor;
 
 public class Battle{
 
@@ -112,6 +114,10 @@ public class Battle{
 		b.setInFight(true);
 	}
 
+	public static void disengage(BasicMonster b){
+		
+	}
+	
 	public static void setPlayer(Player a){
 		player = a;
 	}
@@ -119,7 +125,7 @@ public class Battle{
 	public static void doMoveA(){
 		moveA = true;
 	}
-
+//??????
 	public static void takeTurn(){
 		computerTurn = true;
 	}
@@ -162,6 +168,7 @@ public class Battle{
 			}
 			report();
 			enemy.removeAll(enemy);
+			
 		}
 		else if (enemy == null){
 			System.out.println("Nothing is there");
@@ -193,6 +200,7 @@ public class Battle{
 			System.out.println(e.getId() + "'s hp is " + e.getStats()[0]);
 			
 		}
+		
 	}
 
 	//TEST METHOD

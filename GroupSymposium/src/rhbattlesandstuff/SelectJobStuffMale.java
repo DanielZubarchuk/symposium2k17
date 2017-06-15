@@ -100,6 +100,7 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 													
 													Battle.engage(m);
 													Battle.runBattle();
+													currentFloor.removeMonster(m,i, j);
 												}
 
 											}

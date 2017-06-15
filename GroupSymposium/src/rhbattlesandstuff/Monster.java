@@ -17,6 +17,8 @@ public class Monster extends Graphic implements BasicMonster{
 	private int monNum = 0;
 	ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
 	public boolean canMove;
+	public boolean obstruct;
+	public boolean isDead;
 	
 	//x,y
 	//slime:
@@ -33,6 +35,7 @@ public class Monster extends Graphic implements BasicMonster{
 		super(0, 0, scale, image);
 		monMoves = new ArrayList<Moves>();
 		canMove = true;
+		isDead = false;
 	}
 	
 	
@@ -177,6 +180,23 @@ public class Monster extends Graphic implements BasicMonster{
 	
 	public void setEnemy(ArrayList<BasicMonster> enemy){
 		this.enemy = enemy;
+	}
+
+
+
+	public void removeAll() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setDead(){
+		isDead= true;
+		canMove = false;
+		obstruct = false;
+	}
+	
+	public boolean getDead(){
+		return isDead;
 	}
 	
 }

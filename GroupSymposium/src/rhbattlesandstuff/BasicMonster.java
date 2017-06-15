@@ -36,9 +36,7 @@ public interface BasicMonster extends Obstruction{
 	
 	public int[] getLocation();
 	
-
 	public boolean isInFight();
-
 
 	public void setInFight(boolean inFight);
 }

@@ -14,5 +14,4 @@ public class WoodWall extends Graphic implements Wall {
 		super(0, 0,0.1953125, "src/resources/wood.jpg");
 	}
 
-
 }
