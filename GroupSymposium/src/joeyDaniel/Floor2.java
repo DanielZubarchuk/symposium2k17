@@ -102,6 +102,7 @@ public class Floor2 extends Floor {
 
 
 	private void initWalls(){
+		setLayout(new Graphic[24][30]);
 		for(int i = 0; i<layout.length; i++){
 			for(int j = 0; j<layout[i].length; j++){
 				if(layout.length-i<=3 || i<3){
@@ -506,7 +507,7 @@ public class Floor2 extends Floor {
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 
-		layout = new Graphic[24][30];
+//		layout = new Graphic[24][30];
 		initWalls();
 		playerCoordinate = new int[2];
 		playerCoordinate[0] = 3;
