@@ -337,7 +337,32 @@ public class Floor1 extends Floor{
 			else if(k.getKeyCode() == KeyEvent.VK_ENTER){
 				hudstuff = !hudstuff;
 			}
-			if(hudstuff){if(k.getKeyCode() == KeyEvent.VK_UP){
+			if(hudstuff){
+				ms = true;
+				System.out.println("Menu is open");
+				if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
+					System.out.println(thing);
+					thing = 0;
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 	
+				}
+				else if(k.getKeyCode() == KeyEvent.VK_UP){
+					System.out.println(thing);
+					player.setThing(-- thing);
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
+				}
+				else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
+					System.out.println(thing);
+					thing = 3;
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
+				}
+				else if(k.getKeyCode() == KeyEvent.VK_DOWN){
+					System.out.println(thing);
+					player.setThing(++ thing);
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option");
+					System.out.println(thing);
+				}
+			}
+			if(!hudstuff){if(k.getKeyCode() == KeyEvent.VK_UP){
 				if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
 					NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
 					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
