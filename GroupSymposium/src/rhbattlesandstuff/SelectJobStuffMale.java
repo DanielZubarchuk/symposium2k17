@@ -94,12 +94,11 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 									int c = playerCoordiantes[1];
 									for(int i=r-1; i < r+2; i++){
 										for(int j = c-1; j<c+2; j++){
-											System.out.println("Is there a monster right next to you at this very instant?");
-											if (!(sprites[i][j] instanceof Monster)){
-												System.out.println("No.");
-											}
+//											System.out.println("Is there a monster right next to you at this very instant?");
+//											if (!(sprites[i][j] instanceof Monster)){
+//												System.out.println("No.");
+//											}
 											if(sprites[i][j] != null && sprites[i][j] instanceof Monster){
-												System.out.println("There is a monster near you");
 												Monster m = (Monster)sprites[i][j];
 												if(!m.isInFight()){
 													

@@ -22,6 +22,7 @@ public class Battle{
 	static private boolean moveA;
 	static private boolean moveMade;
 	static private boolean computerTurn;
+	static private int hp = CreateNameScreenStuff.realPlayer.getStats()[0];
 	static private ArrayList<BasicMonster> attackable = new ArrayList<BasicMonster>();
 	
 
@@ -134,7 +135,11 @@ public class Battle{
 		if(enemy!= null){
 			System.out.println(enemy.get(0));
 			System.out.println("enemy is not null");
-			while(enemyIsLeftAlive() && player.getStats()[0]>0){
+			if (CreateNameScreenStuff.realPlayer.getStats()[0] == 0){
+				System.out.println("You have lost the game.");
+				
+			}
+			while(enemyIsLeftAlive() && CreateNameScreenStuff.realPlayer.getStats()[0] != 0){
 				eachEnemyTakesTurn();
 				
 				computerTurn = false;
@@ -147,6 +152,10 @@ public class Battle{
 						c.printStackTrace();
 					}
 					if(moveA){
+						if (CreateNameScreenStuff.realPlayer.getStats()[0] == 0){
+							System.out.println("You have lost the game.");
+							
+						}
 						BasicMonster e = getEnemyInFrontOfPlayer();
 						int hp = e.getStats()[0];
 						e.getStats()[0] = hp - player.getStats()[1];
@@ -154,6 +163,7 @@ public class Battle{
 						System.out.println("YOOOOUU is tackling " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getStats()[1]) + ".");
 						moveA = false;
 					computerTurn = true;
+					
 					}
 					else if(moveMade){
 						BasicMonster e = getEnemyInFrontOfPlayer();
@@ -163,6 +173,7 @@ public class Battle{
 						System.out.println("YOOOOUU is doing something to " + e.getId() + ". " + e.getId() + "'s health is equal to " + (hp - player.getMoves().get(player.getThing()).getDmg()) + ".");
 						moveMade = false;
 					computerTurn = true;
+					System.out.println(CreateNameScreenStuff.realPlayer.getStats()[0] == 0);
 					}
 				}
 			}
@@ -196,9 +207,12 @@ public class Battle{
 	}
 	
 	private static void report() {
-		for (BasicMonster e : enemy){
-			System.out.println(e.getId() + "'s hp is " + e.getStats()[0]);
+		if (CreateNameScreenStuff.realPlayer.getStats()[0] == 0){
+			System.out.println("You have lost the game.");
 			
+		}
+		for (BasicMonster e : enemy){
+			System.out.println(e.getId() + "'s hp is " + e.getStats()[0]);	
 		}
 		
 	}
@@ -217,7 +231,9 @@ public class Battle{
 	private static void eachEnemyTakesTurn() {
 		for(BasicMonster e: enemy){
 			if (e.getStats()[0] > 0){
-				System.out.println(e.getId() + " is DOOING THIIIIINGS!");
+				System.out.println(e.getId() + " tackling you for " + e.getDamage() + " damage.");
+				CreateNameScreenStuff.realPlayer.setStats(CreateNameScreenStuff.realPlayer.getStats(),0,2);
+				System.out.println("You have " + CreateNameScreenStuff.realPlayer.getStats()[0] + " hp left.");
 			}
 			else {
 				System.out.println(e.getId() + " is ded");

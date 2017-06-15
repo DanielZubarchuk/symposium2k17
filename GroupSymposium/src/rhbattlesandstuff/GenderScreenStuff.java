@@ -70,7 +70,7 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		lbsod = new Graphic(0,0,1.0,"src/resources/legendarybluescreenofdeath.jpg");
+		lbsod = new Graphic(0,0,1.0,"src/resources/WHITE.jpg");
 		female = new Graphic(0,0,.5,"src/resources/female.png");
 		male = new Graphic(500,0,.5,"src/resources/male.png");
 		viewObjects.add(lbsod);

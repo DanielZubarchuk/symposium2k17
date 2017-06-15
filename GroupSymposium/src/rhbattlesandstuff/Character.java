@@ -42,7 +42,7 @@ public class Character extends Graphic implements Player{
 	}
 
 	@Override
-	public void setStats(int[] stats) {
+	public void setStats(int[] stats, int index, int change) {
 		//HP, Attack, Defense, Speed, Level
 		
 		//base stats
@@ -64,7 +64,7 @@ public class Character extends Graphic implements Player{
 		//Defense = (int)(Math.random() * 3) + 1
 		//Speed = (int)(Math.random() * 2) + 1
 		//Level++
-		this.stats = stats;
+		stats[index] = stats[index] - change;
 	}
 
 	public void incrementStats(){
@@ -135,6 +135,18 @@ public class Character extends Graphic implements Player{
 	
 	public void setThing(int thing){
 		this.thing = thing;
+	}
+
+	@Override
+	public void setStats(int[] stats) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setStats(int[] stats, int index) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

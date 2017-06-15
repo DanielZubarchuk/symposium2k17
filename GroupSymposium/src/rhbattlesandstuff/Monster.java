@@ -148,7 +148,7 @@ public class Monster extends Graphic implements BasicMonster{
 	@Override
 	public int getDamage() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 2;
 	}
 
 	@Override

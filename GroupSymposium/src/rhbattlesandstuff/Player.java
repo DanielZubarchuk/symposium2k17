@@ -33,4 +33,8 @@ public interface Player {
 	public int getThing();
 	
 	public int[] getLocation();
+
+	void setStats(int[] stats, int index);
+
+	void setStats(int[] stats, int index, int change);
 }
