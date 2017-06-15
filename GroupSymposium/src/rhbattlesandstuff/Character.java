@@ -14,11 +14,27 @@ public class Character extends Graphic implements Player{
 	private int[] location;
 	private int thing = 0;
 	private int currentFloor = 1;
+
 	
+
+	private String job = "";
+	
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+
 	public Character(){
 		super(0,0,0.1182033096926714,"src/resources/char.png");
 		moves = new ArrayList<Moves>();
 		location = new int[2];
+	}
+	public Character(String string){
+		super(0,0,0.1182033096926714, string);
 	}
 
 	public void setLocation(int row, int col){

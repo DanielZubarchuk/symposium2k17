@@ -18,10 +18,11 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 	private Graphic lbsod;
 	private String[] gender = {"male", "female"};
 	private int select = 0;
-	private Graphic male;
-	private Graphic female;
+	private ClickableGraphic male;
+	private ClickableGraphic female;
 	private boolean madeSelection = false;
 	private Button helloJoeyHowIsTheBombHimerProjectGoing;
+	private TextLabel pick;
 	
 	
 	public GenderScreenStuff(int width, int height) {
@@ -45,6 +46,12 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 		System.out.println("click");
 		if(helloJoeyHowIsTheBombHimerProjectGoing.isHovered(e.getX(), e.getY())){
 			helloJoeyHowIsTheBombHimerProjectGoing.act();
+		  }
+		if(male.isHovered(e.getX(), e.getY())){
+			male.act();
+		  }
+		if(female.isHovered(e.getX(), e.getY())){
+			female.act();
 		  }
 	}
 	
@@ -70,12 +77,26 @@ public class GenderScreenStuff extends ClickableScreen implements MouseMotionLis
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		lbsod = new Graphic(0,0,1.0,"src/resources/WHITE.jpg");
-		female = new Graphic(0,0,.5,"src/resources/female.png");
-		male = new Graphic(500,0,.5,"src/resources/male.png");
+		lbsod = new Graphic(0,0,1.0,"src/resources/WHITE.png");
+		female = new ClickableGraphic(30,50,.5,"src/resources/male.png");
+		male = new ClickableGraphic(550,50,.5,"src/resources/female.png");
+		pick = new TextLabel(180,200, 800, 25, "Choose Your Sex");
+		female.setAction(new Action(){
+			public void act(){
+				select = 0;
+				madeSelection= true;
+			}
+		});
+		male.setAction(new Action(){
+			public void act(){
+				select = 1;
+				madeSelection= true;
+			}
+		});
 		viewObjects.add(lbsod);
 		viewObjects.add(male);
 		viewObjects.add(female);
+		viewObjects.add(pick);
 		helloJoeyHowIsTheBombHimerProjectGoing = new Button(300, 300, 100, 50, "Click", Color.BLACK, new Action(){
 			public void act() {
 				if(madeSelection){

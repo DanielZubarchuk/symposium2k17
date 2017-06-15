@@ -272,7 +272,7 @@ public class Floor7 extends Floor{
 		layout[20][22] = new CobbleWall();
 	}
 	
-	private void updateScreen(List<Visible> viewObjects) {
+	public void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -377,11 +377,6 @@ public class Floor7 extends Floor{
 		}
 	}
 
-	@Override
-	public void monsterMove() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {

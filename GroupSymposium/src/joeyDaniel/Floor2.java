@@ -20,8 +20,8 @@ public class Floor2 extends Floor {
 	private boolean hudstuff;
 	private boolean ms;
 	private int thing = 0;
-	
-	
+
+
 	public void background(){
 		for(int i = 0; i < 7;i++){
 			for(int x = 0; x < 7;x++){
@@ -29,8 +29,8 @@ public class Floor2 extends Floor {
 			}
 		}
 	}
-	
-	private void updateScreen(List<Visible> viewObjects) {
+
+	public void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -38,19 +38,19 @@ public class Floor2 extends Floor {
 		int y = 0;
 		for(int row = playerCoordinate[0]-3; row<=playerCoordinate[0]+3;row++ ){
 			for(int col = playerCoordinate[1]-3; col<=playerCoordinate[1]+3;col++ ){
-//				if(layout[row][col] instanceof Wall){
-//					layout[row][col] = new WoodWall(x*100,y*100);
-//					viewObjects.add(layout[row][col]);
-//				}
-//				if(layout[row][col] instanceof Staircase){
-//					layout[row][col] = new Stairs(x*100,y*100);
-//					viewObjects.add(layout[row][col]);
-//				}
-//				if(layout[row][col] instanceof Player){
-//					player.setX(300);
-//					player.setY(300);
-//					viewObjects.add(player);
-//				}
+				//				if(layout[row][col] instanceof Wall){
+				//					layout[row][col] = new WoodWall(x*100,y*100);
+				//					viewObjects.add(layout[row][col]);
+				//				}
+				//				if(layout[row][col] instanceof Staircase){
+				//					layout[row][col] = new Stairs(x*100,y*100);
+				//					viewObjects.add(layout[row][col]);
+				//				}
+				//				if(layout[row][col] instanceof Player){
+				//					player.setX(300);
+				//					player.setY(300);
+				//					viewObjects.add(player);
+				//				}
 				if(getFloorLayout()[row][col] != null){
 					getFloorLayout()[row][col].setX(x*100);
 					getFloorLayout()[row][col].setY(y*100);
@@ -62,7 +62,7 @@ public class Floor2 extends Floor {
 			x=0;
 		}
 	}
-	
+
 	public int[] spawnCoord() {
 		// TODO Auto-generated method stub
 		ArrayList<int[]> ValidCoord = new ArrayList<>();
@@ -77,7 +77,7 @@ public class Floor2 extends Floor {
 		int pick = (int)(Math.random()*ValidCoord.size());
 		return ValidCoord.get(pick);
 	}
-	
+
 	private void spawnMonster(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		if(Math.random()*100 < 10){
@@ -86,21 +86,21 @@ public class Floor2 extends Floor {
 			viewObjects.add(getFloorLayout()[coord[0]][coord[1]]);
 		}
 	}
-	
-//	private void killMonster(List<Visible> viewObjects, int r, int c){
-//		viewObjects.remove(getFloorLayout()[r][c]);
-//	}
+
+	//	private void killMonster(List<Visible> viewObjects, int r, int c){
+	//		viewObjects.remove(getFloorLayout()[r][c]);
+	//	}
 	public void removeMonster(Monster m, int r, int c){
 		System.out.println("trying to remove monster");
-//		getFloorLayout()[r][c]=null;
-//		remove(getFloorLayout()[r][c]);
-//		killMonster(viewObjects, r,c);
+		//		getFloorLayout()[r][c]=null;
+		//		remove(getFloorLayout()[r][c]);
+		//		killMonster(viewObjects, r,c);
 		m.setVisible(false);
 		m.setDead();
 		update();
 	}
-	
-	
+
+
 	private void initWalls(){
 		for(int i = 0; i<layout.length; i++){
 			for(int j = 0; j<layout[i].length; j++){
@@ -115,15 +115,15 @@ public class Floor2 extends Floor {
 		}
 		layout[3][12] = new WoodWall();
 		layout[3][16] = new WoodWall();
-		
+
 		layout[4][12] = new WoodWall();
 		layout[4][16] = new WoodWall();
-		
+
 		layout[5][5] = new WoodWall();
 		layout[5][12] = new WoodWall();
 		layout[5][16] = new WoodWall();
 		layout[5][24] = new WoodWall();
-		
+
 		layout[6][5] = new WoodWall();
 		layout[6][6] = new WoodWall();
 		layout[6][7] = new WoodWall();
@@ -141,7 +141,7 @@ public class Floor2 extends Floor {
 		layout[6][22] = new WoodWall();
 		layout[6][23] = new WoodWall();
 		layout[6][24] = new WoodWall();
-		
+
 		layout[9][5] = new WoodWall();
 		layout[9][6] = new WoodWall();
 		layout[9][7] = new WoodWall();
@@ -160,7 +160,7 @@ public class Floor2 extends Floor {
 		layout[9][22] = new WoodWall();
 		layout[9][23] = new WoodWall();
 		layout[9][24] = new WoodWall();
-		
+
 		layout[10][5] = new WoodWall();
 		layout[10][6] = new WoodWall();
 		layout[10][7] = new WoodWall();
@@ -172,7 +172,7 @@ public class Floor2 extends Floor {
 		layout[10][13] = new WoodWall();
 		layout[10][16] = new WoodWall();
 		layout[10][17] = new WoodWall();
-		
+
 		layout[11][5] = new WoodWall();
 		layout[11][9] = new WoodWall();
 		layout[11][13] = new WoodWall();
@@ -186,14 +186,14 @@ public class Floor2 extends Floor {
 		layout[11][25] = new WoodWall();
 		layout[11][25] = new WoodWall();
 		layout[11][26] = new WoodWall();
-		
+
 		layout[12][5] = new WoodWall();
 		layout[12][9] = new WoodWall();
 		layout[12][11] = new WoodWall();
 		layout[12][13] = new WoodWall();
 		layout[12][16] = new WoodWall();
 		layout[12][17] = new WoodWall();
-		
+
 		layout[13][5] = new WoodWall();
 		layout[13][7] = new WoodWall();
 		layout[13][9] = new WoodWall();
@@ -208,7 +208,7 @@ public class Floor2 extends Floor {
 		layout[13][22] = new WoodWall();
 		layout[13][23] = new WoodWall();
 		layout[13][24] = new WoodWall();
-		
+
 		layout[14][5] = new WoodWall();
 		layout[14][7] = new WoodWall();
 		layout[14][9] = new WoodWall();
@@ -216,7 +216,7 @@ public class Floor2 extends Floor {
 		layout[14][13] = new WoodWall();
 		layout[14][16] = new WoodWall();
 		layout[14][17] = new WoodWall();
-		
+
 		layout[15][5] = new WoodWall();
 		layout[15][7] = new WoodWall();
 		layout[15][9] = new WoodWall();
@@ -242,7 +242,7 @@ public class Floor2 extends Floor {
 		layout[16][15] = new WoodWall();
 		layout[16][16] = new WoodWall();
 		layout[16][17] = new WoodWall();
-		
+
 		layout[17][5] = new WoodWall();
 		layout[17][7] = new WoodWall();
 		layout[17][9] = new WoodWall();
@@ -258,14 +258,14 @@ public class Floor2 extends Floor {
 		layout[17][23] = new WoodWall();
 		layout[17][24] = new WoodWall();
 		layout[17][25] = new WoodWall();
-		
+
 		layout[18][5] = new WoodWall();
 		layout[18][7] = new WoodWall();
 		layout[18][9] = new WoodWall();
 		layout[18][11] = new WoodWall();
 		layout[18][13] = new WoodWall();
 		layout[18][16] = new WoodWall();
-		
+
 		layout[19][7] = new WoodWall();
 		layout[19][11] = new WoodWall();
 		layout[19][18] = new WoodWall();
@@ -277,88 +277,92 @@ public class Floor2 extends Floor {
 		layout[19][24] = new WoodWall();
 		layout[19][25] = new WoodWall();
 		layout[19][26] = new WoodWall();
-		
+
 		layout[20][7] = new WoodWall();
 		layout[20][11] = new WoodWall();
-		
+
 	}
-	
+
 	@Override
-//	public void moveCharacter(String direction) {
-//		if(direction == "up"){
-//			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
-//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
-//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
-//			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
-//				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
-//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-//				playerCoordinate[0] -= 1;
-//				updateScreen(viewObjects);
-//				update();
-//			}
-//		}else if(direction == "down"){
-//			if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
-//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
-//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
-//			}else if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
-//				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
-//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-//				playerCoordinate[0] += 1;
-//				updateScreen(viewObjects);
-//				update();
-//			}
-//		}else if(direction == "left"){
-//			if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
-//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
-//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
-//			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
-//				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
-//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-//				playerCoordinate[1] -= 1;
-//				updateScreen(viewObjects);
-//				update();
-//			}
-//		}else{
-//			if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
-//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
-//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
-//			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
-//				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
-//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-//				playerCoordinate[1] += 1;
-//				updateScreen(viewObjects);
-//				update();
-//			}
-//		}
-//	}
-	
+	//	public void moveCharacter(String direction) {
+	//		if(direction == "up"){
+	//			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
+	//			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
+	//				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
+	//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+	//				playerCoordinate[0] -= 1;
+	//				updateScreen(viewObjects);
+	//				update();
+	//			}
+	//		}else if(direction == "down"){
+	//			if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
+	//			}else if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
+	//				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
+	//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+	//				playerCoordinate[0] += 1;
+	//				updateScreen(viewObjects);
+	//				update();
+	//			}
+	//		}else if(direction == "left"){
+	//			if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
+	//			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
+	//				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
+	//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+	//				playerCoordinate[1] -= 1;
+	//				updateScreen(viewObjects);
+	//				update();
+	//			}
+	//		}else{
+	//			if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.screen3.setChar(player);
+	//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen3);
+	//			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
+	//				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
+	//				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
+	//				playerCoordinate[1] += 1;
+	//				updateScreen(viewObjects);
+	//				update();
+	//			}
+	//		}
+	//	}
+
 	public void keyPressed(KeyEvent k) {
 		if(k.getKeyCode() == KeyEvent.VK_0){
-			
-			
-			
+
+
+
 			player.addAttacks("Tackle", 3);
 			player.addAttacks("Lick", 2);
 			player.addAttacks("Slap", 2);
 			player.addAttacks("Pound", 4);
 		}
-//	else if (k.getKeyCode() == KeyEvent.VK_8){
-//		System.out.println("message");
-//		Thread battle = new Thread(new Runnable() {
-//			
-//			@Override
-//			public void run() {
-//				System.out.println("message a");
-//				Battle.engage(a);
-//				Battle.engage(a2);
-//				Battle.setPlayer(player);o
-//				Battle.runBattle();
-//			}
-//		});
-//		battle.start();
-//	}
+		//	else if (k.getKeyCode() == KeyEvent.VK_8){
+		//		System.out.println("message");
+		//		Thread battle = new Thread(new Runnable() {
+		//			
+		//			@Override
+		//			public void run() {
+		//				System.out.println("message a");
+		//				Battle.engage(a);
+		//				Battle.engage(a2);
+		//				Battle.setPlayer(player);o
+		//				Battle.runBattle();
+		//			}
+		//		});
+		//		battle.start();
+		//	}
 		else if (k.getKeyCode() == KeyEvent.VK_Z){
-//		initMenu(viewObjects);
+			//		initMenu(viewObjects);
+			monsterMove();
+			spawnMonster(viewObjects);
+			updateScreen(viewObjects);
+			update();
 			if(hudstuff && ms){
 				Battle.doTheMove();
 			}
@@ -395,7 +399,7 @@ public class Floor2 extends Floor {
 			}
 		}
 		if(!hudstuff){if(k.getKeyCode() == KeyEvent.VK_UP){
-			
+
 			if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
 				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
 				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
@@ -492,91 +496,16 @@ public class Floor2 extends Floor {
 				}
 			}
 		}
-		}
 		ms = false;
+		}
 	}
-		
-	private boolean nextToPlayer(int row, int col) {
-		// TODO Auto-generated method stub
-		if(playerCoordinate[0] == row && (playerCoordinate[1] == col-1 || playerCoordinate[1] == col+1)){
-			return true;
-		}
-		if(playerCoordinate[1] == col && (playerCoordinate[0] == row-1 || playerCoordinate[0] == row+1)){
-			return true;
-		}
-		return false;
-		
-	}
-	
-	public void monsterMove() {
-		// TODO Auto-generated method stub
-		for(int row = 0; row<getFloorLayout().length; row++){
-			for(int col = 0; col<getFloorLayout()[row].length; col++){
-				if(getFloorLayout()[row][col] instanceof BasicMonster){
-					Monster m = (Monster) getFloorLayout()[row][col];
-					if(m.isDead == true){
-						
-					}
-					else{
-						if(nextToPlayer(row,col)){
-//						
-						}else{
-							if(playerCoordinate[0] < row){
-								if(getFloorLayout()[row-1][col] == null||!(getFloorLayout()[row-1][col] instanceof Obstruction)){
-									getFloorLayout()[row-1][col] = getFloorLayout()[row][col];
-									getFloorLayout()[row][col] = null;
-								}else if(playerCoordinate[1] < col){
-									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
-										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}else if(playerCoordinate[1] > col){
-									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
-										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}
-							}else if(playerCoordinate[0] > row){
-								if(getFloorLayout()[row+1][col] == null||!(getFloorLayout()[row+1][col] instanceof Obstruction)){
-									getFloorLayout()[row+1][col] = getFloorLayout()[row][col];
-									getFloorLayout()[row][col] = null;
-								}else if(playerCoordinate[1] < col){
-									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
-										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}else if(playerCoordinate[1] > col){
-									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
-										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}
-							}else{
-								if(playerCoordinate[1] < col){
-									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
-										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}else if(playerCoordinate[1] > col){
-									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
-										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
 
-	}
-	
-	
+
+
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		
+
 		layout = new Graphic[24][30];
 		initWalls();
 		playerCoordinate = new int[2];
@@ -586,7 +515,7 @@ public class Floor2 extends Floor {
 		updateScreen(viewObjects);
 		update();
 	}
-	
+
 	public void setChar(Character x) {
 		// TODO Auto-generated method stub
 		player = x;
@@ -598,6 +527,6 @@ public class Floor2 extends Floor {
 	@Override
 	public void moveCharacter(String direction) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -57,12 +57,20 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 	}
 
 	public void mouseClicked(MouseEvent m) {
+		cursorTo("src/resources/mouse4.png");
 		for(Clickable c: clickables){
 			if(c.isHovered(m.getX(), m.getY())){
 				c.act();
 				break;
 			}
 		}
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		cursorTo("src/resources/mouse3.png");
 	}
 
 	public void addObject(Visible v){
@@ -81,7 +89,7 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		cursorTo("src/resources/sand.png");
+		cursorTo("src/resources/mouse3.png");
 	}
 	private void cursorTo(String s){
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -96,13 +104,14 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 	}
 
 	public void mousePressed(MouseEvent m) {
+		cursorTo("src/resources/mouse4.png");
 		for(Clickable c: clickables){
 			if(c.isHovered(m.getX(), m.getY())){
 				if(c instanceof Dragable){
 					Dragable item = (Dragable)c;
 					if(item.setStart(m.getX(),m.getY())){
 						draggedItem = item;
-
+						
 					}
 					break;
 				}
@@ -111,6 +120,7 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 	}
 
 	public void mouseReleased(MouseEvent m) {
+		cursorTo("src/resources/mouse3.png");
 		if(draggedItem!=null){
 			draggedItem.setFinish(m.getX(),m.getY());
 			draggedItem = null;
@@ -132,6 +142,7 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 
 	@Override
 	public void mouseMoved(MouseEvent m) {
+		cursorTo("src/resources/mouse3.png");
 		for(Clickable c: clickables){
 			if(c.isHovered(m.getX(), m.getY())){
 				c.hoverAction();

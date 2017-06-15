@@ -22,7 +22,7 @@ public class Floor1 extends Floor{
 	private boolean ms;
 
 
-	private void updateScreen(List<Visible> viewObjects) {
+	public void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -169,82 +169,7 @@ public class Floor1 extends Floor{
 		update();
 	}
 
-	@Override
-	public void monsterMove() {
-		// TODO Auto-generated method stub
-		for(int row = 0; row<getFloorLayout().length; row++){
-			for(int col = 0; col<getFloorLayout()[row].length; col++){
-				if(getFloorLayout()[row][col] instanceof BasicMonster){
-					Monster m = (Monster) getFloorLayout()[row][col];
-					if(m.isDead == true){
-						
-					}
-					else{
-						if(nextToPlayer(row,col)){
-//						
-						}else{
-							if(playerCoordinate[0] < row){
-								if(getFloorLayout()[row-1][col] == null||!(getFloorLayout()[row-1][col] instanceof Obstruction)){
-									getFloorLayout()[row-1][col] = getFloorLayout()[row][col];
-									getFloorLayout()[row][col] = null;
-								}else if(playerCoordinate[1] < col){
-									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
-										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}else if(playerCoordinate[1] > col){
-									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
-										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}
-							}else if(playerCoordinate[0] > row){
-								if(getFloorLayout()[row+1][col] == null||!(getFloorLayout()[row+1][col] instanceof Obstruction)){
-									getFloorLayout()[row+1][col] = getFloorLayout()[row][col];
-									getFloorLayout()[row][col] = null;
-								}else if(playerCoordinate[1] < col){
-									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
-										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}else if(playerCoordinate[1] > col){
-									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
-										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}
-							}else{
-								if(playerCoordinate[1] < col){
-									if(getFloorLayout()[row][col-1] == null||!(getFloorLayout()[row][col-1] instanceof Obstruction)){
-										getFloorLayout()[row][col-1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}else if(playerCoordinate[1] > col){
-									if(getFloorLayout()[row][col+1] == null||!(getFloorLayout()[row][col+1] instanceof Obstruction)){
-										getFloorLayout()[row][col+1] = getFloorLayout()[row][col];
-										getFloorLayout()[row][col] = null;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
 
-	}
-
-	private boolean nextToPlayer(int row, int col) {
-		// TODO Auto-generated method stub
-		if(playerCoordinate[0] == row && (playerCoordinate[1] == col-1 || playerCoordinate[1] == col+1)){
-			return true;
-		}
-		if(playerCoordinate[1] == col && (playerCoordinate[0] == row-1 || playerCoordinate[0] == row+1)){
-			return true;
-		}
-		return false;
-		
-	}
 
 	public int[] spawnCoord() {
 		// TODO Auto-generated method stub
@@ -328,6 +253,10 @@ public class Floor1 extends Floor{
 //		}
 			else if (k.getKeyCode() == KeyEvent.VK_Z){
 //			initMenu(viewObjects);
+				monsterMove();
+				spawnMonster(viewObjects);
+				updateScreen(viewObjects);
+				update();
 				if(hudstuff && ms){
 					Battle.doTheMove();
 				}

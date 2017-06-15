@@ -25,7 +25,7 @@ public class Floor6 extends Floor {
 		}
 	}
 	
-	private void updateScreen(List<Visible> viewObjects) {
+	public void updateScreen(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		viewObjects.removeAll(viewObjects);
 		background();
@@ -339,11 +339,7 @@ public class Floor6 extends Floor {
 		}
 	}
 
-	@Override
-	public void monsterMove() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
@@ -357,9 +353,5 @@ public class Floor6 extends Floor {
 		updateScreen(viewObjects);
 	}
 
-	@Override
-	public void setChar(Character x) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
