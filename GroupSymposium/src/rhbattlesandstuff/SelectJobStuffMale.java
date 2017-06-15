@@ -71,6 +71,14 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/Character/warriorMale.png");		
 						System.out.println("setting image");
 					}
+					if(select == 1){
+						CreateNameScreenStuff.realPlayer.setImage(.125,"src/resources/mage.png");		
+						System.out.println("setting image");
+					}
+					if(select == 2){
+						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/Character/rogueMale.png");		
+						System.out.println("setting image");
+					}
 					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
 					NotPokemonDungeonFinalFantasyCrossOverGame.screen1.setChar((Character) CreateNameScreenStuff.realPlayer);
 					Thread checkForFight = new Thread(new Runnable() {

@@ -70,7 +70,13 @@ public class SelectJobStuffFemale extends FullFunctionScreen{
 				}
 				if(selection == true){
 					if(select == 0){
-						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/Character/warriorMale.png");		
+						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/Character/warriorFemale.png");		
+						System.out.println("setting image");
+					}if(select == 1){
+						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/Character/mageFemale.png");		
+						System.out.println("setting image");
+					}if(select == 2){
+						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/rogue2.png");		
 						System.out.println("setting image");
 					}
 					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
@@ -142,6 +148,7 @@ public class SelectJobStuffFemale extends FullFunctionScreen{
 		viewObjects.add(confirm);
 		
 		viewObjects.add(confirmBox);
+		update();
 	}
 	
 	public void keyPressed(KeyEvent k) {
