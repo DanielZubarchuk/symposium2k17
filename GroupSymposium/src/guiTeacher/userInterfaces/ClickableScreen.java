@@ -64,6 +64,13 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 				break;
 			}
 		}
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		cursorTo("src/resources/mouse3.png");
 	}
 
 	public void addObject(Visible v){
@@ -110,7 +117,6 @@ public abstract class ClickableScreen extends Screen implements MouseListener, M
 				}
 			}
 		}
-		
 	}
 
 	public void mouseReleased(MouseEvent m) {

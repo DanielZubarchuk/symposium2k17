@@ -21,6 +21,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements MouseMotionListener{
 
 	private ClickableGraphic bsod;
+	private TextLabel text;
 	private Graphic loading1;
 	private Graphic loading2;
 	private Player b;
@@ -93,16 +94,18 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 		a2.setId("Monster b");
 		b = new Character();
 		bsod = new ClickableGraphic(0,0,"src/resources/background.png");
-		loading1 = new Graphic(140,700,"src/resources/loadingbar.png");
-		loading2 = new Graphic(140,695,"src/resources/loadingbar2.png");
+//		loading1 = new Graphic(140,700,"src/resources/loadingbar.png");
+//		loading2 = new Graphic(140,695,"src/resources/loadingbar2.png");
+		text = new TextLabel(220,200,800,400, "PRESS ANYWHERE TO CONTINUE");
 		bsod.setAction(new Action(){
 			public void act(){
 				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
 			}
 		});
 		viewObjects.add(bsod);
-		viewObjects.add(loading2);
-		viewObjects.add(loading1);
+//		viewObjects.add(loading2);
+//		viewObjects.add(loading1);
+		viewObjects.add(text);
 	}
 	
 }
