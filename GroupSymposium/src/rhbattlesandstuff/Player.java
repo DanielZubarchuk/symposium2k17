@@ -41,4 +41,5 @@ public interface Player {
 	public void setJob(String x);
 	
 	public String getJob();
+
 }

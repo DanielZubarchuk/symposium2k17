@@ -37,7 +37,7 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		warrior = new ClickableGraphic(20,20,.25,"src/resources/Character/warrior.png");
+		warrior = new ClickableGraphic(20,20,.25,"src/resources/warrior.png");
 		warrior.setAction(new Action(){
 			public void act(){
 				
@@ -67,7 +67,10 @@ public class SelectJobStuffMale extends FullFunctionScreen {
 					
 				}
 				if(selection == true){
-					
+					if(select == 0){
+						CreateNameScreenStuff.realPlayer.setImage(.5,"src/resources/Character/warriorMale.png");		
+						System.out.println("setting image");
+					}
 					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
 					NotPokemonDungeonFinalFantasyCrossOverGame.screen1.setChar((Character) CreateNameScreenStuff.realPlayer);
 					Thread checkForFight = new Thread(new Runnable() {

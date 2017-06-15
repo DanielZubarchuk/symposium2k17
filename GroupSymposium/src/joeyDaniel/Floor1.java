@@ -252,6 +252,10 @@ public class Floor1 extends Floor{
 //		}
 			else if (k.getKeyCode() == KeyEvent.VK_Z){
 //			initMenu(viewObjects);
+				monsterMove();
+				spawnMonster(viewObjects);
+				updateScreen(viewObjects);
+				update();
 				if(hudstuff && ms){
 					Battle.doTheMove();
 				}

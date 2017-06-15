@@ -1,10 +1,12 @@
 package joeyDaniel;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
+import rhbattlesandstuff.Battle;
 import rhbattlesandstuff.Character;
 import rhbattlesandstuff.Monster;
 import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
@@ -13,6 +15,10 @@ import rhbattlesandstuff.Slime;
 
 public class Floor3 extends Floor {
 
+
+	private boolean ms;
+	private boolean hudstuff;
+	private int thing;
 
 	private void initWalls(){
 		for(int i = 0; i<layout.length; i++){
@@ -266,57 +272,172 @@ public class Floor3 extends Floor {
 	}
 
 	@Override
-	public void moveCharacter(String direction) {
-		if(direction == "up"){
-			if(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen4.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen4);
-			}else if(!(layout[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
-				layout[playerCoordinate[0]-1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
-				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[0] -= 1;
-				updateScreen(viewObjects);
-				update();
+	public void keyPressed(KeyEvent k) {
+		if(k.getKeyCode() == KeyEvent.VK_0){
+
+
+
+			player.addAttacks("Tackle", 3);
+			player.addAttacks("Lick", 2);
+			player.addAttacks("Slap", 2);
+			player.addAttacks("Pound", 4);
+		}
+		//	else if (k.getKeyCode() == KeyEvent.VK_8){
+		//		System.out.println("message");
+		//		Thread battle = new Thread(new Runnable() {
+		//			
+		//			@Override
+		//			public void run() {
+		//				System.out.println("message a");
+		//				Battle.engage(a);
+		//				Battle.engage(a2);
+		//				Battle.setPlayer(player);o
+		//				Battle.runBattle();
+		//			}
+		//		});
+		//		battle.start();
+		//	}
+		else if (k.getKeyCode() == KeyEvent.VK_Z){
+			//		initMenu(viewObjects);
+			monsterMove();
+			spawnMonster(viewObjects);
+			updateScreen(viewObjects);
+			update();
+			if(hudstuff && ms){
+				Battle.doTheMove();
 			}
-		}else if(direction == "down"){
-			if(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen4.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen4);
-			}else if(!(layout[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
-				layout[playerCoordinate[0]+1][playerCoordinate[1]] = layout[playerCoordinate[0]][playerCoordinate[1]];
-				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[0] += 1;
-				updateScreen(viewObjects);
-				update();
-			}
-		}else if(direction == "left"){
-			if(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen4.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen4);
-			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
-				layout[playerCoordinate[0]][playerCoordinate[1]-1] = layout[playerCoordinate[0]][playerCoordinate[1]];
-				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[1] -= 1;
-				updateScreen(viewObjects);
-				update();
-			}
-		}else{
-			if(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen4.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen4);
-			}else if(!(layout[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
-				layout[playerCoordinate[0]][playerCoordinate[1]+1] = layout[playerCoordinate[0]][playerCoordinate[1]];
-				layout[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[1] += 1;
-				updateScreen(viewObjects);
-				update();
+			else{
+				Battle.doMoveA();
 			}
 		}
-	}
-	@Override
-	public void monsterMove() {
-		// TODO Auto-generated method stub
+		else if(k.getKeyCode() == KeyEvent.VK_ENTER){
+			hudstuff = !hudstuff;
+		}
+		if(hudstuff){
+			ms = true;
+			System.out.println("Menu is open");
+			if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
+				System.out.println(thing);
+				thing = 0;
+				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 	
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_UP){
+				System.out.println(thing);
+				player.setThing(-- thing);
+				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
+				System.out.println(thing);
+				thing = 3;
+				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_DOWN){
+				System.out.println(thing);
+				player.setThing(++ thing);
+				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option");
+				System.out.println(thing);
+			}
+		}
+		if(!hudstuff){if(k.getKeyCode() == KeyEvent.VK_UP){
 
+			if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+			}else if(!(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
+				getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[0] -= 1;
+				spawnMonster(viewObjects);
+				monsterMove();
+				updateScreen(viewObjects);
+				update();
+			}else if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Monster){
+				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]];
+				if(m.isDead == true){
+					getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+					playerCoordinate[0] -= 1;
+					spawnMonster(viewObjects);
+					monsterMove();
+					updateScreen(viewObjects);
+					update();
+				}
+			}
+		}else if(k.getKeyCode() == KeyEvent.VK_DOWN){
+			if(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+			}else if(!(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
+				getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[0] += 1;
+				spawnMonster(viewObjects);
+				monsterMove();
+				updateScreen(viewObjects);
+				update();
+			}else if(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Monster){
+				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]];
+				if(m.isDead == true){
+					getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+					playerCoordinate[0] += 1;
+					spawnMonster(viewObjects);
+					monsterMove();
+					updateScreen(viewObjects);
+					update();
+				}
+			}
+		}else if(k.getKeyCode() == KeyEvent.VK_LEFT){
+			if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+			}else if(!(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
+				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[1] -= 1;
+				spawnMonster(viewObjects);
+				monsterMove();
+				updateScreen(viewObjects);
+				update();
+			}else if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Monster){
+				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1];
+				if(m.isDead == true){
+					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+					playerCoordinate[1] -= 1;
+					spawnMonster(viewObjects);
+					monsterMove();
+					updateScreen(viewObjects);
+					update();
+				}
+			}
+		}else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+			if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
+				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+			}else if(!(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
+				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+				playerCoordinate[1] += 1;
+				spawnMonster(viewObjects);
+				monsterMove();
+				updateScreen(viewObjects);
+				update();
+			}else if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Monster){
+				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1];
+				if(m.isDead == true){
+					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+					playerCoordinate[1] += 1;
+					spawnMonster(viewObjects);
+					monsterMove();
+					updateScreen(viewObjects);
+					update();
+				}
+			}
+		}
+		ms = false;
+		}
 	}
 	@Override
 	public void initAllObjects(List<guiTeacher.interfaces.Visible> viewObjects) {
@@ -340,4 +461,12 @@ public class Floor3 extends Floor {
 		update();
 
 	}
+
+	@Override
+	public void moveCharacter(String direction) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

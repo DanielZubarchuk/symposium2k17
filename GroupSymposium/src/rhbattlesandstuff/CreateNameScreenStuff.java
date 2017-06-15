@@ -23,7 +23,7 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 	private Button confirm; 
 	private TextColoredLabel pop;
 	
-	static Player realPlayer = new Character();
+	static Character realPlayer = new Character();
 
 	public CreateNameScreenStuff(int width, int height) {
 		// TODO Auto-generated constructor stub

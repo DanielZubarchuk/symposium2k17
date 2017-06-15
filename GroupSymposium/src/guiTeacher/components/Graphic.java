@@ -40,6 +40,10 @@ public class Graphic implements Visible {
 		loadedImages = false;
 		loadImages(imageLocation, w, h);
 	}
+	
+	public void setImage(double d, String imageLocation){
+		loadImages(imageLocation, d);
+	}
 
 	public Graphic(int x, int y, double scale, String imageLocation){	
 		this.x = x;
