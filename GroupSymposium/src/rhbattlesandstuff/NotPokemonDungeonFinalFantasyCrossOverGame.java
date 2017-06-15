@@ -61,11 +61,11 @@ public class NotPokemonDungeonFinalFantasyCrossOverGame extends GUIApplication{
 		screen5 = new Floor5();
 		screen6 = new Floor6();
 		screen7 = new Floor7();
-		patcScreen = new PressAnyWhereToContinueScreen(1100, 700);
-		gssScreen = new GenderScreenStuff(1100,700);
-		cnssScreen = new CreateNameScreenStuff(1100,700);
-		sjsmScreen = new SelectJobStuffMale(1100, 700);
-		sjsfScreen = new SelectJobStuffFemale(1100, 700);
+		patcScreen = new PressAnyWhereToContinueScreen(716,938);
+		gssScreen = new GenderScreenStuff(716,938);
+		cnssScreen = new CreateNameScreenStuff(716,938);
+		sjsmScreen = new SelectJobStuffMale(716,938);
+		sjsfScreen = new SelectJobStuffFemale(716,938);
 		setScreen(patcScreen);
 
 	}

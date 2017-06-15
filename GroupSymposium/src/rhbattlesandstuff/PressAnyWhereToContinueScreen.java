@@ -21,6 +21,8 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements MouseMotionListener{
 
 	private ClickableGraphic bsod;
+	private Graphic loading1;
+	private Graphic loading2;
 	private Player b;
 	private BasicMonster a;
 	private BasicMonster a2;
@@ -31,10 +33,6 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 	private Graphic hud;
 	boolean hudstuff;
 	boolean ms;
-	private int thing = 0;
-	private int monNum = 0;
-	private ArrayList<BasicMonster> enemy = new ArrayList<BasicMonster>();
-	
 	
 	public PressAnyWhereToContinueScreen(int width, int height) {
 		
@@ -81,9 +79,7 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 	}
 	
 	public void keyPressed(KeyEvent k){
-		if (k.getKeyCode() == KeyEvent.VK_A){
-			NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen1);
-		}
+
 	}
 	
 	
@@ -96,14 +92,17 @@ public class PressAnyWhereToContinueScreen extends FullFunctionScreen implements
 		a.setId("Monster a");
 		a2.setId("Monster b");
 		b = new Character();
-		bsod = new ClickableGraphic(0,0,"src/resources/bluescreenofdeath.png");
+		bsod = new ClickableGraphic(0,0,"src/resources/background.png");
+		loading1 = new Graphic(140,700,"src/resources/loadingbar.png");
+		loading2 = new Graphic(140,695,"src/resources/loadingbar2.png");
 		bsod.setAction(new Action(){
 			public void act(){
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
+//				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cnssScreen);
 			}
 		});
 		viewObjects.add(bsod);
-		
+		viewObjects.add(loading2);
+		viewObjects.add(loading1);
 	}
 	
 }
