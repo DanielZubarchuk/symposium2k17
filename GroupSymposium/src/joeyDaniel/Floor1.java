@@ -440,55 +440,54 @@ public class Floor1 extends Floor{
 			update();
 			if(hudstuff && ms){
 				Battle.doTheMove();
-			}
-			else{
-				Battle.doMoveA();
-			}
-		}
-		else if(k.getKeyCode() == KeyEvent.VK_ENTER){
-			hudstuff = !hudstuff;
-		}
-		if(hudstuff){
-			ms = true;
-			System.out.println("Menu is open");
-			if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
-				System.out.println(thing);
-				thing = 0;
-				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 	
-			}
-			else if(k.getKeyCode() == KeyEvent.VK_UP){
-				System.out.println(thing);
-				player.setThing(-- thing);
-				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
-			}
-			else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
-				System.out.println(thing);
-				thing = 3;
-				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
-			}
-			else if(k.getKeyCode() == KeyEvent.VK_DOWN){
-				System.out.println(thing);
-				player.setThing(++ thing);
-				System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option");
-				System.out.println(thing);
-			}
-		}
-		if(!hudstuff){if(k.getKeyCode() == KeyEvent.VK_UP){
 
-			if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
-			}else if(!(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
-				getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
-				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[0] -= 1;
-				spawnMonster(viewObjects);
-				monsterMove();
-				updateScreen(viewObjects);
-				update();
-			}else if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Monster){
-				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]];
-				if(m.isDead == true){
+				if(k.getKeyCode() == KeyEvent.VK_0){
+
+
+
+					player.addAttacks("Tackle", 3);
+					player.addAttacks("Lick", 2);
+					player.addAttacks("Slap", 2);
+					player.addAttacks("Pound", 4);
+				}
+				else{
+					Battle.doMoveA();
+				}
+			}
+			else if(k.getKeyCode() == KeyEvent.VK_ENTER){
+				hudstuff = !hudstuff;
+			}
+			if(hudstuff){
+				ms = true;
+				System.out.println("Menu is open");
+				if(k.getKeyCode() == KeyEvent.VK_UP && thing == 0){
+					System.out.println(thing);
+					thing = 0;
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 	
+				}
+				else if(k.getKeyCode() == KeyEvent.VK_UP){
+					System.out.println(thing);
+					player.setThing(-- thing);
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
+				}
+				else if(k.getKeyCode() == KeyEvent.VK_DOWN && thing == 3){
+					System.out.println(thing);
+					thing = 3;
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option"); 
+				}
+				else if(k.getKeyCode() == KeyEvent.VK_DOWN){
+					System.out.println(thing);
+					player.setThing(++ thing);
+					System.out.println("This the " + player.getMoves().get(player.getThing()).getAttName() + " option");
+					System.out.println(thing);
+				}
+			}
+			if(!hudstuff){if(k.getKeyCode() == KeyEvent.VK_UP){
+
+				if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Stairs){
+					NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+				}else if(!(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Obstruction)){
 					getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
 					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
 					playerCoordinate[0] -= 1;
@@ -496,23 +495,23 @@ public class Floor1 extends Floor{
 					monsterMove();
 					updateScreen(viewObjects);
 					update();
+				}else if(getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] instanceof Monster){
+					Monster m = (Monster) getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]];
+					if(m.isDead == true){
+						getFloorLayout()[playerCoordinate[0]-1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+						getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+						playerCoordinate[0] -= 1;
+						spawnMonster(viewObjects);
+						monsterMove();
+						updateScreen(viewObjects);
+						update();
+					}
 				}
-			}
-		}else if(k.getKeyCode() == KeyEvent.VK_DOWN){
-			if(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
-			}else if(!(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
-				getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
-				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[0] += 1;
-				spawnMonster(viewObjects);
-				monsterMove();
-				updateScreen(viewObjects);
-				update();
-			}else if(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Monster){
-				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]];
-				if(m.isDead == true){
+			}else if(k.getKeyCode() == KeyEvent.VK_DOWN){
+				if(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Stairs){
+					NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+				}else if(!(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Obstruction)){
 					getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
 					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
 					playerCoordinate[0] += 1;
@@ -520,23 +519,23 @@ public class Floor1 extends Floor{
 					monsterMove();
 					updateScreen(viewObjects);
 					update();
+				}else if(getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] instanceof Monster){
+					Monster m = (Monster) getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]];
+					if(m.isDead == true){
+						getFloorLayout()[playerCoordinate[0]+1][playerCoordinate[1]] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+						getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+						playerCoordinate[0] += 1;
+						spawnMonster(viewObjects);
+						monsterMove();
+						updateScreen(viewObjects);
+						update();
+					}
 				}
-			}
-		}else if(k.getKeyCode() == KeyEvent.VK_LEFT){
-			if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
-			}else if(!(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
-				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
-				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[1] -= 1;
-				spawnMonster(viewObjects);
-				monsterMove();
-				updateScreen(viewObjects);
-				update();
-			}else if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Monster){
-				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1];
-				if(m.isDead == true){
+			}else if(k.getKeyCode() == KeyEvent.VK_LEFT){
+				if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Stairs){
+					NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+				}else if(!(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Obstruction)){
 					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
 					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
 					playerCoordinate[1] -= 1;
@@ -544,23 +543,23 @@ public class Floor1 extends Floor{
 					monsterMove();
 					updateScreen(viewObjects);
 					update();
+				}else if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] instanceof Monster){
+					Monster m = (Monster) getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1];
+					if(m.isDead == true){
+						getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]-1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+						getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+						playerCoordinate[1] -= 1;
+						spawnMonster(viewObjects);
+						monsterMove();
+						updateScreen(viewObjects);
+						update();
+					}
 				}
-			}
-		}else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
-			if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
-				NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
-				NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
-			}else if(!(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
-				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
-				getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
-				playerCoordinate[1] += 1;
-				spawnMonster(viewObjects);
-				monsterMove();
-				updateScreen(viewObjects);
-				update();
-			}else if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Monster){
-				Monster m = (Monster) getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1];
-				if(m.isDead == true){
+			}else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+				if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Stairs){
+					NotPokemonDungeonFinalFantasyCrossOverGame.screen2.setChar(player);
+					NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.screen2);
+				}else if(!(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Obstruction)){
 					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
 					getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
 					playerCoordinate[1] += 1;
@@ -568,22 +567,33 @@ public class Floor1 extends Floor{
 					monsterMove();
 					updateScreen(viewObjects);
 					update();
+				}else if(getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] instanceof Monster){
+					Monster m = (Monster) getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1];
+					if(m.isDead == true){
+						getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]+1] = getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]];
+						getFloorLayout()[playerCoordinate[0]][playerCoordinate[1]] = null;
+						playerCoordinate[1] += 1;
+						spawnMonster(viewObjects);
+						monsterMove();
+						updateScreen(viewObjects);
+						update();
+					}
 				}
 			}
+			ms = false;
+			}
+			//	if(Battle.pick){
+			//		if(k.getKeyCode() == KeyEvent.VK_UP && monNum == 0){
+			//			System.out.println(a.getMonNum());
+			//			monNum = 0;
+			//			System.out.println("You have selected" + Battle.enemy.get(monNum).getId());
+			//		}
+			//	}
+			//	else {
+			//		NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
+			//	}
 		}
-		ms = false;
-		}
-		//	if(Battle.pick){
-		//		if(k.getKeyCode() == KeyEvent.VK_UP && monNum == 0){
-		//			System.out.println(a.getMonNum());
-		//			monNum = 0;
-		//			System.out.println("You have selected" + Battle.enemy.get(monNum).getId());
-		//		}
-		//	}
-		//	else {
-		//		NotPokemonDungeonFinalFantasyCrossOverGame.pmdffcog.setScreen(NotPokemonDungeonFinalFantasyCrossOverGame.cyocawScreen);
-		//	}
+
+
 	}
-
-
 }

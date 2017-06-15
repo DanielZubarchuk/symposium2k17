@@ -7,13 +7,16 @@ import guiTeacher.components.*;
 
 public class Character extends Graphic implements Player{
 
-	private int[] stats = {10, 2, 1, 1};
+	private int[] stats = {10, 2, 1, 1, 0};
 	private String gender;
 	private String name = "Javaman";
 	private ArrayList<Moves> moves; 
 	private int[] location;
 	private int thing = 0;
 	private int currentFloor = 1;
+
+	
+
 	private String job = "";
 	
 	public String getJob() {
@@ -23,6 +26,7 @@ public class Character extends Graphic implements Player{
 	public void setJob(String job) {
 		this.job = job;
 	}
+
 
 	public Character(){
 		super(0,0,0.1182033096926714,"src/resources/char.png");
@@ -75,7 +79,7 @@ public class Character extends Graphic implements Player{
 		//Defense = (int)(Math.random() * 3) + 1
 		//Speed = (int)(Math.random() * 2) + 1
 		//Level++
-		stats[index] = stats[index] - change;
+		stats[index] = stats[index] + change;
 	}
 
 	public void incrementStats(){
