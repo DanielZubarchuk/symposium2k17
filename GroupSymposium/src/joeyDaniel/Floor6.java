@@ -5,6 +5,9 @@ import java.util.List;
 
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
+import rhbattlesandstuff.Character;
+import rhbattlesandstuff.Monster;
+import rhbattlesandstuff.Slime;
 
 public class Floor6 extends Floor {
 
@@ -255,6 +258,42 @@ public class Floor6 extends Floor {
 		layout[20][25] = new CobbleWall();
 	}
 	
+	public int[] spawnCoord() {
+		// TODO Auto-generated method stub
+		ArrayList<int[]> ValidCoord = new ArrayList<>();
+		for(int row = 0; row<getFloorLayout().length; row++){
+			for(int col = 0; col<getFloorLayout()[row].length; col++){
+				if(getFloorLayout()[row][col] == null){
+					int[] x = {row,col};
+					ValidCoord.add(x);
+				}
+			}
+		}
+		int pick = (int)(Math.random()*ValidCoord.size());
+		return ValidCoord.get(pick);
+	}
+	
+	private void spawnMonster(List<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		if(Math.random()*100 < 10){
+			int[] coord = spawnCoord();
+			getFloorLayout()[coord[0]][coord[1]] = new Slime();
+			viewObjects.add(getFloorLayout()[coord[0]][coord[1]]);
+		}
+	}
+	
+//	private void killMonster(List<Visible> viewObjects, int r, int c){
+//		viewObjects.remove(getFloorLayout()[r][c]);
+//	}
+	public void removeMonster(Monster m, int r, int c){
+		System.out.println("trying to remove monster");
+//		getFloorLayout()[r][c]=null;
+//		remove(getFloorLayout()[r][c]);
+//		killMonster(viewObjects, r,c);
+		m.setVisible(false);
+		m.setDead();
+		update();
+	}
 	@Override
 	public void moveCharacter(String direction) {
 		if(direction == "up"){
@@ -316,5 +355,11 @@ public class Floor6 extends Floor {
 		initWalls();
 		layout[3][7] = new Stairs();
 		updateScreen(viewObjects);
+	}
+
+	@Override
+	public void setChar(Character x) {
+		// TODO Auto-generated method stub
+		
 	}
 }

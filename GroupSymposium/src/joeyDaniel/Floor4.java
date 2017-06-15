@@ -7,8 +7,10 @@ import java.util.List;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 import rhbattlesandstuff.Character;
+import rhbattlesandstuff.Monster;
 import rhbattlesandstuff.NotPokemonDungeonFinalFantasyCrossOverGame;
 import rhbattlesandstuff.Player;
+import rhbattlesandstuff.Slime;
 public class Floor4 extends Floor{
 
 	
@@ -281,6 +283,43 @@ public class Floor4 extends Floor{
 			y++;
 			x=0;
 		}
+	}
+	
+	public int[] spawnCoord() {
+		// TODO Auto-generated method stub
+		ArrayList<int[]> ValidCoord = new ArrayList<>();
+		for(int row = 0; row<getFloorLayout().length; row++){
+			for(int col = 0; col<getFloorLayout()[row].length; col++){
+				if(getFloorLayout()[row][col] == null){
+					int[] x = {row,col};
+					ValidCoord.add(x);
+				}
+			}
+		}
+		int pick = (int)(Math.random()*ValidCoord.size());
+		return ValidCoord.get(pick);
+	}
+	
+	private void spawnMonster(List<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		if(Math.random()*100 < 10){
+			int[] coord = spawnCoord();
+			getFloorLayout()[coord[0]][coord[1]] = new Slime();
+			viewObjects.add(getFloorLayout()[coord[0]][coord[1]]);
+		}
+	}
+	
+//	private void killMonster(List<Visible> viewObjects, int r, int c){
+//		viewObjects.remove(getFloorLayout()[r][c]);
+//	}
+	public void removeMonster(Monster m, int r, int c){
+		System.out.println("trying to remove monster");
+//		getFloorLayout()[r][c]=null;
+//		remove(getFloorLayout()[r][c]);
+//		killMonster(viewObjects, r,c);
+		m.setVisible(false);
+		m.setDead();
+		update();
 	}
 	
 	@Override
