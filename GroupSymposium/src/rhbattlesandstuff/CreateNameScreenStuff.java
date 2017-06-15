@@ -32,7 +32,7 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		pop = new TextColoredLabel(100, 500, 500, 100, "Are you sure?", Color.BLUE, Color.BLACK);
 		namestuff = new TextLabel(100,70,800,25, "Name goes here:");
-		typeName = new TextField(100, 100, 800, 48, "", "");
+		typeName = new TextField(100, 100, 500, 48, "", "");
 		confirm = new Button(600, 550, 100, 50, "Confirm", Color.BLUE, new Action(){
 			
 			boolean shown = false;
@@ -41,10 +41,12 @@ public class CreateNameScreenStuff extends FullFunctionScreen{
 //				if(!shown){
 //					addObject(pop);
 //					shown = true;
+//					System.out.println("pop");
 //				}
 //				else{
 //					remove(pop);
 //					shown = false;
+//					System.out.println("unpop");
 //				}
 				
 				if(typeName.getText().length()<=2 || typeName.getText().length()>=13){
