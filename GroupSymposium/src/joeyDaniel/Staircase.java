@@ -1,5 +1,5 @@
 package joeyDaniel;
 
-public interface Staircase {
+public interface Staircase{
 
 }
